@@ -1,0 +1,57 @@
+---
+# MegaLinter GitHub Action configuration file
+# More info at https://megalinter.github.io
+# All variables described in https://megalinter.github.io/configuration/
+
+name: MegaLinter
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+# Cancel running job if new job is triggered
+concurrency:
+  group: "${{ github.ref }}-${{ github.workflow }}"
+  cancel-in-progress: true
+jobs:
+  build:
+    name: MegaLinter
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🚀 Job automatically triggered by ${{ github.event_name }}"
+      - run: echo "🐧 Job running on ${{ runner.os }} server"
+      - run: echo "🐙 Using ${{ github.ref }} branch from ${{ github.repository }} repository"
+
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          token: "${{ secrets.PAT || secrets.GITHUB_TOKEN }}"
+          fetch-depth: 0
+      - run: echo "🐙 ${{ github.repository }} repository was cloned to the runner."
+
+
+      - name: MegaLinter
+        id: ml
+        uses: megalinter/megalinter/flavors/java@v6.20.1 ## latest release of major version
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}" # report individual linter status
+          # Validate all source when push on main, else just the git diff with live.
+          VALIDATE_ALL_CODEBASE: >-
+            ${{ github.event_name == 'push' && github.ref == 'refs/heads/live'}}
+
+          PARALLEL: true
+
+          # Specific linters to run
+          ENABLE: CREDENTIALS,MARKDOWN,GIT,SPELL,YAML,CLOJURE
+          SPELL_CSPELL_DISABLE_ERRORS: true
+          MARKDOWN_MARKDOWNLINT_CONFIG_FILE: ".github/config/markdown-lint.yml"
+          CLOJURE_CLJ_KONDO_ARGUMENTS: "--lint deps.edn"
+          # ADD CUSTOM ENV VARIABLES OR DEFINE IN A FILE .mega-linter.yml AT ROOT OF REPOSITORY
+          # DISABLE: COPYPASTE,SPELL # Uncomment to disable copy-paste and spell checks
+
+      - run: echo "🎨 Credentials, Markdown, Git, Spell, Yaml & Clojure checked"
+      - run: echo "🍏 Job status is ${{ job.status }}."
