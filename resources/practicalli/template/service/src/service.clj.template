@@ -1,4 +1,4 @@
-(ns practicalli.clojure-app-template
+(ns {{top/ns}}.{{main/ns}}
   (:gen-class)
   (:require
     [com.brunobonacci.mulog :as mulog]))
