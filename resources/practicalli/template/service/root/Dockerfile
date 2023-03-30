@@ -88,7 +88,7 @@ USER clojure
 
 # Copy service archive file from Builder image
 WORKDIR /service
-COPY --from=builder /build/target/*-standalone.jar /service/
+COPY --from=builder /build/target/{{top/ns}}-{{main/ns}}-standalone.jar /service/
 
 # Optional: Add System Integration testing scripts
 # RUN mkdir -p /service/test-scripts
@@ -117,7 +117,7 @@ ENV JDK_JAVA_OPTIONS "-XshowSettings:system -XX:+UseContainerSupport -XX:MaxRAMP
 # Start service using dumb-init and java run-time
 # (overrides `jshell` entrypoint - default in eclipse-temuring image)
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
-CMD ["java", "-jar", "/service/{{group/id}}-{{artifact/id}}-standalone.jar.jar"]
+CMD ["java", "-jar", "/service/{{top/ns}}-{{main/ns}}-standalone.jar"]
 
 
 # Docker Entrypoint documentation

@@ -39,7 +39,7 @@
      :class-directory "target/classes"
      :project-basis   (build-api/create-basis)
      :jar-file        (format "target/%s-%s.jar" (name library-name) version)
-     :uberjar-file    (format "target/%s-%s-standalone.jar" (name library-name) version)}))
+     :uberjar-file    "target/{{top/ns}}-{{main/ns}}-standalone.jar"}
 
 (defn config
   "Display build configuration"
