@@ -11,6 +11,7 @@
 (ns user
   "Tools for REPL Driven Development"
   (:require
+   [clojure.tools.namespace.repl :as namespace ]
    [clojure.tools.deps.alpha.repl :refer [add-libs]]
    [find-deps.core :as find-lib]
    [portal.api :as inspect]
@@ -36,6 +37,10 @@
   (println "Hotload libraries:")
   (println "(add-libs '{domain/library-name {:mvn/version \"v1.2.3\"}})")
   (println "- deps-* lsp snippets for adding library")
+  (println)
+  (println "Namesapece Management:")
+  (println "(namespace/refresh)            ; refresh all changed namespaces")
+  (println "(namespace/refresh-all)        ; refresh all namespaces")
   (println)
   (println "Portal Inspector:")
   (println "- portal started by default, listening to all evaluations")
