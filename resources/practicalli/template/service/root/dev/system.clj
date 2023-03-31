@@ -45,19 +45,21 @@
 
 (defn start
   "Prepare configuration and start the system services with Integrant-repl"
-  ([] (go :dev))
+  ([] (start :dev))
   ([profile] (environment-prep! profile) (ig-repl/go)))
 
 
-(defn reset
-  "Read updates from the configuration and restart the system services with Integrant-repl"
-  ([] (reset :dev))
+(defn restart
+  "Read updates from the system configuration, reloads changed namespaces
+  and restart the system services with Integrant-repl"
+  ([] (restart :dev))
   ([profile] (environment-prep! profile) (ig-repl/reset)))
 
 
-(defn reset-all
-  "Read updates from the configuration and restart the system services with Integrant-repl"
-  ([] (reset-all :dev))
+(defn restart-all
+  "Read updates from the configuration, reloads all namespaces
+  and restart the system services with Integrant-repl"
+  ([] (restart-all :dev))
   ([profile] (environment-prep! profile) (ig-repl/reset-all)))
 
 
@@ -68,7 +70,8 @@
 
 
 (defn system
-  "The running system configuration"
+  "The running system configuration,
+  including component references and specific profile values"
   []
   ig-state/system)
 
