@@ -84,20 +84,20 @@ clean:  ## Clean build temporary files
 # TODO: focus runner on `:unit` tests
 test:  ## Run unit tests - stoping on first error
 	$(info --------- Runner for unit tests ---------)
-	clojure -X:env/test:test/run
+	clojure -X:test/env:test/run
 
 
 test-all:  ## Run all unit tests regardless of failing tests
 	$(info --------- Runner for all unit tests ---------)
-	clojure -X:env/test:test/run :fail-fast? false
+	clojure -X:test/env:test/run :fail-fast? false
 
 test-watch:  ## Run tests when changes saved, stopping test run on first error
 	$(info --------- Watcher for unit tests ---------)
-	clojure -X:env/test:test/run :watch? true
+	clojure -X:test/env:test/run :watch? true
 
 test-watch-all:  ## Run all tests when changes saved, regardless of failing tests
 	$(info --------- Watcher for unit tests ---------)
-	clojure -X:env/test:test/run :fail-fast? false :watch? true
+	clojure -X:test/env:test/run :fail-fast? false :watch? true
 
 # ------------------------------------ #
 
