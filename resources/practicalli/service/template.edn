@@ -1,0 +1,29 @@
+{;; Values to pass into the template
+ :description "TODO: Provide a meaningful description of the project"
+
+ ;; Tool versions
+ :clojure-cli-version "1.11.1"
+
+ ;; Library versions
+ :mulog-version "0.9.0"
+ :kaocha-version "1.80.1274"
+ :tools-build-tag "v0.9.4"
+ :tools-build-sha "76b78fe"
+
+ ;; Optional features
+ :component nil ; one of "integrant" "mount" "donut"
+ :persistence nil ; one of "postgres" "h2" "crux"
+ :router nil ; one of "reitit"
+
+;; this does not transform the data but does print a message:
+ :data-fn practicalli.service/data-fn
+ ;; this does not transform the EDN but does print a message:
+ :template-fn practicalli.service/template-fn
+ :transform
+ [["build" ""
+   {"build.clj.template" "build.clj"
+    "deps.edn.template"  "deps.edn"}]
+  ["src" "src/{{top/file}}"
+   {"service.clj.template" "{{main/file}}.clj"}]
+  ["test" "test/{{top/file}}"
+   {"service_test.clj.template" "{{main/file}}_test.clj"}]]}

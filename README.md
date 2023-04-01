@@ -14,12 +14,12 @@
 
 ## Templates provided
 
-* DOING: practicalli.template/service - production grade HTTP service
-* TODO: practicalli.template/api - production grade API service (reitit-ring)
-* TODO: practicalli.template/application - general application, limited code
-* TODO: practicalli.template/library - general library, deploymnent to Maven/Clojars
-* TODO: practicalli.template/data-science-notebook - general library, deploymnent to Maven/Clojars
-* TODO: practicalli.template/data-science-visualisation - general library, deploymnent to Maven/Clojars
+* DOING: practicalli/service - production grade HTTP service
+* TODO: practicalli/api - production grade API service (reitit-ring)
+* TODO: practicalli/application - general application, limited code
+* TODO: practicalli/library - general library, deploymnent to Maven/Clojars
+* TODO: practicalli/data-science-notebook - general library, deploymnent to Maven/Clojars
+* TODO: practicalli/data-science-visualisation - general library, deploymnent to Maven/Clojars
 
 
 3rd party templates
