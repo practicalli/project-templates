@@ -27,14 +27,29 @@
 
 ## Usage
 
-Create a new project using the `:project/create` alias from Practialli Clojure CLI Config
+Create a new project using the `:project/create` alias from [Practialli Clojure CLI Config](https://practical.li/clojure/clojure-cli/practicalli-config/)
 
-
-Or install  `seancorfield/deps-new` with the `project-create` tool name:
-
-```bash
-clojure -Ttools install io.github.seancorfield/deps-new '{:git/tag "v0.5.0"}' :as project-create
+```shell
+clojure -T:project/create
 ```
+
+Or add a specific `:name` and value to create a project with a different name
+
+```shell
+clojure -T:project/create :name practicalli.template/gameboard
+```
+
+> `seancorfield/deps-new` can also be installed as a Clojure CLi tool, for example with the `project-create` tool name:
+> ```bash
+> clojure -Ttools install io.github.seancorfield/deps-new '{:git/tag "v0.5.0"}' :as project-create
+> ```
+>
+> Create a new project, specifying the template and name of the projects
+>
+> ```shell
+> clojure -Tproject-create practicalli/service :name practicalli.gameboard/service
+> ```
+
 
 > Note: once the template has been published (to a public git repo), the invocation will be the same, except the `:local/root` dependency will be replaced by a git or Maven-like coordinate.
 
