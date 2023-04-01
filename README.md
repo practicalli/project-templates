@@ -1,4 +1,4 @@
-# Practicalli Clojure CLI project templates
+# Practicalli project templates
 
 
 ```none
@@ -27,13 +27,13 @@
 
 ## Usage
 
+Create a new project using the `:project/create` alias from Practialli Clojure CLI Config
 
 
-
-If `deps-new` is installed as a `project-new` "tool" via:
+Or install  `seancorfield/deps-new` with the `project-create` tool name:
 
 ```bash
-clojure -Ttools install io.github.seancorfield/deps-new '{:git/tag "v0.5.0"}' :as project-new
+clojure -Ttools install io.github.seancorfield/deps-new '{:git/tag "v0.5.0"}' :as project-create
 ```
 
 > Note: once the template has been published (to a public git repo), the invocation will be the same, except the `:local/root` dependency will be replaced by a git or Maven-like coordinate.
@@ -41,7 +41,26 @@ clojure -Ttools install io.github.seancorfield/deps-new '{:git/tag "v0.5.0"}' :a
 
 ## Development
 
-Run tests
+Start a Clojure REPL process with a rich terminal UI, nREPL server for editor connection and including the `build.clj` script on the class path
+
+```shell
+make repl
+```
+
+Run kaocha unit test runner to check the template configuration against the seancorfield/deps-new template
+
+```shell
+make test
+```
+
+Run tests when ever there are file changes using kaocha watch
+
+```shell
+make test-watch
+```
+
+Or use the `clojure` binary directly (see `Makefile` for examples)
+
 
 > [Practicalli Blog: Create deps-new template for Clojure CLI projects](https://practical.li/blog-staging/posts/create-deps-new-template-for-clojure-cli-projects/)
 
