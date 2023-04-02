@@ -53,6 +53,26 @@ clojure -T:project/create :name practicalli.template/gameboard
 
 > Note: once the template has been published (to a public git repo), the invocation will be the same, except the `:local/root` dependency will be replaced by a git or Maven-like coordinate.
 
+<details>
+<summary>Clojure CLI Alias definition</summary>
+
+Combined
+```clojure
+  :project/create
+  {:replace-deps {io.github.seancorfield/deps-new
+                  {:git/tag "v0.5.0" :git/sha "48bf01e"}
+                  practicalli/clojure-cli-project-templates
+                  {:local/root "/home/practicalli/projects/practicalli/clojure-cli-project-templates/"}}
+   :exec-fn      org.corfield.new/create
+   :exec-args    {:template practicalli.template/service
+                  :name practicalli.gameboard/service}}
+```
+
+</details>
+
+
+
+
 
 ## Development
 
