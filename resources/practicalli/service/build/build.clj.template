@@ -66,8 +66,7 @@
   - `:path '\"directory-name\"'` for a specific directory
   - `nil` (or no command line arguments) to delete `target` directory
   `target` is the default directory for build artefacts
-
-  Ensures `.` and `/` directories are not deleted"
+  Checks that `.` and `/` directories are not deleted"
   [directory]
   (when
    (not (contains? #{"." "/"} directory))
