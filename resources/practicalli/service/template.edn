@@ -24,6 +24,7 @@
    {"build.clj.template" "build.clj"
     "deps.edn.template"  "deps.edn"}]
   ["src" "src/{{top/file}}"
-   {"service.clj.template" "{{main/file}}.clj"}]
+   {"service.clj.template" "{{main/file}}.clj"}
+   {"parse_system.clj.template" "{{main/file}}.parse_system.clj"}]
   ["test" "test/{{top/file}}"
    {"service_test.clj.template" "{{main/file}}_test.clj"}]]}
