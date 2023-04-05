@@ -2,8 +2,7 @@
 ;; Build Script
 ;;
 ;; Build project and package for deployment
-;; - `jar` for library
-;; - `uberjar` for service
+;; - `uberjar` for service deployment
 ;; - `clean` remove all build assets and jar files
 ;;
 ;; All funcitons are passed command line arguments
@@ -31,15 +30,10 @@
 
 (def project-config
   "Project configuration to support all tasks"
-  (let [library-name '{{group/id}}/{{artifact/id}}
-        version (format "1.0.%s" (build-api/git-count-revs nil))]
-    {:library-name    library-name
-     :main-namespace  library-name
-     :project-version version
-     :class-directory "target/classes"
-     :project-basis   (build-api/create-basis)
-     :jar-file        (format "target/%s-%s.jar" (name library-name) version)
-     :uberjar-file    "target/{{top/ns}}-{{main/ns}}-standalone.jar"}))
+  {:class-directory "target/classes"
+   :main-namespace  '{{top/ns}} / {{main/ns}}
+   :project-basis   (build-api/create-basis)
+   :uberjar-file    "target/{{top/ns}}-{{main/ns}}-standalone.jar"})
 
 (defn config
   "Display build configuration"
@@ -73,26 +67,9 @@
     (build-api/delete {:path (or (:path directory) "target")})))
 
 
-(defn jar
-  "Create a build of the project, cleaning existing build assets first"
-  [options]
-  (let [config (merge project-config options)
-        {:keys [class-directory jar-file library-name project-basis project-version]} config]
-    (clean "target")
-    (pprint/pprint project-config)
-    (build-api/write-pom {:class-dir class-directory
-                          :lib       library-name
-                          :version   project-version
-                          :basis     project-basis
-                          :src-dirs  ["src"]})
-    (build-api/copy-dir {:src-dirs   ["src" "resources"]
-                         :target-dir class-directory})
-    (build-api/jar {:class-dir class-directory
-                    :jar-file  jar-file})))
-
-
 (defn uberjar
-  "Create an archive containing Clojure and the build of the project"
+  "Create an archive containing Clojure and the build of the project
+  Merge command line configuration to the default project config"
   [options]
   (let [config (merge project-config options)
         {:keys [class-directory main-namespace project-basis uberjar-file]} config]
@@ -101,13 +78,13 @@
                          :target-dir class-directory})
 
     (build-api/compile-clj {:basis     project-basis
-                            :src-dirs  ["src"]
-                            :class-dir class-directory})
+                            :class-dir class-directory
+                            :src-dirs  ["src"]})
 
-    (build-api/uber {:class-dir class-directory
-                     :uber-file uberjar-file
-                     :basis     project-basis
-                     :main      main-namespace})))
+    (build-api/uber {:basis     project-basis
+                     :class-dir class-directory
+                     :main      main-namespace
+                     :uber-file uberjar-file})))
 
 ;; End of Build tasks
 ;; ---------------------------------------------------------
