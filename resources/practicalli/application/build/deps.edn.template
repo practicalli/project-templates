@@ -1,0 +1,47 @@
+{:paths
+ ["src" "resources"]
+
+ :deps
+ {org.clojure/clojure    {:mvn/version "{{clojure-cli-version}}"}
+  com.brunobonacci/mulog {:mvn/version "{{mulog-version}}"}}
+
+ :aliases
+ {;; Clojure.main execution of application
+  :run/service
+  {:main-opts ["-m" "{{top/ns}}.{{main/ns}}"]}
+
+  ;; Clojure.exec execution of specified function
+  :run/greet
+  {:exec-fn {{top/ns}}.{{main/ns}}/greet
+   :exec-args {:name "Clojure"}}
+
+  ;; Add libraries and paths to support additional test tools
+  :test/env
+  {}
+
+  ;; Test runner - local and CI
+  :test/run
+  {:extra-paths ["test"]
+   :extra-deps {lambdaisland/kaocha {:mvn/version "{{kaocha-version}}"}}
+   :main-opts   ["-m" "kaocha.runner"]
+   :exec-fn kaocha.runner/exec-fn
+   :exec-args {:randomize? false
+               :fail-fast? true}}
+
+  ;; Kaocha test runner in watch mode - local dev
+  :test/watch
+  {:extra-paths ["test"]
+   :extra-deps {lambdaisland/kaocha {:mvn/version "{{kaocha-version}}"}}
+   :main-opts   ["-m" "kaocha.runner"
+                 "--watch" "--fail-fast" "--skip-meta" ":slow"]
+   :exec-fn kaocha.runner/exec-fn
+   :exec-args {:watch? true
+               :randomize? false
+               :fail-fast? true}}
+
+  ;; tools.build `build.clj` built script
+  :build
+  {:replace-paths ["."]
+   :replace-deps {io.github.clojure/tools.build
+                  {:git/tag "{{tools-build-tag}}" :git/sha "{{tools-build-sha}}"}}
+   :ns-default build}}}
