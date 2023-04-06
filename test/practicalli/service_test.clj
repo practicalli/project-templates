@@ -24,3 +24,7 @@
     (is (spec/valid? :org.corfield.new/template project-template)
         (spec/explain-str :org.corfield.new/template project-template))))
 
+(deftest template-options-test
+  (testing "Check correct values for optional keys are correct"
+    (is (contains? #{"integrant" "mount" "donut" nil} (project-template :component)))
+    (is (contains? #{"postgresql" "h2" "xtdb" "mariadb" nil} (project-template :persistence)))))
