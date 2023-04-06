@@ -1,6 +1,9 @@
 {;; Values to pass into the template
  :description "TODO: Provide a meaningful description of the project"
 
+ ;; ---------------------------------------------------------
+ ;; Version substitutions
+
  ;; Tool versions
  :clojure-cli-version "1.11.1"
 
@@ -9,16 +12,26 @@
  :kaocha-version "1.80.1274"
  :tools-build-tag "v0.9.4"
  :tools-build-sha "76b78fe"
+ ;; ---------------------------------------------------------
 
- ;; Optional features
+ ;; ---------------------------------------------------------
+ ;; Optional features - used by programatic transformation
+ :cache nil ; one of "redis" "dynamodb"
  :component nil ; one of "integrant" "mount" "donut"
- :persistence nil ; one of "postgres" "h2" "crux"
+ :persistence nil ; one of "postgres" "h2" "xtdb" "mariadb"
  :router nil ; one of "reitit"
+ ;; ---------------------------------------------------------
 
-;; this does not transform the data but does print a message:
+ ;; ---------------------------------------------------------
+ ;; Programatic Transformation functions
+ ;; - `src/practicalli/service.clj`
  :data-fn practicalli.service/data-fn
- ;; this does not transform the EDN but does print a message:
  :template-fn practicalli.service/template-fn
+ ;; ---------------------------------------------------------
+
+ ;; ---------------------------------------------------------
+ ;; Declarative Transformation rules
+ ;; - can be updated by programmatic transformation
  :transform
  [["build" ""
    {"build.clj.template" "build.clj"
@@ -28,3 +41,4 @@
     "parse_system.clj.template" "parse_system.clj"}]
   ["test" "test/{{top/file}}"
    {"service_test.clj.template" "{{main/file}}_test.clj"}]]}
+ ;; ---------------------------------------------------------
