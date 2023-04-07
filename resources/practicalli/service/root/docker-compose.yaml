@@ -1,0 +1,66 @@
+---
+# --- Docker Compose Configuration --- #
+#
+# Build the Clojure Service from source code
+# and run on port 8080
+#
+# Examples of persistence with Postgres and mysql docker images
+# and local data storage to facilitate data restoration
+
+
+version: "3.9"
+
+services:
+  # --- Clojure Service --- #
+  clojure-service:
+    platform: linux/amd64
+    build: ./
+    ports:
+      - 8080:8080
+    # depends_on:
+    #   - "postgres"
+    #   - "mysql"
+
+
+  # --- Postgres Relational Database --- #
+  # https://github.com/docker-library/docs/blob/master/postgres/README.md
+  # postgres:
+  #   image: "postgres:15.2-alpine"
+  #   restart: always
+  #   environment:
+  #     # superuser password - must not be empty
+  #     POSTGRES_PASSWORD: "$DOCKER_POSTGRES_ROOT_PASSWORD"
+  #     # Set User Credentials - optional
+  #     POSTGRES_USER: "$DOCKER_POSTGRES_USER"
+  #     POSTGRES_DB: "$DOCKER_POSTGRES_USER"
+  #   # Persist MySQL database schema in a docker volume
+  #   volumes:
+  #     - postgres-data:/var/lib/postgres/data
+
+  # postgres web-based administration tool
+  # posgres-adminer:
+  #   image: adminer
+  #   restart: always
+  #   ports:
+  #     - 8080:8080
+
+  # --- MySQL Relational Database --- #
+  # mysql:
+  #   image: "mysql/mysql-server:5.7"
+  #   environment:
+  #     MYSQL_USER: "$DOCKER_SERVICE_DB_USER"
+  #     MYSQL_PASSWORD: "$DOCKER_SERVICE_DB_PASSWORD"
+  #     MYSQL_DATABASE: "service"
+  #     MYSQL_ROOT_PASSWORD: "$DOCKER_MYSQL_ROOT_PASSWORD"
+  #   ports:
+  #     - "3306:3306"
+  #   expose:
+  #     - "3306"
+  #   # Persist MySQL database schema in a docker volume
+  #   volumes:
+  #     - mysql-data:/var/lib/mysql
+
+# Mount project root
+# volumes:
+#   postgres-data:
+#   mysql-data:
