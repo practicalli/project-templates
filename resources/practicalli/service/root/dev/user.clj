@@ -14,13 +14,17 @@
 (ns user
   "Tools for REPL Driven Development"
   (:require
-   [clojure.tools.deps.alpha.repl :refer [add-libs]]
-   [find-deps.core :as find-lib]
-   [portal.api :as inspect]
 
-   [com.brunobonacci.mulog :as mulog]
-   [mulog-publisher] ; tap mulog events
-   ;; [system] ; Component management
+   [system
+    :refer [config go halt reset reset-all system]]  ; System component commands
+
+   [clojure.tools.deps.alpha.repl :refer [add-libs]] ; Hotload libraries
+   [find-deps.core :as find-lib]
+   [portal.api :as inspect]                          ; Data inspector
+   [clojure.pprint :as pprint]                       ; Human readable data structures
+
+   [com.brunobonacci.mulog :as mulog]                ; Event Logging
+   [mulog-publisher]                                 ; Tap mulog events
    ))
 
 ;; ---------------------------------------------------------
