@@ -31,7 +31,7 @@
 (def project-config
   "Project configuration to support all tasks"
   {:class-directory "target/classes"
-   :main-namespace  '{{top/ns}} / {{main/ns}}
+   :main-namespace  '{{top/ns}}/{{main/ns}}
    :project-basis   (build-api/create-basis)
    :uberjar-file    "target/{{top/ns}}-{{main/ns}}-standalone.jar"})
 
