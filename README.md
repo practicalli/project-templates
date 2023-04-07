@@ -10,20 +10,22 @@
 ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝
 ```
 
-
-
 ## Templates provided
 
+General purpose 🧰
 * DOING: practicalli/service - production grade HTTP service
-* TODO: practicalli/api - production grade API service (reitit-ring)
+* DOING: practicalli/api - production grade API service (reitit-ring)
 * TODO: practicalli/application - general application, limited code
 * TODO: practicalli/library - general library, deploymnent to Maven/Clojars
-* TODO: practicalli/data-science-notebook - general library, deploymnent to Maven/Clojars
-* TODO: practicalli/data-science-visualisation - general library, deploymnent to Maven/Clojars
 
+Data Science ‍🔬
+* TODO: practicalli/notebook - clerk or notespace projects
+* TODO: practicalli/visualisation - oz or hanami projects
+* TODO: practicalli/data-transform - tablecloth & code for data set manipulation
 
 3rd party templates
 * Clerk template - https://github.com/mentat-collective/clerk-utils/tree/main/resources/clerk_utils/custom
+
 
 ## Usage
 
@@ -50,31 +52,34 @@ clojure -T:project/create :name practicalli.template/gameboard
 > clojure -Tproject-create practicalli/service :name practicalli.gameboard/service
 > ```
 
+### Alias definition
 
-> Note: once the template has been published (to a public git repo), the invocation will be the same, except the `:local/root` dependency will be replaced by a git or Maven-like coordinate.
+`:project/create` alias is provided by [Practialli Clojure CLI Config](https://practical.li/clojure/clojure-cli/practicalli-config/).
 
-<details>
-<summary>Clojure CLI Alias definition</summary>
+The `project/create` alias definition combines seancorfield/deps-new and practicalli/project-templates so that all Practicalli templates are available within the single deps-new alias.
 
-Combined
 ```clojure
   :project/create
   {:replace-deps {io.github.seancorfield/deps-new
                   {:git/tag "v0.5.0" :git/sha "48bf01e"}
                   practicalli/clojure-cli-project-templates
-                  {:local/root "/home/practicalli/projects/practicalli/clojure-cli-project-templates/"}}
+                  {:git/tag ""
+                   :git/sha ""}}
    :exec-fn      org.corfield.new/create
-   :exec-args    {:template practicalli.template/service
+   :exec-args    {:template practicalli/service
                   :name practicalli.gameboard/service}}
 ```
 
-</details>
-
-
-
-
 
 ## Development
+
+List all the available project tasks using the `make` help
+
+```shell
+make
+```
+
+> This project uses `make` tasks to run the Clojure tests, kaocha test runner and package the service into an uberjar.  The `Makefile` uses `clojure` commands and arguments that can be used directly if not using `make`.
 
 Start a Clojure REPL process with a rich terminal UI, nREPL server for editor connection and including the `build.clj` script on the class path
 
@@ -82,20 +87,17 @@ Start a Clojure REPL process with a rich terminal UI, nREPL server for editor co
 make repl
 ```
 
-Run kaocha unit test runner to check the template configuration against the seancorfield/deps-new template
+Run kaocha unit test runner to check the template configuration against the seancorfield/deps-new template specification
 
 ```shell
 make test
 ```
 
-Run tests when ever there are file changes using kaocha watch
+Run tests when ever there are file changes using kaocha watch (requires `:test/watch` from Practicalli Clojure CLI Config)
 
 ```shell
 make test-watch
 ```
-
-Or use the `clojure` binary directly (see `Makefile` for examples)
-
 
 > [Practicalli Blog: Create deps-new template for Clojure CLI projects](https://practical.li/blog-staging/posts/create-deps-new-template-for-clojure-cli-projects/)
 
