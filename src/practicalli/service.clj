@@ -1,4 +1,16 @@
+;; ---------------------------------------------------------
+;; Programatic Transformation
+;;
+;; Define transformations based on data in the template and
+;; passed via the command line
+;;
+;; `data-fn` enrich template data
+;; `template-fn` modify declarative template rules
+;; ---------------------------------------------------------
+
+
 (ns practicalli.service
+  "Programmatic transformation of template data transformation rules"
   (:require
    [clojure.pprint :as pprint]))
 
