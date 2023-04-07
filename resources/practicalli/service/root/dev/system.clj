@@ -1,7 +1,17 @@
 ;; ---------------------------------------------------
 ;; System component management for REPL workflow
 ;;
-;; automatically loaded via the `dev/user.clj` namespace
+;; System config components defined in `resources/config.edn`
+;;
+;; `system` namespace automatically loaded via the `dev/user.clj` namespace
+;;
+;; Commands:
+;; `(start)` starts all components in system config
+;; `(restart)` reads system config, reloads changed namespaces & restarts system
+;; `(restart-all)` as above with all namespaces reloaded
+;; `(stop)` shutdown all components in the system (gracefully where appropriate)
+;; `(system)` show configuration of the running system
+;; `(config)` system configuration
 ;;
 ;; NOTE: standard IntegrantREPL code, maintenance should not be required
 ;; ---------------------------------------------------
