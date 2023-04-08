@@ -32,13 +32,27 @@
  ;; ---------------------------------------------------------
  ;; Declarative Transformation rules
  ;; - can be updated by programmatic transformation
+ ;;
+ ;; Form:
+ ;; [["directory-name" "default-path"
+ ;;   {"source-file.extension.template" "destination-file.extension"}]]
  :transform
- [["build" ""
+ [["api" "src/{{top/file}}/api"
+   {"system_admin_router.clj.template" "system_admin/router.clj"
+    "system_admin_handler.clj.template" "system_admin/handler.clj"}]
+  ["build" ""
    {"build.clj.template" "build.clj"
     "deps.edn.template"  "deps.edn"}]
+  ["resources" "resources"
+   {"config.edn.template" "config.edn"}]
   ["src" "src/{{top/file}}"
-   {"service.clj.template" "{{main/file}}.clj"
-    "parse_system.clj.template" "parse_system.clj"}]
+   {"middleware.clj.template" "middleware.clj"
+    "parse_system.clj.template" "parse_system.clj"
+    "router.clj.template" "router.clj"
+    "service.clj.template" "{{main/file}}.clj"}]
   ["test" "test/{{top/file}}"
    {"service_test.clj.template" "{{main/file}}_test.clj"}]]}
  ;; ---------------------------------------------------------
+
+;; ---------------------------------------------------------
+;; Available keys
