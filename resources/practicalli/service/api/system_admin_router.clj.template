@@ -1,0 +1,22 @@
+;; ---------------------------------------------------------
+;; Router for System administration routes
+;;
+;; - Service Status
+;; ---------------------------------------------------------
+
+
+(ns {{top/ns}}.api.system-admin.router
+  "Fraud API system administration routing"
+  (:require [{{top/ns}}.api.system-admin.handler :as handler]))
+
+
+(defn routes
+  "Reitit route configuration for system-admin endpoint"
+  []
+  ["/system-admin"
+   {:swagger {:tags ["Application Support"]}}
+   ["/status"
+    {:get {:summary "Status of {{top/ns}} service"
+           :description "Ping {{top/ns}} service to see if is responding to a simple request and therefore alive"
+           :responses {200 {:body {:application string? :status string?}}}
+           :handler handler/status}}]])
