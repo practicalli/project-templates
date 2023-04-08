@@ -1,3 +1,9 @@
+;; ---------------------------------------------------------
+;; {{top/ns}}.{{main/ns}}-test
+;;
+;; Example unit tests for {{top/ns}}.{{main/ns}}
+;; ---------------------------------------------------------
+
 (ns {{top/ns}}.{{main/ns}}-test
   (:require [clojure.test :refer [deftest is testing]]
             [{{top/ns}}.{{main/ns}} :as {{main/ns}}]))
@@ -5,6 +11,6 @@
 (deftest service-test
   (testing "TODO: Start with a failing test, make it pass, then refactor"
     (is (= ({{main/ns}}/greet)
-            "Welcome to Clojure everyone"))
-    (is (= ({{main/ns}}/greet "Practicalli")
-            "Welcome to Clojure Practicalli"))))
+            "{{top/ns}} service developed by the secret engineering team"))
+    (is (= ({{main/ns}}/greet "Practicalli Engineering")
+            "{{top/ns}} service developed by the Practicalli Engineering team"))))
