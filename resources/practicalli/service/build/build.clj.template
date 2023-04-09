@@ -40,7 +40,6 @@
   [config]
   (pprint/pprint (or config project-config)))
 
-
 ;; End of Build configuration
 ;; ---------------------------------------------------------
 

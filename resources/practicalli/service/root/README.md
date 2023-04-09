@@ -16,6 +16,8 @@ TODO: add status badges for https://{{scm/domain}}/{{user}}/{{scm/repo}} workflo
 
 {{description}}
 
+Project created with [deps-new](https://github.com/seancorfield/deps-new) and the [practicalli/service template](https://github.com/practicalli/project-templates)
+
 
 ## Run the service
 
