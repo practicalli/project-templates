@@ -1,5 +1,7 @@
 ---
 # --- Docker Compose Configuration --- #
+# - Docker Compose V2
+# - https://docs.docker.com/compose/compose-file/
 #
 # Build the Clojure Service from source code
 # and run on port 8080
@@ -7,20 +9,39 @@
 # Examples of persistence with Postgres and mysql docker images
 # and local data storage to facilitate data restoration
 
-
-version: "3.9"
+name: "{{top/ns}}"
 
 services:
   # --- Clojure Service --- #
   clojure-service:
     platform: linux/amd64
-    build: ./
+    # Build using Dockerfile - relative path or Git repository
+    build:
+      # Use Dockerfile in project root
+      context: ./
+      # dockerfile   # alternate name for Dockerfile
+    environment:
+      - COMPOSE_PROJECT_NAME
+    command: echo "Build and run ${COMPOSE_PROJECT_NAME}"
     ports:
       - 8080:8080
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080"]
+      interval: 1m00s
+      timeout: 10s
+      retries: 5
+      start_period: 7s
     # depends_on:
     #   - "postgres"
     #   - "mysql"
 
+
+  # Local OpenAPI (Swagger) Editor to debug swagger open api definition
+  # Or use: https://editor-next.swagger.io/
+  swagger-editor:
+    image: "swaggerapi/swagger-editor:latest"
+    ports:
+      - "8282:8080"
 
   # --- Postgres Relational Database --- #
   # https://github.com/docker-library/docs/blob/master/postgres/README.md
@@ -36,8 +57,9 @@ services:
   #   healthcheck:
   #     test: [“CMD-SHELL”, “pg_isready”]
   #       interval    : 1s
-  #     timeout: 5s
+  #       timeout: 5s
   #       retries: 10
+  #       # start_period: 10s
   #   # Persist Postgres database schema in a docker volume
   #   volumes:
   #     - postgres-data:/var/lib/postgres/data
