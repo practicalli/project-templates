@@ -38,28 +38,17 @@ Create a new project using the `:project/create` alias from [Practialli Clojure 
 clojure -T:project/create
 ```
 
-Or add a specific `:name` and value to create a project with a different name
+Or add a specific `:name` and value to create a project with a different name and `:target-dir` to specify a directory to create the project in.
 
 ```shell
-clojure -T:project/create :name practicalli.template/gameboard
+clojure -T:project/create :name practicalli.template/gameboard :target-dir gameboard-service
 ```
-
-> `seancorfield/deps-new` can also be installed as a Clojure CLi tool, for example with the `project-create` tool name:
-> ```bash
-> clojure -Ttools install io.github.seancorfield/deps-new '{:git/tag "v0.5.0"}' :as project-create
-> ```
->
-> Create a new project, specifying the template and name of the projects
->
-> ```shell
-> clojure -Tproject-create practicalli/service :name practicalli.gameboard/service
-> ```
 
 ### Alias definition
 
 `:project/create` alias is provided by [Practialli Clojure CLI Config](https://practical.li/clojure/clojure-cli/practicalli-config/).
 
-The `project/create` alias definition combines seancorfield/deps-new and practicalli/project-templates so that all Practicalli templates are available within the single deps-new alias.
+The `project/create` alias definition combines [seancorfield/deps-new](https://github.com/seancorfield/deps-new) and practicalli/project-templates so that all Practicalli templates are available within one alias.
 
 ```clojure
   :project/create
@@ -72,6 +61,17 @@ The `project/create` alias definition combines seancorfield/deps-new and practic
    :exec-args    {:template practicalli/service
                   :name practicalli.gameboard/service}}
 ```
+
+> [seancorfield/deps-new](https://github.com/seancorfield/deps-new) can also be installed as a Clojure CLi tool, for example with the `project-create` tool name:
+> ```bash
+> clojure -Ttools install io.github.seancorfield/deps-new '{:git/tag "v0.5.0"}' :as project-create
+> ```
+>
+> Create a new project, specifying the template and name of the projects
+>
+> ```shell
+> clojure -Tproject-create practicalli/service :name practicalli.gameboard/service
+> ```
 
 
 ## Development
