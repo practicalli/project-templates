@@ -40,13 +40,13 @@
     "deps.edn.template"  "deps.edn"}]
   ["resources" "resources"
    {"config.edn.template" "config.edn"}]
-  ["src" "src/{{top/file}}"
+  ["src" "src/{{top/file}}/{{main/file}}"
    {"middleware.clj.template" "middleware.clj"
     "parse_system.clj.template" "parse_system.clj"
     "router.clj.template" "router.clj"
-    "service.clj.template" "{{main/file}}.clj"}]
-  ["test" "test/{{top/file}}"
-   {"service_test.clj.template" "{{main/file}}_test.clj"}]]}
+    "service.clj.template" "service.clj"}]
+  ["test" "test/{{top/file}}/{{main/file}}"
+   {"service_test.clj.template" "service_test.clj"}]]}
  ;; ---------------------------------------------------------
 
 ;; ---------------------------------------------------------
