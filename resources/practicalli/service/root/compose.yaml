@@ -9,7 +9,7 @@
 # Examples of persistence with Postgres and mysql docker images
 # and local data storage to facilitate data restoration
 
-name: "{{top/ns}}"
+name: "{{top/ns}}-{{main/ns}}"
 
 services:
   # --- Clojure Service --- #
