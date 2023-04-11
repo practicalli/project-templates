@@ -1,10 +1,10 @@
 ;; ---------------------------------------------------------
-;; {{top/ns}}.{{main/ns}}-test
+;; {{top/ns}}.{{main/ns}}.service-test
 ;;
 ;; Example unit tests for {{top/ns}}.{{main/ns}}
 ;; ---------------------------------------------------------
 
-(ns {{top/ns}}.{{main/ns}}-test
+(ns {{top/ns}}.{{main/ns}}.service-test
   (:require [clojure.test :refer [deftest is testing]]
             [{{top/ns}}.{{main/ns}} :as {{main/ns}}]))
 
