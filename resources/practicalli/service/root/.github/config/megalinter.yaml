@@ -19,8 +19,8 @@ ENABLE:
 
 # Linter specific configuration
 
-MARKDOWN_MARKDOWN_LINK_CHECK_CONFIG_FILE: ".github/linters/markdown-link-check.json"
-MARKDOWN_MARKDOWNLINT_CONFIG_FILE: ".github/linters/markdown-lint.yml"
+MARKDOWN_MARKDOWN_LINK_CHECK_CONFIG_FILE: ".github/config/markdown-link-check.json"
+MARKDOWN_MARKDOWNLINT_CONFIG_FILE: ".github/config/markdown-lint.jsonc"
 # YAML_PRETTIER_FILTER_REGEX_EXCLUDE: (docs/)
 # YAML_YAMLLINT_FILTER_REGEX_EXCLUDE: (docs/)
 
