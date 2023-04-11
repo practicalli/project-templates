@@ -4,15 +4,11 @@
  ;; ---------------------------------------------------------
  ;; Version substitutions
 
- ;; Tool versions
- :clojure-cli-version "1.11.1"
-
  ;; Library versions
- :mulog-version "0.9.0"
- :kaocha-version "1.80.1274"
- :tools-build-tag "v0.9.4"
- :tools-build-sha "76b78fe"
- ;; ---------------------------------------------------------
+ :clojure-version "1.11.1"
+
+
+;; ---------------------------------------------------------
 
  ;; ---------------------------------------------------------
  ;; Optional features - used by programatic transformation
