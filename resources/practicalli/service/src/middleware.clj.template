@@ -1,4 +1,4 @@
-(ns {{top/ns}}.middleware
+(ns {{top/ns}}.{{main/ns}}.middleware
   (:require
    [com.brunobonacci.mulog :as mulog]))
 

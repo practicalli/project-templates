@@ -18,7 +18,7 @@
 ;; ---------------------------------------------------------
 
 
-(ns {{top/ns}}.{{main/ns}}
+(ns {{top/ns}}.{{main/ns}}.service
   "Gameboard service component lifecycle management"
   (:gen-class)
   (:require

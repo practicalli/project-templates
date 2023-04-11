@@ -10,7 +10,7 @@
 ;; --------------------------------------------------
 
 
-(ns {{top/ns}}.parse-system
+(ns {{top/ns}}.{{main/ns}}.parse-system
   (:require
    [aero.core       :as aero]
    [clojure.java.io :as io]

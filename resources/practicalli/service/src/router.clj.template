@@ -1,5 +1,5 @@
 ;; --------------------------------------------------
-;; {{top/ns}}.{{main/ns}} service - router
+;; {{top/ns}}.{{main/ns}} router
 ;;
 ;; Each section of the API is defined in its own routes namespace
 ;; with an accompanying handler namespace
@@ -10,7 +10,7 @@
 ;; --------------------------------------------------
 
 
-(ns {{top/ns}}.router
+(ns {{top/ns}}.{{main/ns}}.router
   "API global request routing"
   (:require
    ;; Core Web Application Libraries
