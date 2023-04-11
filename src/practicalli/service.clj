@@ -30,39 +30,23 @@
       {:integrant-repl true}))
 
 
-  Result is used as the EDN for the template."
+(defn template-fn
+  "Derive new declarative transformation rules from substitution data
+  and values passed to the template via the command line
+  Return
+  - updated template.edn configuration"
   [edn data]
   ;; must return the whole EDN hash map
   (println "template-fn data")
   (pprint/pprint data)
   (println "template-fn edn")
   (pprint/pprint edn)
-
-  (cond->> data
-    (= (data :component) "integrant") (assoc edn :transform []))
-
   edn)
 
-(comment
 
-  (def template-edn)
-  {:description "TODO: Provide a meaningful description of the project",
-   :transform
-   [["build" ""
-     {"build.clj.template" "build.clj", "deps.edn.template" "deps.edn"}]
-    ["src" "src/{{top/file}}"
-     {"service.clj.template" "{{main/file}}.clj"}]
-    ["test" "test/{{top/file}}"
-     {"service_test.clj.template" "{{main/file}}_test.clj"}]],
-   :kaocha-version "1.80.1274",
-   :data-fn practicalli.template.service/data-fn,
-   :template-fn practicalli.template.service/template-fn,
-   :clojure-cli-version "1.11.1",
-   :mulog-version "0.9.0",
-   :tools-build-tag "v0.9.4",
-   :tools-build-sha "76b78fe"}
 
-  (assoc template-edn :transform [[]])
+
+
 
   (def integrant-transform
     [["build" ""
