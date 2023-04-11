@@ -26,8 +26,8 @@
    [{{top/ns}}.middleware :as middleware-service]
 
    ;; Service Routing
-   [{{top/ns}}.api.system-admin.router :as system-admin]
-   [{{top/ns}}.api.scoreboard.router :as scoreboard]
+   [{{top/ns}}.api.system-admin :as system-admin]
+   [{{top/ns}}.api.scoreboard   :as scoreboard]
 
    ;; Self-documenting API
    [reitit.swagger    :as api-docs]

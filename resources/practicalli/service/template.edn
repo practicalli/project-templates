@@ -37,9 +37,8 @@
  ;; [["directory-name" "default-path"
  ;;   {"source-file.extension.template" "destination-file.extension"}]]
  :transform
- [["api" "src/{{top/file}}/api"
-   {"system_admin_router.clj.template" "system_admin/router.clj"
-    "system_admin_handler.clj.template" "system_admin/handler.clj"}]
+ [["api" "src/{{top/file}}/{{main/file}}/api"
+   {"system_admin.clj.template" "system_admin.clj"}]
   ["build" ""
    {"build.clj.template" "build.clj"
     "deps.edn.template"  "deps.edn"}]
