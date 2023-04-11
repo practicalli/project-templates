@@ -1,3 +1,3 @@
-# Introduction to practicalli.template/service
+# Introduction to practicalli/templates
 
 TODO: write [great documentation](http://jacobian.org/writing/what-to-write/)
