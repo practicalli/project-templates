@@ -52,11 +52,11 @@
           :swagger {:info {:title "{{top/ns}} Service API"
                            :description "{{description}}"
                            :version "0.1.0"
-                           :termsOfService "https://www.billie.io/agb/"
+                           :termsOfService "https://{{group/id}}/"
                            :contact {:name "Engineering Team"
-                                     :url "https://company/wiki/engineering-team"}
+                                     :url "https://{{group/id}}/wiki/engineering-team"}
                            :license {:name "© {{developer}}, {{now/year}}"
-                                     :url "https://www.billie.io/agb/"}
+                                     :url "http://creativecommons.org/licenses/by-sa/4.0/"}
                            :x-logo {:url "./favicon.png"}}}
           :handler (api-docs/create-swagger-handler)}}])
 
@@ -106,7 +106,8 @@
      open-api-docs
 
      ;; --------------------------------------------------
-     ;; System routes & Status `/system-admin/status` for Pingdom style uptime check
+     ;; System routes & Status
+     ;; - `/system-admin/status` for simple service healthcheck
      (system-admin/routes)
 
      ;; --------------------------------------------------
@@ -125,7 +126,7 @@
     router-configuration)
 
    ;; --------------------------------------------------
-   ;; Default handlers
+   ;; Default routes
    (ring/routes
     ;; Open API documentation as default route
     (api-docs-ui/create-swagger-ui-handler {:path "/"})
