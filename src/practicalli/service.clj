@@ -1,5 +1,5 @@
 ;; ---------------------------------------------------------
-;; Programatic Transformation
+;; Service template programatic Transformation
 ;;
 ;; Define transformations based on data in the template and
 ;; passed via the command line
@@ -12,20 +12,23 @@
 (ns practicalli.service
   "Programmatic transformation of template data transformation rules"
   (:require
-   [clojure.pprint :as pprint]))
+   [clojure.pprint :as pprint]
+   [clojure.string :as string]))
 
 (defn data-fn
-  "Example data-fn handler.
-
-  Result is merged onto existing options data."
+  "Update keys & values available in the substitution data
+  Return:
+  - hash-map to be merged into the substitution data"
   [data]
   ;; returning nil means no changes to options data
-  (println "data-fn")
-  (pprint/pprint data)
-  nil)
 
-(defn template-fn
-  "Example template-fn handler.
+  ;; When using practicalli/service template,
+  ;; derive the service name
+  {:service-name (first (string/split (data :main) #"\."))}
+
+  #_(when (= (data :component) "integrant")
+      {:integrant-repl true}))
+
 
   Result is used as the EDN for the template."
   [edn data]
