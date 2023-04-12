@@ -53,13 +53,12 @@ The `project/create` alias definition combines [seancorfield/deps-new](https://g
 ```clojure
   :project/create
   {:replace-deps {io.github.seancorfield/deps-new
-                  {:git/tag "v0.5.0" :git/sha "48bf01e"}
-                  practicalli/clojure-cli-project-templates
-                  {:git/tag ""
-                   :git/sha ""}}
+                  {:git/tag "v0.5.1" :git/sha "21cede2"}
+                  io.github.practicalli/project-templates
+                  {:git/tag "2023.04.12" :git/sha "3b4e3fa"}}
    :exec-fn      org.corfield.new/create
    :exec-args    {:template practicalli/service
-                  :name practicalli.gameboard/service}}
+                  :name practicalli/gameboard}}
 ```
 
 > [seancorfield/deps-new](https://github.com/seancorfield/deps-new) can also be installed as a Clojure CLi tool, for example with the `project-create` tool name:
