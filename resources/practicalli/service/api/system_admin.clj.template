@@ -17,7 +17,7 @@
   "Simple status report for external monitoring services, e.g. Pingdom
   Return:
   - `constantly` returns an anonymous function that returns a ring response hash-map"
-  (constantly (response {:application "{{top/ns}} Service" :status "Alive"})))
+  (constantly (response {:application "{{top/ns}} {{main/ns}} Service" :status "Alive"})))
 
 ;; --------------------------------------------------
 
@@ -31,9 +31,9 @@
   ["/system-admin"
    {:swagger {:tags ["Application Support"]}}
    ["/status"
-    {:get {:summary "Status of {{top/ns}} service"
-           :description "Ping {{top/ns}} service to see if is responding to a simple request and therefore alive"
+    {:get {:summary "Status of {{top/ns}} {{main/ns}} service"
+           :description "Ping {{top/ns}} {{main/ns}} service to see if is responding to a simple request and therefore alive"
            :responses {200 {:body {:application string? :status string?}}}
-           :handler handler/status}}]])
+           :handler status}}]])
 
 ;; --------------------------------------------------

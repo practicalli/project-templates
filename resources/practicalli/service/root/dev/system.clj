@@ -18,15 +18,15 @@
 
 
 (ns system
-  "Configure the system components and provide convenience functions
-  to "
+  "Configure the system components and provide Integrant REPL convenience functions
+  to start/stop/restart components and show system configuration"
   (:require
    ;; REPL workflow
    [integrant.repl       :as ig-repl]
    [integrant.repl.state :as ig-state]
 
    ;; Environment parsing
-   [practicalli.service.parse-system :as parse-system]))
+   [{{top/ns}}.{{main/ns}}.parse-system :as parse-system]))
 
 
 (println "Loading system namespace for Integrant REPL")

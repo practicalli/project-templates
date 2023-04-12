@@ -24,12 +24,14 @@
   (:require
 
    ;; Application dependencies
-   [{{top/ns}}.router :as router]
-   [{{top/ns}}.environment :as environment]
+   [{{top/ns}}.{{main/ns}}.router :as router]
+
+   ;; Component system
+   [{{top/ns}}.{{main/ns}}.parse-system :as parse-system]
 
    ;; System dependencies
-   [org.httpkit.server :as http-server]
-   [integrant.core :as ig]
+   [org.httpkit.server     :as http-server]
+   [integrant.core         :as ig]
    [com.brunobonacci.mulog :as mulog]))
 
 
@@ -113,9 +115,9 @@
 
         ;; Add keys to every event / publish profile use to start the service
         _ (mulog/set-global-context!
-           {:app-name "{{top/ns}} service" :version  "0.1.0" :env profile})
+           {:app-name "{{top/ns}} {{main/ns}} service" :version  "0.1.0" :env profile})
 
-        system (ig/init (environment/aero-prep profile))
+        system (ig/init (parse-system/aero-prep profile))
 
         _ (mulog/log ::gameboard-system :system-config system)]
 
@@ -128,9 +130,9 @@
 #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 (defn greet
   "Greeting message via Clojure CLI clojure.exec"
-  ([] (greet "secret engineering"))
+  ([] (greet "secret engineering")) ; TODO: call greet with hash-map argument
   ([{:keys [team-name]}]
-   (str "{{top/ns}} service borough to you by the " team-name " team")))
+   (str "{{top/ns}} {{main/ns}} service developed by the " team-name " team")))
 
 
 (comment

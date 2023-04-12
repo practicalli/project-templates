@@ -6,7 +6,7 @@
 
 (ns {{top/ns}}.{{main/ns}}.service-test
   (:require [clojure.test :refer [deftest is testing]]
-            [{{top/ns}}.{{main/ns}} :as {{main/ns}}]))
+            [{{top/ns}}.{{main/ns}}.service :as {{main/ns}}]))
 
 (deftest service-test
   (testing "TODO: Start with a failing test, make it pass, then refactor"

@@ -6,12 +6,14 @@
 ;; - Request routing (reitit)
 ;; - Persistence (relational) connection
 ;;
+;; Components managed in {{top/ns}}.{{main/ns}}.service namespace
+;;
 ;; #profile used by aero to select the configuration to use for a given profile (dev, test, prod)
 ;; #long defines Long Integer type (required for Java HTTP server port)
 ;; #env reads the environment variable of the given name
 ;; #or uses first non nil value in sequence
 ;;
-;; Environment variables should be defined locally and in deployment provisioner
+;; Environment variables should be defined locally and in deployment provisioner tooling
 ;; --------------------------------------------------
 
 
@@ -20,7 +22,7 @@
 
  ;; https://github.com/BrunoBonacci/mulog#publishers
  ;; https://github.com/openzipkin/zipkin
- :{{top/ns}}.service/log-publish
+ :{{top/ns}}.{{main/ns}}.service/log-publish
  {;; Type of publisher to use for mulog events
   ;; Publish json format logs, captured by fluentd and exposed via OpenDirectory
   :mulog #profile {:dev  {:type :console-json :pretty? true}
@@ -36,9 +38,9 @@
  ;; --------------------------------------------------
  ;; HTTP Server - embedded service
 
- :{{top/ns}}.service/http-server
+ :{{top/ns}}.{{main/ns}}.service/http-server
  {;; Router function passed into the HTTP server form managing requests/responses
-  :handler #ig/ref :{{top/ns}}.service/router
+  :handler #ig/ref :{{top/ns}}.{{main/ns}}.service/router
 
   ;; Port number (Java Long type) - environment variable or default number
   :port  #long #or [#env HTTP_SERVER_PORT 8080]
@@ -51,7 +53,7 @@
 
  ;; TODO: add database connection pool ?
 
- :{{top/ns}}.service/relational-store
+ :{{top/ns}}.{{main/ns}}.service/relational-store
  {:host #or [#env DATABASE_HOST "localhost"]
   :port #or [#env DATABASE_PORT 3306]
   :username #or [#env DATABASE_USERNAME "gameboard"]
@@ -61,7 +63,7 @@
  ;; Data provider services
  ;; - connection to services that provide eSports data
 
- :{{top/ns}}.service/data-provider
+ :{{top/ns}}.{{main/ns}}.service/data-provider
  {;; external data providers via Risky
   :llamasoft-api-url  #or [#env LAMASOFT_API_URL "http://localhost"]
   :polybus-report-uri "/report/polybus"
@@ -77,6 +79,6 @@
  ;; define top-level keys to access via the environment hash-map
  ;; - :persistence - database connection information
  ;; - :services - url, endpoint, tokens for services used by the Fraud API (e.g. risky)
- :{{top/ns}}.service/router
- {:persistence #ig/ref :{{top/ns}}.service/relational-store
-  :data-provider #ig/ref :{{top/ns}}.service/data-provider}}
+ :{{top/ns}}.{{main/ns}}.service/router
+ {:persistence #ig/ref :{{top/ns}}.{{main/ns}}.service/relational-store
+  :data-provider #ig/ref :{{top/ns}}.{{main/ns}}.service/data-provider}}

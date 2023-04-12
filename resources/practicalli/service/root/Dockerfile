@@ -62,12 +62,12 @@ RUN make dist
 # Official OpenJDK Image
 FROM eclipse-temurin:17-alpine
 
-# Example labels
-# LABEL org.opencontainers.image.authors="nospam+dockerfile@practicall.li"
-# LABEL io.github.practicalli.service="Clojure Service"
+# Example labels for runtime docker image
+# LABEL org.opencontainers.image.authors="nospam+dockerfile@{{top/ns}}.{{group/id}}"
+# LABEL {{group/id}}.{{top/ns}}.{{main/ns}}="{{top/ns}} {{main/ns}} service"
 # LABEL io.github.practicalli.team="Practicalli Engineering Team"
-# LABEL version="1.0"
-# LABEL description="Clojure service"
+# LABEL version="{{version}}"
+# LABEL description="{{top/ns}} {{main/ns}} service"
 
 # Add operating system packages
 # - dumb-init to ensure SIGTERM sent to java process running Clojure service
