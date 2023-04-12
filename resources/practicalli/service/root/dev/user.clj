@@ -16,7 +16,8 @@
   (:require
 
    [system
-    :refer [config go halt reset reset-all system]]  ; System component commands
+    :refer
+    [config restart restart-all start stop system]]  ; System component commands
 
    [clojure.tools.deps.alpha.repl :refer [add-libs]] ; Hotload libraries
    [find-deps.core :as find-lib]
