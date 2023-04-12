@@ -8,10 +8,11 @@
 // https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
 // ------------------------------------------
 
-{// Default state for all rules
-  "default": true,
+{
+  // Default state for all rules
+  //  "default": true,
   // Path to configuration file to extend
-  "extends": null,
+  //  "extends": null,
 
   // MD001/heading-increment/header-increment
   // - Heading levels should only increment by one level at a time
@@ -287,7 +288,7 @@
   //   // Block style
   //   "style": "consistent"
   // },
-  "MD046": false
+  "MD046": false,
 
   // MD047/single-trailing-newline
   // - Files should end with a single newline character
