@@ -34,7 +34,8 @@
  ;;   {"source-file.extension.template" "destination-file.extension"}]]
  :transform
  [["api" "src/{{top/file}}/{{main/file}}/api"
-   {"system_admin.clj.template" "system_admin.clj"}]
+   {"system_admin.clj.template" "system_admin.clj"
+    "scoreboard.clj.template" "scoreboard.clj"}]
   ["build" ""
    {"build.clj.template" "build.clj"
     "deps.edn.template"  "deps.edn"}]

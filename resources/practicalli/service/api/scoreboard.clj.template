@@ -1,0 +1,55 @@
+;; --------------------------------------------------
+;; System Administration and Status check
+;;
+;; - return service status response
+;; --------------------------------------------------
+
+
+(ns {{top/ns}}.{{main/ns}}.api.scoreboard
+  "Gameboard API Scoreboard across all games"
+  (:require [ring.util.response :refer [response]]))
+
+
+;; --------------------------------------------------
+;; Status of Service
+
+(def scores
+  "Simple status report for external monitoring services, e.g. Pingdom
+  Return:
+  - `constantly` returns an anonymous function that returns a ring response hash-map"
+  (constantly (response {:scoreboard [{:game-id 347938472938439487492
+                                       :game-name "Polymous"
+                                       :high-score "344398799666"}]})))
+
+;; --------------------------------------------------
+
+
+;; --------------------------------------------------
+;; Router
+
+(defn routes
+  "Reitit route configuration for  endpoint"
+  [system-config]
+  ["/scoreboard"
+   {:swagger {:tags ["Scoreboard Endpoints"]}
+    :get {:summary "Scoreboard across all games"
+          :description "Return all the high scores for every game registered"
+          :handler scores
+          :responses
+          {200
+           {:body
+            {:scoreboard [:game-id uuid? :game-name string? :high-score string?]}}}}}])
+
+;; --------------------------------------------------
+
+
+(defn routes
+  "Reitit route configuration for system-admin endpoint"
+  []
+  ["/system-admin"
+   {:swagger {:tags ["Application Support"]}}
+   ["/status"
+    {:get {:summary "Status of {{top/ns}} {{main/ns}} service"
+           :description "Ping {{top/ns}} {{main/ns}} service to see if is responding to a simple request and therefore alive"
+           :handler status
+           :responses {200 {:body {:application string? :status string?}}}}}]])
