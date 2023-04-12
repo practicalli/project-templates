@@ -72,9 +72,10 @@ FROM eclipse-temurin:17-alpine
 # Add operating system packages
 # - dumb-init to ensure SIGTERM sent to java process running Clojure service
 # - Curl and jq binaries for manual running of system integration scripts
+# check for newer package versions: https://pkgs.alpinelinux.org/
 RUN apk add --no-cache \
     dumb-init~=1.2.5 \
-    curl~=7.83.1 \
+    curl~=8.0.1 \
     jq~=1.6
 
 # Create Non-root group and user to run service securely
