@@ -20,7 +20,7 @@
     [config restart restart-all start stop system]]  ; System component commands
 
    [clojure.tools.deps.alpha.repl :refer [add-libs]] ; Hotload libraries
-   [find-deps.core :as find-lib]
+   ;; [find-deps.core :as find-lib]
    [portal.api :as inspect]                          ; Data inspector
    [clojure.pprint :as pprint]                       ; Human readable data structures
 
@@ -106,8 +106,8 @@
 ;; ---------------------------------------------------------
 ;; Find Libraries
 (comment
-  (find-lib/deps "library-name") ; fuzzy library search
-  (find-lib/print-deps "library-name")) ; show results as table
+  ;; (find-lib/deps "library-name") ; fuzzy library search
+  ;; (find-lib/print-deps "library-name")) ; show results as table
 ;; ---------------------------------------------------------
 
 ;; ---------------------------------------------------------
