@@ -9,9 +9,14 @@
 ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝
 ```
 
+Latest release:
+```clojure
+{:git/tag "2023.04.18" :git/sha "5567a46"}
+```
+
 ## Templates Roadmap
 
-General purpose 🧰
+🧰 General purpose
 
 * REVIEW: [practicalli/service](https://github.com/practicalli/project-templates/issues/2) - production grade HTTP service, basic routing (reitit-ring & middleware)
 * REVIEW: [practicalli/application](https://github.com/practicalli/project-templates/issues/4) - general application, limited code
