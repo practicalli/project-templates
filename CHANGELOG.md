@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file. This change
 ## [Unreleased]
 
 ### Added
-- ci: add commonly used GitHub workflows and configuration files
+- project-template ci: add commonly used GitHub workflows and configuration files
   - MegaLinter lints docs, code and config files
   - Lint Review uses clj-kondo & reviewdog to add errors as comments
   - Scheduled Version Check uses antq to check library and action versions
@@ -14,6 +14,13 @@ All notable changes to this project will be documented in this file. This change
   - CODEOWNERS sets GitHub users automatically added to pull requests as reviewers
   - FUNDING links project to GitHub users sponsorship page
   - pull_request_template provides template for pull requests
+- [#4](https://github.com/practicalli/project-templates/issues/4) `practicalli/application` production template
+  - Dockerfile and compose.yaml example configuration
+  - Makefile for build automation
+  - GitHub workflows (MegaLinter, Lint Review, Changelog, Version Check)
+  - Mulog Event logging and Portal publisher
+  - REPL Reloaded tooling support
+
 ### Changed
 - removed tools.build build script created by deps-new template - not required
 
