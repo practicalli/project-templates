@@ -10,25 +10,41 @@
 ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝
 ```
 
-## Templates provided
+## Templates Roadmap
 
 General purpose 🧰
-* DOING: [practicalli/service](https://github.com/practicalli/project-templates/issues/2) - production grade HTTP service, basic routing (reitit-ring & middleware)
-* DOING: [practicalli/application](https://github.com/practicalli/project-templates/issues/4) - general application, limited code
+
+* REVIEW: [practicalli/service](https://github.com/practicalli/project-templates/issues/2) - production grade HTTP service, basic routing (reitit-ring & middleware)
+* REVIEW: [practicalli/application](https://github.com/practicalli/project-templates/issues/4) - general application, limited code
 * TODO: practicalli/api - production grade API service (reitit-ring, clojure.spec validation)
 * TODO: practicalli/library - general library, deploymnent to Maven/Clojars
 * TODO: [practicalli/blog](https://github.com/practicalli/project-templates/issues/1) - cryogen project with Practicalli Customisation
 * TODO: practicalli/jetty - basic web server
 * TODO: practicalli/httpkit - basic web server
 
+Web UI
+
+* TODO: practicalli/landing-page - a simple landing page with figwheel and Bulma.io CSS
+* TODO: practicalli/single-page-app - a simple landing page with figwheel and Bulma.io CSS
+* TODO: practicalli/catalog - a catalog front-end webapp with [firebase persistence](https://firebase.google.com/), user OAuth authentication, figwheel, Reagent, Bulma.io CSS
+* TODO: practicalli/store-front - a catalog front-end webapp with stripe integration, [firebase persistence](https://firebase.google.com/), OAuth authentication, figwheel, Reagent, Bulma.io CSS
+
 Data Science ‍🔬
+
 * TODO: practicalli/notebook - clerk or notespace projects
+* TODO: practicalli/dashboard - visualising data sources to communicate information and concepts
 * TODO: practicalli/visualisation - oz or hanami projects
 * TODO: practicalli/data-transform - tablecloth & code for data set manipulation
 
-3rd party templates
-* Clerk template - https://github.com/mentat-collective/clerk-utils/tree/main/resources/clerk_utils/custom
+Miscellaneous
 
+* TODO: practicalli/zulip-bot
+* TODO: practicalli/slack-bot
+* TODO: practicalli/mastodon-bot
+
+3rd party templates
+
+* [Clerk template](https://github.com/mentat-collective/clerk-utils/tree/main/resources/clerk_utils/custom)
 
 ## Usage
 
