@@ -1,6 +1,5 @@
 # Practicalli project templates
 
-
 ```none
 ██████╗ ██████╗  █████╗  ██████╗████████╗██╗ ██████╗ █████╗ ██╗     ██╗     ██╗
 ██╔══██╗██╔══██╗██╔══██╗██╔════╝╚══██╔══╝██║██╔════╝██╔══██╗██║     ██║     ██║
@@ -48,16 +47,21 @@ Miscellaneous
 
 ## Usage
 
-Create a new project using the `:project/create` alias from [Practialli Clojure CLI Config](https://practical.li/clojure/clojure-cli/practicalli-config/)
+Create a new project using the `:project/create` alias from [Practialli Clojure CLI Config](https://practical.li/clojure/clojure-cli/practicalli-config/), using `practicalli/application` template by default
 
 ```shell
 clojure -T:project/create
 ```
 
-Or add a specific `:name` and value to create a project with a different name and `:target-dir` to specify a directory to create the project in.
+Override the default template with command line options
+
+* `:template` to specify a different template to create the project from, e.g. `:template practicalli/service`
+* `:name` and value to create a project with a different name
+* `:target-dir` to specify a directory to create the project in
+* `:overwrite` affects an existing project with the same :target-dir name, `true` updates, `:delete` deletes existing project. No changes if `nil` or option not given.
 
 ```shell
-clojure -T:project/create :name practicalli.template/gameboard :target-dir gameboard-service
+clojure -T:project/create :template practicalli/service :name practicalli/gameboard :target-dir gameboard-service
 ```
 
 ### Alias definition
@@ -73,11 +77,12 @@ The `project/create` alias definition combines [seancorfield/deps-new](https://g
                   io.github.practicalli/project-templates
                   {:git/tag "2023.04.12" :git/sha "3b4e3fa"}}
    :exec-fn      org.corfield.new/create
-   :exec-args    {:template practicalli/service
-                  :name practicalli/gameboard}}
+   :exec-args    {:template practicalli/application
+                  :name practicalli/playground}}
 ```
 
 > [seancorfield/deps-new](https://github.com/seancorfield/deps-new) can also be installed as a Clojure CLi tool, for example with the `project-create` tool name:
+>
 > ```bash
 > clojure -Ttools install io.github.seancorfield/deps-new '{:git/tag "v0.5.0"}' :as project-create
 > ```
@@ -87,7 +92,6 @@ The `project/create` alias definition combines [seancorfield/deps-new](https://g
 > ```shell
 > clojure -Tproject-create practicalli/service :name practicalli.gameboard/service
 > ```
-
 
 ## Development
 
@@ -118,7 +122,6 @@ make test-watch
 ```
 
 > [Practicalli Blog: Create deps-new template for Clojure CLI projects](https://practical.li/blog-staging/posts/create-deps-new-template-for-clojure-cli-projects/)
-
 
 ## License
 
