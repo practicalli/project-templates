@@ -18,5 +18,5 @@
             "{{top/ns}} service developed by the secret engineering team"))
 
     ;; TODO: fix test by calling greet with {:team-name "Practicalli Engineering"}
-    (is (= ({{main/ns}}/greet "Practicalli Engineering")  
+    (is (= ({{main/ns}}/greet "Practicalli Engineering")
             "{{top/ns}} service developed by the Practicalli Engineering team"))))

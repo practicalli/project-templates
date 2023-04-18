@@ -16,7 +16,7 @@
   "Greeting message via Clojure CLI clojure.exec"
 
   ;; TODO: fix greet function with hash-map argument {:team-name "secret engineering"}
-  ([] (greet "secret engineering")) 
+  ([] (greet "secret engineering"))
   ([{:keys [team-name]}]
    (str "{{top/ns}} {{main/ns}} service developed by the " team-name " team")))
 

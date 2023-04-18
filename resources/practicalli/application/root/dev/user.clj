@@ -40,8 +40,8 @@
   (println "(namespace/refresh-all)        ; refresh all namespaces")
   (println)
   (println "Hotload libraries:             ; Clojure 1.12.x")
-  (println "(add-lib 'library-name)")  
-  (println "(add-libs '{domain/library-name {:mvn/version \"v1.2.3\")")  
+  (println "(add-lib 'library-name)")
+  (println "(add-libs '{domain/library-name {:mvn/version \"v1.2.3\")")
   (println "(sync-deps)                    ; load dependencies from deps.edn")
   (println "- deps-* lsp snippets for adding library")
   (println)
@@ -105,7 +105,7 @@
 
   (add-libs '{domain/library-name {:mvn/version "1.0.0"}})
 
-  ;; Clojure 1.12.x only 
+  ;; Clojure 1.12.x only
   (add-lib 'library-name)   ; find and add library
   (sync-deps)               ; load dependencies in deps.edn (if not yet loaded)
   #_()) ; End of rich comment
