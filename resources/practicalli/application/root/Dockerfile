@@ -62,19 +62,20 @@ RUN make dist
 # Official OpenJDK Image
 FROM eclipse-temurin:17-alpine
 
-# Example labels
-# LABEL org.opencontainers.image.authors="nospam+dockerfile@practicall.li"
-# LABEL io.github.practicalli.service="Clojure Service"
+# Example labels for runtime docker image
+# LABEL org.opencontainers.image.authors="nospam+dockerfile@{{top/ns}}.{{group/id}}"
+# LABEL {{group/id}}.{{top/ns}}.{{main/ns}}="{{top/ns}} {{main/ns}}"
 # LABEL io.github.practicalli.team="Practicalli Engineering Team"
-# LABEL version="1.0"
-# LABEL description="Clojure service"
+# LABEL version="{{version}}"
+# LABEL description="{{top/ns}} {{main/ns}} service"
 
 # Add operating system packages
 # - dumb-init to ensure SIGTERM sent to java process running Clojure service
 # - Curl and jq binaries for manual running of system integration scripts
+# check for newer package versions: https://pkgs.alpinelinux.org/
 RUN apk add --no-cache \
     dumb-init~=1.2.5 \
-    curl~=7.83.1 \
+    curl~=8.0.1 \
     jq~=1.6
 
 # Create Non-root group and user to run service securely
@@ -108,6 +109,12 @@ EXPOSE 8080
 
 # ------------------------
 # Run service
+
+# Docker Service heathcheck
+# docker inspect --format='{{json .State.Health}}' container-name
+# - local heathcheck defined in `compose.yaml` service definition
+# TODO: Set URL in Dockerfile to point to deployed service
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD [ "curl --fail http://localhost:8080 || exit 1" ]
 
 # JDK_JAVA_OPTIONS environment variable for setting JVM options
 # Use JVM options that optomise running in a container
