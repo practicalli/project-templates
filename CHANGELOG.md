@@ -14,6 +14,8 @@ All notable changes to this project will be documented in this file. This change
   - CODEOWNERS sets GitHub users automatically added to pull requests as reviewers
   - FUNDING links project to GitHub users sponsorship page
   - pull_request_template provides template for pull requests
+### Changed
+- removed tools.build build script created by deps-new template - not required
 
 ## 2023-04-12
 
