@@ -2,8 +2,17 @@
  ["src" "resources"]
 
  :deps
- {org.clojure/clojure    {:mvn/version "{{clojure-cli-version}}"}
-  com.brunobonacci/mulog {:mvn/version "{{mulog-version}}"}}
+ {;; Application
+  org.clojure/clojure {:mvn/version "{{clojure-version}}"}
+
+  ;; Logging
+  ;; create events and send to publisher
+  com.brunobonacci/mulog             {:mvn/version "0.9.0"}
+  ;; JSON Console out support
+  com.brunobonacci/mulog-adv-console {:mvn/version "0.9.0"}
+  ;; Optional: suppress slf4j warning
+  ;; org.slf4j/slf4j-nop {:mvn/version "1.7.32"}
+}
 
  :aliases
  {;; Clojure.main execution of application
@@ -20,28 +29,18 @@
   {}
 
   ;; Test runner - local and CI
+  ;; call with :watch? true to start file watcher and re-run tests on saved changes
   :test/run
   {:extra-paths ["test"]
-   :extra-deps {lambdaisland/kaocha {:mvn/version "{{kaocha-version}}"}}
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.82.1306"}}
    :main-opts   ["-m" "kaocha.runner"]
    :exec-fn kaocha.runner/exec-fn
    :exec-args {:randomize? false
-               :fail-fast? true}}
-
-  ;; Kaocha test runner in watch mode - local dev
-  :test/watch
-  {:extra-paths ["test"]
-   :extra-deps {lambdaisland/kaocha {:mvn/version "{{kaocha-version}}"}}
-   :main-opts   ["-m" "kaocha.runner"
-                 "--watch" "--fail-fast" "--skip-meta" ":slow"]
-   :exec-fn kaocha.runner/exec-fn
-   :exec-args {:watch? true
-               :randomize? false
                :fail-fast? true}}
 
   ;; tools.build `build.clj` built script
   :build
   {:replace-paths ["."]
    :replace-deps {io.github.clojure/tools.build
-                  {:git/tag "{{tools-build-tag}}" :git/sha "{{tools-build-sha}}"}}
+                  {:git/tag "v0.9.4" :git/sha "76b78fe"}}
    :ns-default build}}}
