@@ -1,11 +1,11 @@
-#### Description :memo: 📓
+📓 Description
 
 _Summary of the change and link to any relevant tickets. New aliases should include details of why they are valuable_
 
 Resolve #
 Refer #
 
-#### Type of change :octocat:
+:octocat Type of change
 
 _Please tick `x` relevant options, delete those not relevant_
 
@@ -15,14 +15,13 @@ _Please tick `x` relevant options, delete those not relevant_
 - [ ] Documentation
 - [ ] Continuous integration workflow
 
-#### How Has This Been Tested? :beetle:
+:beetle How Has This Been Tested?
 
 - [ ] unit test
 - [ ] linter check
 - [x] GitHub Action checkers
 
-
-#### Checklist :eyes:
+:eyes Checklist
 
 - [ ] Code follows the [Practicalli cljstyle configuration](https://practical.li/clojure/clojure-cli/clojure-style/#cljstyle)
 - [ ] Add / update alias docs and README where relevant

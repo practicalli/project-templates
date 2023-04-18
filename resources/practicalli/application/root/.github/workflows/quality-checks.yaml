@@ -15,7 +15,7 @@ jobs:
       - run: echo "🐙 Using ${{ github.ref }} branch from ${{ github.repository }} repository"
 
       - name: "Checkout code"
-        uses: actions/checkout@v3.5.0
+        uses: actions/checkout@v3
       - run: echo "🐙 ${{ github.repository }} repository was cloned to the runner."
 
       - name: "Prepare Java runtime"
@@ -36,7 +36,7 @@ jobs:
       - name: "Install tools"
         uses: DeLaGuardo/setup-clojure@10.2
         with:
-          cli: 1.11.1.1262 # Clojure CLI
+          cli: 1.11.1.1273 # Clojure CLI
           cljstyle: 0.15.0
           clj-kondo: 2023.03.17
 
