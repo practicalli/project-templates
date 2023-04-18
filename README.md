@@ -26,21 +26,21 @@ Latest release:
 * TODO: practicalli/jetty - basic web server
 * TODO: practicalli/httpkit - basic web server
 
-Web UI
+🕸️  Web UI
 
 * TODO: practicalli/landing-page - a simple landing page with figwheel and Bulma.io CSS
 * TODO: practicalli/single-page-app - a simple landing page with figwheel and Bulma.io CSS
 * TODO: practicalli/catalog - a catalog front-end webapp with [firebase persistence](https://firebase.google.com/), user OAuth authentication, figwheel, Reagent, Bulma.io CSS
 * TODO: practicalli/store-front - a catalog front-end webapp with stripe integration, [firebase persistence](https://firebase.google.com/), OAuth authentication, figwheel, Reagent, Bulma.io CSS
 
-Data Science ‍🔬
+🔬 Data Science ‍
 
 * TODO: practicalli/notebook - clerk or notespace projects
 * TODO: practicalli/dashboard - visualising data sources to communicate information and concepts
 * TODO: practicalli/visualisation - oz or hanami projects
 * TODO: practicalli/data-transform - tablecloth & code for data set manipulation
 
-Miscellaneous
+🐈 Miscellaneous
 
 * TODO: practicalli/zulip-bot
 * TODO: practicalli/slack-bot
