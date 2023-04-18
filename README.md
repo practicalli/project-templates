@@ -75,7 +75,7 @@ The `project/create` alias definition combines [seancorfield/deps-new](https://g
   {:replace-deps {io.github.seancorfield/deps-new
                   {:git/tag "v0.5.1" :git/sha "21cede2"}
                   io.github.practicalli/project-templates
-                  {:git/tag "2023.04.12" :git/sha "3b4e3fa"}}
+                  {:git/tag "2023.04.18" :git/sha "5567a46"}}
    :exec-fn      org.corfield.new/create
    :exec-args    {:template practicalli/application
                   :name practicalli/playground}}
