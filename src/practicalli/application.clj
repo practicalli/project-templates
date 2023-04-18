@@ -15,24 +15,26 @@
    [clojure.pprint :as pprint]))
 
 
-(defn data-fn
+#_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
+(defn substitutions
   "Example data-fn handler.
 
   Result is merged onto existing options data."
   [data]
   ;; returning nil means no changes to options data
-  (println "data-fn")
+  (println "Updated substitions:")
   (pprint/pprint data)
   nil)
 
-(defn template-fn
+#_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
+(defn template-edn
   "Example template-fn handler.
 
   Result is used as the EDN for the template."
   [edn data]
   ;; must return the whole EDN hash map
-  (println "template-fn data")
+  (println "template-edn data")
   (pprint/pprint data)
-  (println "template-fn edn")
+  (println "template-edn edn")
   (pprint/pprint edn)
   edn)

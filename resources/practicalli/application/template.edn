@@ -1,25 +1,37 @@
 {;; Values to pass into the template
  :description "TODO: Provide a meaningful description of the project"
 
- ;; Tool versions
- :clojure-cli-version "1.11.1"
+ ;; ---------------------------------------------------------
+ ;; Version substitutions
 
- ;; Library versions
- :mulog-version "0.9.0"
- :kaocha-version "1.80.1274"
- :tools-build-tag "v0.9.4"
- :tools-build-sha "76b78fe"
+ :clojure-version "1.11.1"
 
+ ;; ---------------------------------------------------------
+
+
+ ;; ---------------------------------------------------------
  ;; Optional features
- :component nil ; one of "integrant" "mount" "donut"
- :persistence nil ; one of "postgres" "h2" "crux"
- :router nil ; one of "reitit"
+ ;; - used by programatic transformation
+ ;; - not implemented yet
+ ;; ---------------------------------------------------------
 
-;; this does not transform the data but does print a message:
- :data-fn practicalli.application/data-fn
- ;; this does not transform the EDN but does print a message:
- :template-fn practicalli.application/template-fn
- :transform
+ ;; ---------------------------------------------------------
+ ;; Programatic Transformation functions
+
+ :data-fn practicalli.application/substitutions
+
+ :template-fn practicalli.application/template-edn
+  ;; ---------------------------------------------------------
+
+ ;; ---------------------------------------------------------
+ ;; Declarative Transformation rules
+ ;; - can be updated by programmatic transformation
+ ;;
+ ;; Form:
+ ;; [["directory-name" "default-path"
+ ;;   {"source-file.extension.template" "destination-file.extension"}]]
+
+:transform
  [["build" ""
    {"build.clj.template" "build.clj"
     "deps.edn.template"  "deps.edn"}]
@@ -27,3 +39,4 @@
    {"app.clj.template" "{{main/file}}.clj"}]
   ["test" "test/{{top/file}}"
    {"app_test.clj.template" "{{main/file}}_test.clj"}]]}
+ ;; ---------------------------------------------------------
