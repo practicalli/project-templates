@@ -10,16 +10,22 @@
   (:require
     [com.brunobonacci.mulog :as mulog]))
 
+
+#_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 (defn greet
-  "Callable entry point to the application."
-  [moniker]
-  (str "Welcome to Clojure " (or (:name moniker) "everyone")))
+  "Greeting message via Clojure CLI clojure.exec"
+
+  ;; TODO: fix greet function with hash-map argument {:team-name "secret engineering"}
+  ([] (greet "secret engineering")) 
+  ([{:keys [team-name]}]
+   (str "{{top/ns}} {{main/ns}} service developed by the " team-name " team")))
+
 
 (defn -main
   "Entry point into the application via clojure.main -M"
   [& args]
-  (mulog/log ::service-starup :user :practicalli)
-  (greet {:name (first args)}))
+  (mulog/log ::application-starup :arguments args)
+  (greet {:team-name (first args)}))
 
 
 
