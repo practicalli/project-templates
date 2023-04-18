@@ -14,14 +14,15 @@
 (ns user
   "Tools for REPL Driven Development"
   (:require
+   ;; REPL Workflow
    [clojure.tools.namespace.repl :as namespace ]
-   [clojure.tools.deps.alpha.repl :refer [add-libs]]
-   [find-deps.core :as find-lib]
-   [portal.api :as inspect]
 
-   [com.brunobonacci.mulog :as mulog]
-   [mulog-publisher] ; tap mulog events
-   ;; [system] ; Component management
+   ;; REPL Workflow
+   [portal.api :as inspect]                          ; Data inspector
+
+   ;; Logging
+   [com.brunobonacci.mulog :as mulog]                ; Event Logging
+   [mulog-publisher]                                 ; Tap mulog events
    ))
 
 ;; ---------------------------------------------------------
@@ -34,16 +35,15 @@
 (defn help
   []
   (println "---------------------------------------------------------")
-  (println "Find Libraries:")
-  (println "(find-lib/deps \"library-name)\"")
-  (println)
-  (println "Hotload libraries:")
-  (println "(add-libs '{domain/library-name {:mvn/version \"v1.2.3\"}})")
-  (println "- deps-* lsp snippets for adding library")
-  (println)
   (println "Namesapece Management:")
   (println "(namespace/refresh)            ; refresh all changed namespaces")
   (println "(namespace/refresh-all)        ; refresh all namespaces")
+  (println)
+  (println "Hotload libraries:             ; Clojure 1.12.x")
+  (println "(add-lib 'library-name)")  
+  (println "(add-libs '{domain/library-name {:mvn/version \"v1.2.3\")")  
+  (println "(sync-deps)                    ; load dependencies from deps.edn")
+  (println "- deps-* lsp snippets for adding library")
   (println)
   (println "Portal Inspector:")
   (println "- portal started by default, listening to all evaluations")
@@ -68,7 +68,7 @@
 (inspect/open {:portal.colors/theme :portal.colors/gruvbox})
 ;; (inspect/open {:portal.colors/theme :portal.colors/solarized-light})
 
-;; Add portal as a tap> target
+;; Add portal as a tap> target and listen to all evaluation results (via nREPL)
 (add-tap #'portal.api/submit)
 
 ;; ---------------------------------------------------------
@@ -90,23 +90,24 @@
 
 (mulog/log ::emacs-event ::ns (ns-publics *ns*))
 
+;; Stop mulog publisher
 #_mulog-tap-publisher
 
 ;; ---------------------------------------------------------
 
 
 ;; ---------------------------------------------------------
-;; Find Libraries
-(comment
-  (find-lib/deps "library-name") ; fuzzy library search
-  (find-lib/print-deps "library-name")) ; show results as table
-;; ---------------------------------------------------------
-
-;; ---------------------------------------------------------
 ;; Hotload libraries into running REPL
 ;; `deps-*` LSP snippets to add dependency forms
 (comment
+  ;; Require for Clojure 1.11.x and earlier
+  (require '[clojure.tools.deps.alpha.repl :refer [add-libs]])
+
   (add-libs '{domain/library-name {:mvn/version "1.0.0"}})
+
+  ;; Clojure 1.12.x only 
+  (add-lib 'library-name)   ; find and add library
+  (sync-deps)               ; load dependencies in deps.edn (if not yet loaded)
   #_()) ; End of rich comment
 ;; ---------------------------------------------------------
 
