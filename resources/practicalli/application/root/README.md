@@ -11,55 +11,101 @@
 
 ## Project Status
 
-TODO: add status badges for http://{{scm/repo}}/{{developer}} workflows and issues
-
+TODO: add status badges for <https://{{scm/domain}}/{{developer}}/{{scm/repo>}} workflows and issues
 
 {{description}}
 
-## Usage
+Project created with [deps-new](https://github.com/seancorfield/deps-new) and the [practicalli/application template](https://github.com/practicalli/project-templates)
 
-TODO: write usage documentation!
+## Run the service
 
 Run the service (clojure.main)
+
 ```shell
 clojure -M:run/service
 ```
 
-Run the greet function (clojure.exec), optionally passing a :name and value argument
+Run the greet function (clojure.exec), optionally passing a `:name` key and value as arguments
+
 ```shell
 clojure -X:run/greet :name '"team name"'
 ```
 
+## Development
 
-## Readme content to review
+List all the available project tasks using the `make` help
 
-Invoke a library API function from the command-line:
+```shell
+make
+```
 
-    $ clojure -X {{top/ns}}.{{main/ns}}/greet '"team name"'
-    {:a 1, :b "two"} "Hello, World!"
+> This project uses `make` tasks to run the Clojure tests, kaocha test runner and package the service into an uberjar.  The `Makefile` uses `clojure` commands and arguments that can be used directly if not using `make`.
 
-Run the project's tests (they'll fail until you edit them):
+### Run Clojure REPL
 
-    $ clojure -T:build test
+Start the REPL with the [Practicalli REPL Reloaded](https://practical.li/clojure/clojure-cli/repl-reloaded/) aliases to include the custom `user` namespace (`dev/user.clj`) which provides additional tools for development (IntegrantREPL, add-libs hotload, find-deps, Portal data inspector)
 
-Run the project's CI pipeline and build a JAR (this will fail until you edit the tests to pass):
+```shell
+make repl
+```
 
-    $ clojure -T:build ci
+Evaluate `(start)` expression at the repl prompt to start the service.  Several mulog events should be published to the terminal window.
 
-This will produce an updated `pom.xml` file with synchronised dependencies inside the `META-INF`
-directory inside `target/classes` and the JAR in `target`. You can update the version (and SCM tag)
-information in generated `pom.xml` by updating `build.clj`.
+Connect a clojure aware editor and start developing the code, evaluating changes as they are made.
 
-Install it locally (requires the `ci` task be run first):
+`(refresh)` will reload any changed namespaces
 
-    $ clojure -T:build install
+The local nREPL server port will be printed, along with a help menu showing the REPL Reloaded tools available.
 
-Deploy it to Clojars -- needs `CLOJARS_USERNAME` and `CLOJARS_PASSWORD` environment
-variables (requires the `ci` task be run first):
+> `:dev/reloaded` alias should be included in the editor command (jack-in) to start a REPL
 
-    $ clojure -T:build deploy
+### Unit tests
 
-Your library will be deployed to {{group/id}}/{{artifact/id}} on clojars.org by default.
+Run unit tests of the service using the kaocha test runner
+
+```shell
+make test
+```
+
+> If additional libraries are required to support tests, add them to the `:test/env` alias definition in `deps.edn`
+
+`make test-watch` will run tests on file save, although changes to `template.edn` may require cancelling the test watch (Control-c) and restarting.  test-watch requires Practicalli Clojure CLI Config `:test/watch` alias.
+
+## Format Code
+
+Check the code format before pushing commits to a shared repository, using cljstyle to check the Clojure format and MegaLinter to check format of all other files.
+
+Before running the `pre-commit-check`
+
+* [install cljstyle](https://github.com/greglook/cljstyle/releases){target=_blank}
+* MegaLinter runs in a Docker container, so ensure Docker is running
+
+```shell
+make pre-commit-check
+```
+
+* `make format-check` runs cljstyle and and prints a report if there are errors
+* `make format-fix` updates all files if there are errors (check the changes made via `git diff`)
+
+## Deployment
+
+Build an uberjar to deploy the service as a jar file
+
+```shell
+make build-uberjar
+```
+
+* `make build-config` displays the tools.build configuration
+* `make build-clean` deletes the build assets (`target` directory)
+
+```shell
+make docker-build
+```
+
+* `make docker-down` shuts down all services started with `docker-build`
+* `make docker-build-clean`
+
+Or build and run the service via the multi-stage `Dockerfile` configuration as part of a CI workflow.
 
 ## License
 
