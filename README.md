@@ -10,9 +10,8 @@
 ```
 
 Latest release:
-```clojure
-{:git/tag "2023.04.18" :git/sha "5567a46"}
-```
+
+![Latest Release Tag](https://img.shields.io/github/v/release/practicalli/project-templates?display_name=tag)
 
 ## Templates Roadmap
 
@@ -50,6 +49,17 @@ Latest release:
 
 * [Clerk template](https://github.com/mentat-collective/clerk-utils/tree/main/resources/clerk_utils/custom)
 
+
+## Sponsor Practicalli
+
+[![Sponsor practicalli-john](https://raw.githubusercontent.com/practicalli/graphic-design/live/buttons/practicalli-github-sponsors-button.png)](https://github.com/sponsors/practicalli-john/)
+
+The majority of my work is focused on the [Practicalli series of books and videos](https://practical.li/) and supporting projects.
+
+Thank you to [Cognitect](https://www.cognitect.com/), [Nubank](https://nubank.com.br/) and a wide range of other [sponsors](https://github.com/sponsors/practicalli-john#sponsors) for your continued support
+
+
+
 ## Usage
 
 Create a new project using the `:project/create` alias from [Practialli Clojure CLI Config](https://practical.li/clojure/clojure-cli/practicalli-config/), using `practicalli/application` template by default
@@ -74,6 +84,10 @@ clojure -T:project/create :template practicalli/service :name practicalli/gamebo
 `:project/create` alias is provided by [Practialli Clojure CLI Config](https://practical.li/clojure/clojure-cli/practicalli-config/).
 
 The `project/create` alias definition combines [seancorfield/deps-new](https://github.com/seancorfield/deps-new) and practicalli/project-templates so that all Practicalli templates are available within one alias.
+
+[![Latest Release](https://img.shields.io/github/v/release/practicalli/project-templates?display_name=tag)](https://github.com/practicalli/project-templates/releases) page includes the release `:git/tag` and `:git/sha` values for `io.github.practicalli/project-templates`
+
+
 
 ```clojure
   :project/create
