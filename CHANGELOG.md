@@ -4,9 +4,9 @@ All notable changes to this project will be documented in this file. This change
 
 ## [Unreleased]
 
+## 2023-04-19
 ### Changed
-
-- MegaLinter:
+- MegaLinter workflow and configuration for all templates:
   - enable lint groups, disable tools causing false positives
   - include first interaction to add practicalli contributing guide to initial pull request
   - move linter specific configuration to config/megalinter.yaml
@@ -15,7 +15,7 @@ All notable changes to this project will be documented in this file. This change
 - changelog check: add echo statements for greater clarity
 - lint review: add echo statements for greater clarity
 - update all GitHub Actions to latest available versions (from scheduled-version-check report)
-
+- removed debug code from templates
 
 ## 2023-04-18
 
