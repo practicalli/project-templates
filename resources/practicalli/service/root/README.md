@@ -11,13 +11,11 @@
 
 ## Project Status
 
-TODO: add status badges for https://{{scm/domain}}/{{user}}/{{scm/repo}} workflows and issues
-
+TODO: add status badges for <https://{{scm/domain}}/{{developer}}/{{scm/repo>}} workflows and issues
 
 {{description}}
 
 Project created with [deps-new](https://github.com/seancorfield/deps-new) and the [practicalli/service template](https://github.com/practicalli/project-templates)
-
 
 ## Run the service
 
@@ -33,7 +31,6 @@ Run the greet function (clojure.exec), optionally passing a `:name` key and valu
 clojure -X:run/greet :name '"team name"'
 ```
 
-
 ## Development
 
 List all the available project tasks using the `make` help
@@ -43,7 +40,6 @@ make
 ```
 
 > This project uses `make` tasks to run the Clojure tests, kaocha test runner and package the service into an uberjar.  The `Makefile` uses `clojure` commands and arguments that can be used directly if not using `make`.
-
 
 ### Run Clojure REPL
 
@@ -63,7 +59,6 @@ The local nREPL server port will be printed, along with a help menu showing the 
 
 > `:dev/reloaded` alias should be included in the editor command (jack-in) to start a REPL
 
-
 ### Unit tests
 
 Run unit tests of the service using the kaocha test runner
@@ -75,7 +70,6 @@ make test
 > If additional libraries are required to support tests, add them to the `:test/env` alias definition in `deps.edn`
 
 `make test-watch` will run tests on file save, although changes to `template.edn` may require cancelling the test watch (Control-c) and restarting.  test-watch requires Practicalli Clojure CLI Config `:test/watch` alias.
-
 
 ## Format Code
 
@@ -93,7 +87,6 @@ make pre-commit-check
 * `make format-check` runs cljstyle and and prints a report if there are errors
 * `make format-fix` updates all files if there are errors (check the changes made via `git diff`)
 
-
 ## Deployment
 
 Build an uberjar to deploy the service as a jar file
@@ -105,8 +98,6 @@ make build-uberjar
 * `make build-config` displays the tools.build configuration
 * `make build-clean` deletes the build assets (`target` directory)
 
-
-
 ```shell
 make docker-build
 ```
@@ -115,9 +106,6 @@ make docker-build
 * `make docker-build-clean`
 
 Or build and run the service via the multi-stage `Dockerfile` configuration as part of a CI workflow.
-
-
-
 
 ## License
 
