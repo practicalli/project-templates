@@ -4,14 +4,15 @@
  ;; ---------------------------------------------------------
  ;; Version substitutions
 
- ;; Library versions
  :clojure-version "1.11.1"
 
+ ;; ---------------------------------------------------------
 
-;; ---------------------------------------------------------
 
  ;; ---------------------------------------------------------
- ;; Optional features - used by programatic transformation
+ ;; Optional features
+ ;; - used by programatic transformation
+ ;; - not implemented yet
  :cache nil ; one of "redis" "dynamodb"
  :component nil ; one of "integrant" "mount" "donut"
  :persistence nil ; one of "postgres" "h2" "xtdb" "mariadb"
@@ -20,10 +21,11 @@
 
  ;; ---------------------------------------------------------
  ;; Programatic Transformation functions
- ;; - `src/practicalli/service.clj`
- :data-fn practicalli.service/data-fn
- :template-fn practicalli.service/template-fn
- ;; ---------------------------------------------------------
+
+ :data-fn practicalli.service/substitutions
+
+ :template-fn practicalli.service/template-edn
+  ;; ---------------------------------------------------------
 
  ;; ---------------------------------------------------------
  ;; Declarative Transformation rules
@@ -32,6 +34,7 @@
  ;; Form:
  ;; [["directory-name" "default-path"
  ;;   {"source-file.extension.template" "destination-file.extension"}]]
+
  :transform
  [["api" "src/{{top/file}}/{{main/file}}/api"
    {"system_admin.clj.template" "system_admin.clj"
@@ -49,6 +52,3 @@
   ["test" "test/{{top/file}}/{{main/file}}"
    {"service_test.clj.template" "service_test.clj"}]]}
  ;; ---------------------------------------------------------
-
-;; ---------------------------------------------------------
-;; Available keys

@@ -4,41 +4,36 @@
 ;; Define transformations based on data in the template and
 ;; passed via the command line
 ;;
-;; `data-fn` enrich template data
-;; `template-fn` modify declarative template rules
+;; `data-fn` enrich substitution data
+;; `template-fn` modify template.edn, e.g. declarative template rules
 ;; ---------------------------------------------------------
 
 
 (ns practicalli.service
-  "Programmatic transformation of template data transformation rules"
-  (:require
-   [clojure.pprint :as pprint]
-   [clojure.string :as string]))
+  "Programmatic transformation of template data transformation rules")
 
-(defn data-fn
-  "Update keys & values available in the substitution data
+
+#_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
+(defn substitutions
+  "Update keys & values available in the substitution data,
+  from the template.edn, derived values and command line options
   Return:
-  - hash-map to be merged into the substitution data"
+  - hash-map to be merged into the existing substitution data"
   [data]
-  ;; returning nil means no changes to options data
-
-  ;; When using practicalli/service template,
-  ;; derive the service name
-  {:service-name (first (string/split (data :main) #"\."))}
-
+  ;; Simple example:
   #_(when (= (data :component) "integrant")
-      {:integrant-repl true}))
+      {:integrant-repl true})
+
+  nil) ; returning nil means no changes to options data
 
 
-(defn template-fn
-  "Derive new declarative transformation rules from substitution data
-  and values passed to the template via the command line
+#_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
+(defn template-edn
+  "Update data in the template.edn configuration.
+  E.g. derive new declarative transformation rules from
+  template substitutions, derived values and values passed
+  to the template via the command line
   Return
-  - updated template.edn configuration"
+  - new template.edn configuration"
   [edn data]
-  ;; must return the whole EDN hash map
-  (println "template-fn data")
-  (pprint/pprint data)
-  (println "template-fn edn")
-  (pprint/pprint edn)
   edn)
