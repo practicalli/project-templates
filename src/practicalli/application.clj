@@ -10,31 +10,32 @@
 
 
 (ns practicalli.application
-  "Programmatic transformation of template data transformation rules"
-  (:require
-   [clojure.pprint :as pprint]))
+  "Programmatic transformation of template substitution data
+  and declarative transformation rules")
 
 
 #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 (defn substitutions
-  "Example data-fn handler.
-
-  Result is merged onto existing options data."
+  "Update keys & values available in the substitution data,
+  from the template.edn, derived values and command line options
+  Return:
+  - hash-map to be merged into the existing substitution data"
   [data]
-  ;; returning nil means no changes to options data
-  (println "Updated substitions:")
-  (pprint/pprint data)
-  nil)
+
+  ;; Simple example:
+  #_(when (= (data :specification) "clojure.spec")
+      {:clojure-spec true})
+
+  nil) ; returning nil means no changes to options data
+
 
 #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 (defn template-edn
-  "Example template-fn handler.
-
-  Result is used as the EDN for the template."
+  "Update data in the template.edn configuration.
+  E.g. derive new declarative transformation rules from
+  template substitutions, derived values and values passed
+  to the template via the command line
+  Return
+  - new template.edn configuration"
   [edn data]
-  ;; must return the whole EDN hash map
-  (println "template-edn data")
-  (pprint/pprint data)
-  (println "template-edn edn")
-  (pprint/pprint edn)
   edn)
