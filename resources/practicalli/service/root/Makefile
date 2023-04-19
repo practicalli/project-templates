@@ -32,10 +32,6 @@
 # Column the target description is printed from
 HELP-DESCRIPTION-SPACING := 24
 
-# Example variables (not currently used)
-# SWAGGER-EDITOR-DOCKER-IMAGE := swaggerapi/swagger-editor
-# GAMEBOARD-API-DOCKER-CONTAINER-NAME := gameboard-api-service
-
 # Makefile file and directory name wildcard
 # EDN-FILES := $(wildcard *.edn)
 
@@ -81,23 +77,30 @@ clean:  ## Clean build temporary files
 
 # ------- Testing -------------------- #
 
-# TODO: focus runner on `:unit` tests
+test-config:  ## Print Kaocha test runner configuration
+		$(info --------- Runner Configuration ---------)
+		clojure -M:test/env:test/run --print-config
+
+test-profile:  ## Profile unit test speed, showing 3 slowest tests
+		$(info --------- Runner Profile Tests ---------)
+		clojure -M:test/env:test/run --plugin  kaocha.plugin/profiling
+
 test:  ## Run unit tests - stoping on first error
-	$(info --------- Runner for unit tests ---------)
-	clojure -X:test/env:test/run
+		$(info --------- Runner for unit tests ---------)
+		clojure -X:test/env:test/run
 
 
 test-all:  ## Run all unit tests regardless of failing tests
-	$(info --------- Runner for all unit tests ---------)
-	clojure -X:test/env:test/run :fail-fast? false
+		$(info --------- Runner for all unit tests ---------)
+		clojure -X:test/env:test/run :fail-fast? false
 
 test-watch:  ## Run tests when changes saved, stopping test run on first error
-	$(info --------- Watcher for unit tests ---------)
-	clojure -X:test/env:test/run :watch? true
+		$(info --------- Watcher for unit tests ---------)
+		clojure -X:test/env:test/run :watch? true
 
 test-watch-all:  ## Run all tests when changes saved, regardless of failing tests
-	$(info --------- Watcher for unit tests ---------)
-	clojure -X:test/env:test/run :fail-fast? false :watch? true
+		$(info --------- Watcher for unit tests ---------)
+		clojure -X:test/env:test/run :fail-fast? false :watch? true
 
 # ------------------------------------ #
 
