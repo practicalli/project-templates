@@ -36,23 +36,13 @@
   {}
 
   ;; Test runner - local and CI
+  ;; call with :watch? true to start file watcher and re-run tests on saved changes
   :test/run
   {:extra-paths ["test"]
    :extra-deps {lambdaisland/kaocha {:mvn/version "1.82.1306"}}
    :main-opts   ["-m" "kaocha.runner"]
    :exec-fn kaocha.runner/exec-fn
    :exec-args {:randomize? false
-               :fail-fast? true}}
-
-  ;; Kaocha test runner in watch mode - local dev
-  :test/watch
-  {:extra-paths ["test"]
-   :extra-deps {lambdaisland/kaocha {:mvn/version "1.82.1306"}}
-   :main-opts   ["-m" "kaocha.runner"
-                 "--watch" "--fail-fast" "--skip-meta" ":slow"]
-   :exec-fn kaocha.runner/exec-fn
-   :exec-args {:watch? true
-               :randomize? false
                :fail-fast? true}}
 
   ;; tools.build `build.clj` built script
