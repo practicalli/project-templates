@@ -26,15 +26,14 @@ services:
     ports:
       - 8080:8080
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080"]
-      interval: 1m00s
+      test: ["CMD", "curl", "--fail", "http://localhost:8080"]
+      interval: 10s
       timeout: 10s
       retries: 5
       start_period: 7s
     # depends_on:
     #   - "postgres"
     #   - "mysql"
-
 
   # Local OpenAPI (Swagger) Editor to debug swagger open api definition
   # Or use: https://editor-next.swagger.io/
@@ -86,7 +85,6 @@ services:
   #   # Persist MySQL database schema in a docker volume
   #   volumes:
   #     - mysql-data:/var/lib/mysql
-
 # Mount project root
 # volumes:
 #   postgres-data:

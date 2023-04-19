@@ -110,6 +110,12 @@ EXPOSE 8080
 # ------------------------
 # Run service
 
+# Docker Service heathcheck
+# docker inspect --format='{{json .State.Health}}' container-name
+# - local heathcheck defined in `compose.yaml` service definition
+# TODO: Set URL in Dockerfile to point to deployed service
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD [ "curl --fail http://localhost:8080 || exit 1" ]
+
 # JDK_JAVA_OPTIONS environment variable for setting JVM options
 # Use JVM options that optomise running in a container
 # For very low latency, use the Z Garbage collector "-XX:+UseZGC"
