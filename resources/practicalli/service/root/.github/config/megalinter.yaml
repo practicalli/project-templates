@@ -21,7 +21,7 @@ ENABLE:
   - MAKEFILE
   - MARKDOWN
   - GIT
-  # - SPELL
+  - SPELL
   - YAML
   - REPOSITORY
 
@@ -43,7 +43,7 @@ MARKDOWN_MARKDOWN_LINK_CHECK_CONFIG_FILE: ".github/config/markdown-link-check.js
 MARKDOWN_REMARK_LINT_DISABLE_ERRORS: true
 # MARKDOWN_MARKDOWN_TABLE_FORMATTER_DISABLE_ERRORS: false
 
-SPELL_CSPELL_DISABLE_ERRORS: true
+# SPELL_CSPELL_DISABLE_ERRORS: true
 SPELL_MISSPELL_DISABLE_ERRORS: true
 
 # YAML_PRETTIER_FILTER_REGEX_EXCLUDE: (docs/)
@@ -57,6 +57,7 @@ SPELL_MISSPELL_DISABLE_ERRORS: true
 
 # Disable linter features
 DISABLE_LINTERS:
+  - SPELL_CSPELL # many clojure references causing false positives
   - YAML_YAMLLINT # vague error mesages, investigation required
   - REPOSITORY_GIT_DIFF # warnings about LF to CRLF
   - REPOSITORY_SECRETLINT # reporting errors in its own config file
