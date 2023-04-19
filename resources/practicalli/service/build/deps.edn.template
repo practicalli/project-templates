@@ -8,10 +8,12 @@
   metosin/reitit-dev {:mvn/version "0.5.18"} ; human readable exceptions
 
   ;; Logging
+  ;; create events and send to publisher
   com.brunobonacci/mulog             {:mvn/version "0.9.0"}
+  ;; JSON Console out support
   com.brunobonacci/mulog-adv-console {:mvn/version "0.9.0"}
-  ;; suppress http server logger warning
-  org.slf4j/slf4j-nop {:mvn/version "1.7.32"}
+  ;; Optional: suppress slf4j warning
+  ;; org.slf4j/slf4j-nop {:mvn/version "1.7.32"}
 
   ;; System
   aero/aero           {:mvn/version "1.1.6"}

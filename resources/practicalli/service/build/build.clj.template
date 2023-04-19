@@ -2,7 +2,7 @@
 ;; Build Script
 ;;
 ;; Build project and package for deployment
-;; - `uberjar` for service deployment
+;; - `uberjar` packaged service for deployment
 ;; - `clean` remove all build assets and jar files
 ;;
 ;; All funcitons are passed command line arguments
