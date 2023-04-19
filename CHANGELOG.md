@@ -4,7 +4,23 @@ All notable changes to this project will be documented in this file. This change
 
 ## [Unreleased]
 
+### Changed
+
+- MegaLinter:
+  - enable lint groups, disable tools causing false positives
+  - include first interaction to add practicalli contributing guide to initial pull request
+  - move linter specific configuration to config/megalinter.yaml
+- clj-kondo: CI specific configuration
+- markdownlint: recreate jsonc config from template
+- changelog check: add echo statements for greater clarity
+- lint review: add echo statements for greater clarity
+- update all GitHub Actions to latest available versions (from scheduled-version-check report)
+
+
+## 2023-04-18
+
 ### Added
+
 - project-template ci: add commonly used GitHub workflows and configuration files
   - MegaLinter lints docs, code and config files
   - Lint Review uses clj-kondo & reviewdog to add errors as comments
@@ -22,6 +38,7 @@ All notable changes to this project will be documented in this file. This change
   - REPL Reloaded tooling support
 
 ### Changed
+
 - removed tools.build build script created by deps-new template - not required
 
 ## 2023-04-12
