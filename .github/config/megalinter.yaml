@@ -61,9 +61,9 @@ DISABLE_LINTERS:
   - YAML_YAMLLINT # vague error mesages, investigation required
   - REPOSITORY_GIT_DIFF # warnings about LF to CRLF
   - REPOSITORY_SECRETLINT # reporting errors in its own config file
-  #   - REPOSITORY_DEVSKIM # unnecessary URL TLS checks
+  # - REPOSITORY_DEVSKIM # unnecessary URL TLS checks
   - REPOSITORY_CHECKOV # fails on root user in Dockerfile
-#   - REPOSITORY_SECRETLINT
+  # - REPOSITORY_SECRETLINT
 
 # Ignore all errors and return without error status
 # DISABLE_ERRORS: true
