@@ -134,10 +134,9 @@ format-fix:  ## Run cljstyle and fix the formatting of Clojure code
 	$(info --------- cljstyle Runner ---------)
 	cljstyle fix
 
-
-lint:  ## Run MegaLinter with custom configuration
+lint:  ## Run MegaLinter with custom configuration (node.js required)
 	$(info --------- MegaLinter Runner ---------)
-	- mega-linter-runner --flavor java --env "'MEGALINTER_CONFIG=.github/config/megalinter.yaml'"
+	npx mega-linter-runner --flavor java --env "'MEGALINTER_CONFIG=.github/config/megalinter.yaml'" --remove-container
 
 lint-clean:  ## Clean MegaLinter report information
 	$(info --------- MegaLinter Clean Reports ---------)
