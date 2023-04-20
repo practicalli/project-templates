@@ -25,7 +25,7 @@
  :data-fn practicalli.service/substitutions
 
  :template-fn practicalli.service/template-edn
-  ;; ---------------------------------------------------------
+ ;; ---------------------------------------------------------
 
  ;; ---------------------------------------------------------
  ;; Declarative Transformation rules
@@ -51,4 +51,4 @@
     "service.clj.template" "service.clj"}]
   ["test" "test/{{top/file}}/{{main/file}}"
    {"service_test.clj.template" "service_test.clj"}]]}
- ;; ---------------------------------------------------------
+;; ---------------------------------------------------------

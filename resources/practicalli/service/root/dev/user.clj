@@ -93,7 +93,7 @@
   and other tap sources
   `mulog-tap-publisher` to stop publisher"
   (mulog/start-publisher!
-    {:type :custom, :fqn-function "mulog-publisher/tap"}))
+   {:type :custom, :fqn-function "mulog-publisher/tap"}))
 
 (mulog/log ::emacs-event ::ns (ns-publics *ns*))
 

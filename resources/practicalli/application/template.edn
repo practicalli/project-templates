@@ -5,7 +5,6 @@
  ;; Version substitutions
 
  :clojure-version "1.11.1"
-
  ;; ---------------------------------------------------------
 
 
@@ -21,7 +20,7 @@
  :data-fn practicalli.application/substitutions
 
  :template-fn practicalli.application/template-edn
-  ;; ---------------------------------------------------------
+ ;; ---------------------------------------------------------
 
  ;; ---------------------------------------------------------
  ;; Declarative Transformation rules
@@ -31,7 +30,7 @@
  ;; [["directory-name" "default-path"
  ;;   {"source-file.extension.template" "destination-file.extension"}]]
 
-:transform
+ :transform
  [["build" ""
    {"build.clj.template" "build.clj"
     "deps.edn.template"  "deps.edn"}]
@@ -39,4 +38,4 @@
    {"app.clj.template" "{{main/file}}.clj"}]
   ["test" "test/{{top/file}}"
    {"app_test.clj.template" "{{main/file}}_test.clj"}]]}
- ;; ---------------------------------------------------------
+;; ---------------------------------------------------------

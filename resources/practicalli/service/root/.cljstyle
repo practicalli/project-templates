@@ -75,7 +75,6 @@
     future [[:block 0]],
     go [[:block 0]],
     go-loop [[:block 1]],
-    defn [[:inner 0]],
     if [[:block 1]],
     if-let [[:block 1]],
     if-not [[:block 1]],

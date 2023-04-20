@@ -15,7 +15,7 @@
   "Tools for REPL Driven Development"
   (:require
    ;; REPL Workflow
-   [clojure.tools.namespace.repl :as namespace ]
+   [clojure.tools.namespace.repl :as namespace]
 
    ;; REPL Workflow
    [portal.api :as inspect]                          ; Data inspector
@@ -86,7 +86,7 @@
   and other tap sources
   `mulog-tap-publisher` to stop publisher"
   (mulog/start-publisher!
-    {:type :custom, :fqn-function "mulog-publisher/tap"}))
+   {:type :custom, :fqn-function "mulog-publisher/tap"}))
 
 (mulog/log ::emacs-event ::ns (ns-publics *ns*))
 
