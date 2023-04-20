@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file. This change
 
 ## [Unreleased]
 
+## 2023-04-20
+### Changed
+- make: lint task uses npx megalinter command (no manual install)
+- make: lint task removes Docker container after all test have run (avoid stale containers)
+- format: cljstyle fix for clojure code in templates
+- ci: use GitHub Actions major versions in all GitHub workflows
+- ci: ignore markdown headings in MegaLinter
+- ci: cljstyle configuration - remove duplicate defn rule
+
 ## 2023-04-19
 ### Changed
 - MegaLinter workflow and configuration for all templates:
