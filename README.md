@@ -12,8 +12,9 @@
 [![Latest Release](https://img.shields.io/github/v/release/practicalli/project-templates?display_name=tag)](https://github.com/practicalli/project-templates/releases)
 
 ```clojure
-io.github.practicalli/project-templates {:git/tag "2023.04.19" :git/sha "975e771"}
+io.github.practicalli/project-templates {:git/tag "2023.04.20" :git/sha "a5f7fc3"}
 ```
+
 
 ## Templates Roadmap
 
@@ -96,7 +97,7 @@ The `project/create` alias definition combines [seancorfield/deps-new](https://g
   {:replace-deps {io.github.seancorfield/deps-new
                   {:git/tag "v0.5.1" :git/sha "21cede2"}
                   io.github.practicalli/project-templates
-                  {:git/tag "2023.04.19" :git/sha "975e771"}}
+                  {:git/tag "2023.04.20" :git/sha "975e771"}}
    :exec-fn      org.corfield.new/create
    :exec-args    {:template practicalli/application
                   :name practicalli/playground}}
