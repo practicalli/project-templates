@@ -227,12 +227,7 @@
 
   // MD043/required-headings/required-headers - Required heading structure
   "MD043": {
-    // List of headings
-    "headings": [],
-    // List of headings
-    "headers": [],
-    // Match case of headings
-    "match_case": true
+
   },
 
   // MD044/proper-names - Proper names should have the correct capitalization
