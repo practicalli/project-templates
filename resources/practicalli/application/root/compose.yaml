@@ -9,8 +9,6 @@
 # Examples of persistence with Postgres and mysql docker images
 # and local data storage to facilitate data restoration
 
-name: "{{top/ns}}-{{main/ns}}"
-
 services:
   # --- Clojure Service --- #
   clojure-service:
@@ -54,17 +52,17 @@ services:
   #     POSTGRES_USER: "$DOCKER_POSTGRES_USER"
   #     POSTGRES_DB: "$DOCKER_POSTGRES_USER"
   #   healthcheck:
-  #     test: [“CMD-SHELL”, “pg_isready”]
-  #       interval    : 1s
-  #       timeout: 5s
-  #       retries: 10
-  #       # start_period: 10s
+  #     test: ["CMD-SHELL", "pg_isready"]
+  #     interval: 1s
+  #     timeout: 5s
+  #     retries: 10
+  #     # start_period: 10s
   #   # Persist Postgres database schema in a docker volume
   #   volumes:
   #     - postgres-data:/var/lib/postgres/data
 
   # postgres web-based administration tool
-  # posgres-adminer:
+  # postgres-adminer:
   #   image: adminer
   #   restart: always
   #   ports:
