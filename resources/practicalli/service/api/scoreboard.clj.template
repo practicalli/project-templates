@@ -41,15 +41,3 @@
             {:scoreboard [:game-id uuid? :game-name string? :high-score string?]}}}}}])
 
 ;; --------------------------------------------------
-
-
-(defn routes
-  "Reitit route configuration for system-admin endpoint"
-  []
-  ["/system-admin"
-   {:swagger {:tags ["Application Support"]}}
-   ["/status"
-    {:get {:summary "Status of {{top/ns}} {{main/ns}} service"
-           :description "Ping {{top/ns}} {{main/ns}} service to see if is responding to a simple request and therefore alive"
-           :handler status
-           :responses {200 {:body {:application string? :status string?}}}}}]])
