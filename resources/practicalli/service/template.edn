@@ -8,7 +8,6 @@
 
  ;; ---------------------------------------------------------
 
-
  ;; ---------------------------------------------------------
  ;; Optional features
  ;; - used by programatic transformation
@@ -42,6 +41,8 @@
   ["build" ""
    {"build.clj.template" "build.clj"
     "deps.edn.template"  "deps.edn"}]
+  ["dev" "dev"
+   {"system.clj.template" "system.clj"}]
   ["resources" "resources"
    {"config.edn.template" "config.edn"}]
   ["src" "src/{{top/file}}/{{main/file}}"
