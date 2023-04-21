@@ -72,7 +72,7 @@
   :gridrunner-revolution-report-uri "/api/v1.1/gridrunner"
   :space-giraffe-report-uri "/api/v1/games/space-giraffe"}
 
-;; --------------------------------------------------
+ ;; --------------------------------------------------
  ;; routing
 
  ;; Configure web routing application with application environment
