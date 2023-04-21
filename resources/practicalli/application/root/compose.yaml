@@ -50,7 +50,7 @@ services:
   #     POSTGRES_PASSWORD: "$DOCKER_POSTGRES_ROOT_PASSWORD"
   #     # Set User Credentials - optional
   #     POSTGRES_USER: "$DOCKER_POSTGRES_USER"
-  #     POSTGRES_DB: "$DOCKER_POSTGRES_USER"
+  #     POSTGRES_DB: "$DOCKER_POSTGRES_DB"
   #   healthcheck:
   #     test: ["CMD-SHELL", "pg_isready"]
   #     interval: 1s
@@ -74,7 +74,7 @@ services:
   #   environment:
   #     MYSQL_USER: "$DOCKER_SERVICE_DB_USER"
   #     MYSQL_PASSWORD: "$DOCKER_SERVICE_DB_PASSWORD"
-  #     MYSQL_DATABASE: "service"
+  #     MYSQL_DATABASE: "$DOCKER_SERVICE_DB_DB"
   #     MYSQL_ROOT_PASSWORD: "$DOCKER_MYSQL_ROOT_PASSWORD"
   #   ports:
   #     - "3306:3306"
