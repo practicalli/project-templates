@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. This change
 
 ## [Unreleased]
 
+## 2023-04-21
+### Changed
+- docker compose template: fixed some typos preventing `docker-compose` from running
+
 ## 2023-04-20
 ### Changed
 - make: lint task uses npx megalinter command (no manual install)
