@@ -9,8 +9,6 @@
 # Examples of persistence with Postgres and mysql docker images
 # and local data storage to facilitate data restoration
 
-name: "{{top/ns}}-{{main/ns}}"
-
 services:
   # --- Clojure Service --- #
   clojure-service:
@@ -26,8 +24,8 @@ services:
     ports:
       - 8080:8080
     healthcheck:
-      test: ["CMD", "curl", "--fail", "http://localhost:8080"]
-      interval: 10s
+      test: ["CMD", "curl", "-f", "http://localhost:8080"]
+      interval: 1m00s
       timeout: 10s
       retries: 5
       start_period: 7s
@@ -52,19 +50,19 @@ services:
   #     POSTGRES_PASSWORD: "$DOCKER_POSTGRES_ROOT_PASSWORD"
   #     # Set User Credentials - optional
   #     POSTGRES_USER: "$DOCKER_POSTGRES_USER"
-  #     POSTGRES_DB: "$DOCKER_POSTGRES_USER"
+  #     POSTGRES_DB: "$DOCKER_POSTGRES_DB"
   #   healthcheck:
-  #     test: [“CMD-SHELL”, “pg_isready”]
-  #       interval    : 1s
-  #       timeout: 5s
-  #       retries: 10
-  #       # start_period: 10s
+  #     test: ["CMD-SHELL", "pg_isready"]
+  #     interval: 1s
+  #     timeout: 5s
+  #     retries: 10
+  #     # start_period: 10s
   #   # Persist Postgres database schema in a docker volume
   #   volumes:
   #     - postgres-data:/var/lib/postgres/data
 
   # postgres web-based administration tool
-  # posgres-adminer:
+  # postgres-adminer:
   #   image: adminer
   #   restart: always
   #   ports:
@@ -76,7 +74,7 @@ services:
   #   environment:
   #     MYSQL_USER: "$DOCKER_SERVICE_DB_USER"
   #     MYSQL_PASSWORD: "$DOCKER_SERVICE_DB_PASSWORD"
-  #     MYSQL_DATABASE: "service"
+  #     MYSQL_DATABASE: "$DOCKER_SERVICE_DB_DB"
   #     MYSQL_ROOT_PASSWORD: "$DOCKER_MYSQL_ROOT_PASSWORD"
   #   ports:
   #     - "3306:3306"
