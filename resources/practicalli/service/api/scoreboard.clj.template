@@ -1,34 +1,45 @@
 ;; --------------------------------------------------
-;; System Administration and Status check
+;; {{top/ns}}.{{main/ns}}.api.scoreboard
 ;;
-;; - return service status response
+;; Example route and handler function
+;; using clojure.spec response validation
 ;; --------------------------------------------------
 
 
 (ns {{top/ns}}.{{main/ns}}.api.scoreboard
   "Gameboard API Scoreboard across all games"
-  (:require [ring.util.response :refer [response]]))
+  (:require
+   [ring.util.response :refer [response]]
+   [clojure.spec.alpha :as spec]))
 
 
 ;; --------------------------------------------------
-;; Status of Service
+;; Value Specifications
+(spec/def ::game-id string?)
+(spec/def ::game-name string?)
+(spec/def ::high-score string?)
+;; --------------------------------------------------
+
+
+;; --------------------------------------------------
+;; Mock scores for the Gameboard service
 
 (def scores
   "Simple status report for external monitoring services, e.g. Pingdom
   Return:
   - `constantly` returns an anonymous function that returns a ring response hash-map"
-  (constantly (response {:scoreboard [{:game-id 347938472938439487492
-                                       :game-name "Polymous"
-                                       :high-score "344398799666"}]})))
-
+  (constantly (response {::game-id "347938472938439487492"
+                         ::game-name "Polymous"
+                         ::high-score "344398799666"})))
 ;; --------------------------------------------------
 
 
 ;; --------------------------------------------------
-;; Router
+;; Routes
 
 (defn routes
-  "Reitit route configuration for  endpoint"
+  "Reitit route configuration for scoreboard endpoints
+  Responses validated with {{top/ns}}.{{main/ns}}.spec clojure.spec"
   [system-config]
   ["/scoreboard"
    {:swagger {:tags ["Scoreboard Endpoints"]}
@@ -37,7 +48,5 @@
           :handler scores
           :responses
           {200
-           {:body
-            {:scoreboard [:game-id uuid? :game-name string? :high-score string?]}}}}}])
-
+           {:body (spec/keys :req [::game-id ::game-name ::high-score])}}}}])
 ;; --------------------------------------------------

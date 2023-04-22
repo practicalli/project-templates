@@ -114,7 +114,6 @@
      ;; {{top/ns}} {{main/ns}}  API routes
      ["/api"
       ["/v1"
-       {:swagger {:tags ["{{top/ns}} {{main/ns}} Service API"]}}
        (scoreboard/routes system-config)]]]
 
     ;; End of All routing for Gameboard service
