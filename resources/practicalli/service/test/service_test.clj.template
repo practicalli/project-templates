@@ -2,6 +2,10 @@
 ;; {{top/ns}}.{{main/ns}}.service-test
 ;;
 ;; Example unit tests for {{top/ns}}.{{main/ns}}
+;;
+;; - `deftest` - test a specific function
+;; - `testing` logically group assertions within a function test
+;; - `is` assertion:  expected value then function call
 ;; ---------------------------------------------------------
 
 (ns {{top/ns}}.{{main/ns}}.service-test
@@ -12,8 +16,8 @@
   (testing "TODO: Start with a failing test, make it pass, then refactor"
 
     ;; TODO: fix greet function to pass test
-    (is (= ({{main/ns}}/greet)
-           "{{top/ns}} service developed by the secret engineering team"))
+    (is (= "{{top/ns}} service developed by the secret engineering team"
+           ({{main/ns}}/greet)))
 
     ;; TODO: fix test by calling greet with {:team-name "Practicalli Engineering"}
     (is (= ({{main/ns}}/greet "Practicalli Engineering")
