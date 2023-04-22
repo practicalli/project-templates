@@ -59,7 +59,7 @@
                                      :url "http://creativecommons.org/licenses/by-sa/4.0/"}
                            :x-logo {:url "./favicon.png"}}}
           :handler (api-docs/create-swagger-handler)}}])
-
+;; --------------------------------------------------
 
 
 ;; --------------------------------------------------
@@ -114,7 +114,6 @@
      ;; {{top/ns}} {{main/ns}}  API routes
      ["/api"
       ["/v1"
-       {:swagger {:tags ["{{top/ns}} {{main/ns}} Service API"]}}
        (scoreboard/routes system-config)]]]
 
     ;; End of All routing for Gameboard service

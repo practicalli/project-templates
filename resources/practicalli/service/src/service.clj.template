@@ -130,7 +130,8 @@
 #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 (defn greet
   "Greeting message via Clojure CLI clojure.exec"
-  ([] (greet "secret engineering")) ; TODO: call greet with hash-map argument
+  ;; TODO: call greet with hash-map argument
+  ([] (greet "secret engineering"))
   ([{:keys [team-name]}]
    (str "{{top/ns}} {{main/ns}} service developed by the " team-name " team")))
 

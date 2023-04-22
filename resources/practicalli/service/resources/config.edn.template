@@ -65,14 +65,15 @@
 
  :{{top/ns}}.{{main/ns}}.service/data-provider
  {;; external data providers via Risky
-  :llamasoft-api-url  #or [#env LAMASOFT_API_URL "http://localhost"]
+  :game-service-base-url  #or [#env GAME_SERVICE_BASE_URL "http://localhost"]
+  :llamasoft-api-uri  #or [#env LAMASOFT_API_URI "http://localhost"]
   :polybus-report-uri "/report/polybus"
   :moose-life-report-uri "/api/v1/report/moose-life"
   :minotaur-arcade-report-uri "/api/v2/minotar-arcade"
   :gridrunner-revolution-report-uri "/api/v1.1/gridrunner"
   :space-giraffe-report-uri "/api/v1/games/space-giraffe"}
 
-;; --------------------------------------------------
+ ;; --------------------------------------------------
  ;; routing
 
  ;; Configure web routing application with application environment

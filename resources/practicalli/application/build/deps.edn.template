@@ -9,10 +9,7 @@
   ;; create events and send to publisher
   com.brunobonacci/mulog             {:mvn/version "0.9.0"}
   ;; JSON Console out support
-  com.brunobonacci/mulog-adv-console {:mvn/version "0.9.0"}
-  ;; Optional: suppress slf4j warning
-  ;; org.slf4j/slf4j-nop {:mvn/version "1.7.32"}
-}
+  com.brunobonacci/mulog-adv-console {:mvn/version "0.9.0"}}
 
  :aliases
  {;; Clojure.main execution of application

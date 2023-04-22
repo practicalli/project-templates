@@ -19,6 +19,7 @@
       (tap> item))
     (mulog-buffer/clear buffer)))
 
+
 #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 (defn tap
   [{:keys [transform] :as _config}]

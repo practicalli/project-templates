@@ -8,7 +8,7 @@
 (ns {{top/ns}}.{{main/ns}}
   (:gen-class)
   (:require
-    [com.brunobonacci.mulog :as mulog]))
+   [com.brunobonacci.mulog :as mulog]))
 
 
 #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
@@ -28,12 +28,10 @@
   (greet {:team-name (first args)}))
 
 
-
-;; Rich comment block with redefined vars ignored
 #_{:clj-kondo/ignore [:redefined-var]}
 (comment
 
   (-main)
-  (-main "Jenny")
+  (-main "Clojure Engineering")
 
-  #_()) ;; End of rich comment block
+  #_()) ; End of rich comment block

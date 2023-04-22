@@ -61,16 +61,29 @@
 
 
 ;; ---------------------------------------------------------
+;; Avoid reloading `dev` code
+;; - code in `dev` directory should be evaluated if changed to reload into repl
+(println "Set Integrant REPL refresh directories to " (set-refresh-dirs "src" "resources"))
+;; ---------------------------------------------------------
+
+
+;; ---------------------------------------------------------
 ;; Start Portal and capture all evaluation results
 
 ;; Open Portal window in browser with dark theme
 ;; https://cljdoc.org/d/djblue/portal/0.37.1/doc/ui-concepts/themes
-(inspect/open {:portal.colors/theme :portal.colors/gruvbox})
-;; (inspect/open {:portal.colors/theme :portal.colors/solarized-light})
+;; Portal options:
+;; - light theme {:portal.colors/theme :portal.colors/solarized-light}
+;; - dark theme  {:portal.colors/theme :portal.colors/gruvbox}
 
-;; Add portal as a tap> target and listen to all evaluation results (via nREPL)
+(def portal-instance
+  "Open portal window if no portal sessions have been created.
+   A portal session is created when opening a portal window"
+  (or (seq (inspect/sessions))
+      (inspect/open {:portal.colors/theme :portal.colors/gruvbox})))
+
+;; Add portal as tapsource (add to clojure.core/tapset)
 (add-tap #'portal.api/submit)
-
 ;; ---------------------------------------------------------
 
 
@@ -88,11 +101,13 @@
   (mulog/start-publisher!
    {:type :custom, :fqn-function "mulog-publisher/tap"}))
 
-(mulog/log ::emacs-event ::ns (ns-publics *ns*))
+(defn mulog-tap-stop
+ "Stop mulog tap publisher to ensure multiple publishers are not started
+ Recommended before using `(restart)` or evaluating the `user` namespace"
+  [] (mulog-tap-publisher))
 
-;; Stop mulog publisher
-#_mulog-tap-publisher
-
+;; Example mulog event message
+(mulog/log ::dev-user-ns ::ns (ns-publics *ns*))
 ;; ---------------------------------------------------------
 
 
@@ -102,12 +117,11 @@
 (comment
   ;; Require for Clojure 1.11.x and earlier
   (require '[clojure.tools.deps.alpha.repl :refer [add-libs]])
-
   (add-libs '{domain/library-name {:mvn/version "1.0.0"}})
 
   ;; Clojure 1.12.x only
-  (add-lib 'library-name)   ; find and add library
-  (sync-deps)               ; load dependencies in deps.edn (if not yet loaded)
+  #_(add-lib 'library-name)   ; find and add library
+  #_(sync-deps)               ; load dependencies in deps.edn (if not yet loaded)
   #_()) ; End of rich comment
 ;; ---------------------------------------------------------
 
