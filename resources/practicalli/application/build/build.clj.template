@@ -5,7 +5,7 @@
 ;; - `uberjar` - packaged application for deployment
 ;; - `clean` remove all build assets and jar files
 ;;
-;; All funcitons are passed command line arguments
+;; All functions are passed command line arguments
 ;; - `nil` is passed if there are no arguments
 ;;
 ;;
