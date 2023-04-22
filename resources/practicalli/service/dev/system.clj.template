@@ -24,8 +24,8 @@
    ;; REPL workflow
    [integrant.repl       :as ig-repl]
    [integrant.repl.state :as ig-state]
+   [clojure.pprint :as pprint]
 
-   ;; Environment parsing
    [{{top/ns}}.{{main/ns}}.parse-system :as parse-system]))
 
 
@@ -89,7 +89,7 @@
 (defn config
   "The current system configuration used by Integrant"
   []
-  ig-state/config)
+  (pprint/pprint ig-state/config))
 
 ;; End of Integrant REPL convenience functions
 ;; ---------------------------------------------------------
