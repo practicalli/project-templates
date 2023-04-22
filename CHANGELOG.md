@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file. This change
 
 ## [Unreleased]
 
+## 2023-04-22
+### Changed
+- `dev` directory separated from `root` and declarative copy rules defined, service.clj renamed to template to avoid format false positives
+- format: exclude `dev` directory from format checks
+- [#6](https://github.com/practicalli/project-templates/issues/6) add clojure.spec specification to response validation of scoreboard route
+- [#7](https://github.com/practicalli/project-templates/issues/7) resolved multiple portal windows on refresh
+- [#9](https://github.com/practicalli/project-templates/issues/9) update code examples in template with cljstyle fix
+
 ## 2023-04-20
 ### Changed
 - make: lint task uses npx megalinter command (no manual install)
