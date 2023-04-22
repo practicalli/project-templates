@@ -10,7 +10,15 @@
   "Gameboard API Scoreboard across all games"
   (:require
    [ring.util.response :refer [response]]
-   [{{top/ns}}.{{main/ns}}.spec]))
+   [clojure.spec.alpha :as spec]))
+
+
+;; --------------------------------------------------
+;; Value Specifications
+(spec/def ::game-id string?)
+(spec/def ::game-name string?)
+(spec/def ::high-score string?)
+;; --------------------------------------------------
 
 
 ;; --------------------------------------------------
@@ -20,9 +28,9 @@
   "Simple status report for external monitoring services, e.g. Pingdom
   Return:
   - `constantly` returns an anonymous function that returns a ring response hash-map"
-  (constantly (response {:scoreboard [{:game-id "347938472938439487492"
-                                       :game-name "Polymous"
-                                       :high-score "344398799666"}]})))
+  (constantly (response {::game-id "347938472938439487492"
+                         ::game-name "Polymous"
+                         ::high-score "344398799666"})))
 ;; --------------------------------------------------
 
 
@@ -40,5 +48,5 @@
           :handler scores
           :responses
           {200
-           {:body :{{top/ns}}.{{main/ns}}.spec/scoreboard}}}}])
+           {:body (spec/keys :req [::game-id ::game-name ::high-score])}}}}])
 ;; --------------------------------------------------
