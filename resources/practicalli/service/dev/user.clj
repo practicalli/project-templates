@@ -48,7 +48,7 @@
   (println)
   (println "Hotload libraries:             ; Clojure 1.12.x")
   (println "(add-lib 'library-name)")
-  (println "(add-libs '{domain/library-name {:mvn/version \"v1.2.3\")")
+  (println "(add-libs '{domain/library-name {:mvn/version \"v1.2.3\"}})")
   (println "(sync-deps)                    ; load dependencies from deps.edn")
   (println "- deps-* lsp snippets for adding library")
   (println)

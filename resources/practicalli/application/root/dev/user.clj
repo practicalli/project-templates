@@ -15,10 +15,8 @@
   "Tools for REPL Driven Development"
   (:require
    ;; REPL Workflow
-   [clojure.tools.namespace.repl :as namespace]
-
-   ;; REPL Workflow
    [portal.api :as inspect]                          ; Data inspector
+   [clojure.tools.namespace.repl :as namespace]
 
    ;; Logging
    [com.brunobonacci.mulog :as mulog]                ; Event Logging
@@ -41,7 +39,7 @@
   (println)
   (println "Hotload libraries:             ; Clojure 1.12.x")
   (println "(add-lib 'library-name)")
-  (println "(add-libs '{domain/library-name {:mvn/version \"v1.2.3\")")
+  (println "(add-libs '{domain/library-name {:mvn/version \"v1.2.3\"}})")
   (println "(sync-deps)                    ; load dependencies from deps.edn")
   (println "- deps-* lsp snippets for adding library")
   (println)
@@ -63,7 +61,7 @@
 ;; ---------------------------------------------------------
 ;; Avoid reloading `dev` code
 ;; - code in `dev` directory should be evaluated if changed to reload into repl
-(println "Set Integrant REPL refresh directories to " (set-refresh-dirs "src" "resources"))
+(println "Set Integrant REPL refresh directories to " (namespace/set-refresh-dirs "src" "resources"))
 ;; ---------------------------------------------------------
 
 
