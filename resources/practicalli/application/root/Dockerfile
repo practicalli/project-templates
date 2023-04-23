@@ -113,8 +113,15 @@ EXPOSE 8080
 # Docker Service heathcheck
 # docker inspect --format='{{json .State.Health}}' container-name
 # - local heathcheck defined in `compose.yaml` service definition
-# TODO: Set URL in Dockerfile to point to deployed service
-HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD [ "curl --fail http://localhost:8080 || exit 1" ]
+# Heathchck options:
+# --interval=30s --timeout=30s --start-period=10s --retries=3
+# Shell:
+# HEALTHCHECK \
+#   CMD curl --fail http://localhost:8080/system-admin/status || exit 1
+# Exec array:
+HEALTHCHECK \
+    CMD ["curl", "--fail", "http://localhost:8080/system-admin/status"]
+
 
 # JDK_JAVA_OPTIONS environment variable for setting JVM options
 # Use JVM options that optomise running in a container
