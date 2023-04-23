@@ -1,0 +1,28 @@
+---
+# --- OpenAPI Swagger Compose Configuration --- #
+# - Docker Compose V2
+# - https://docs.docker.com/compose/compose-file/
+# - https://hub.docker.com/r/swaggerapi/swagger-editor
+#
+# Run the Swagger editor in docker to test API specifications
+# in JSON or YAML formats
+#
+# Alternatively use: https://editor-next.swagger.io/
+# --------------------------------------------- #
+
+
+# --------------------------------------------- #
+# Using Swagger Editor
+#
+# make swagger-editor
+# make swagger-editor-down
+#
+# Open: http://localhost:8282 and paste OpenAPI specification
+# --------------------------------------------- #
+
+# Local OpenAPI (Swagger) Editor to debug swagger open api definition
+services:
+  swagger-editor:
+    image: "swaggerapi/swagger-editor:latest"
+    ports:
+      - "8282:8080"

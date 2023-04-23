@@ -28,12 +28,7 @@ services:
     #   - "postgres"
     #   - "mysql"
 
-  # Local OpenAPI (Swagger) Editor to debug swagger open api definition
-  # Or use: https://editor-next.swagger.io/
-  swagger-editor:
-    image: "swaggerapi/swagger-editor:latest"
-    ports:
-      - "8282:8080"
+
 
   # --- Postgres Relational Database --- #
   # https://github.com/docker-library/docs/blob/master/postgres/README.md
