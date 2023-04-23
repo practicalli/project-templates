@@ -24,12 +24,6 @@ services:
       - COMPOSE_PROJECT_NAME
     ports:
       - 8080:8080
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080"]
-      interval: 1m00s
-      timeout: 10s
-      retries: 5
-      start_period: 7s
     # depends_on:
     #   - "postgres"
     #   - "mysql"
