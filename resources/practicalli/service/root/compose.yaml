@@ -9,20 +9,18 @@
 # Examples of persistence with Postgres and mysql docker images
 # and local data storage to facilitate data restoration
 
-name: "{{top/ns}}-{{main/ns}}"
+name: "{{top/ns}}"
 
 services:
   # --- Clojure Service --- #
-  clojure-service:
+  {{main/ns}}-service:
     platform: linux/amd64
     # Build using Dockerfile - relative path or Git repository
     build:
-      # Use Dockerfile in project root
-      context: ./
-      # dockerfile   # alternate name for Dockerfile
-    environment:
+      context: ./ # Use Dockerfile in project root
+    environment: # host:container
       - COMPOSE_PROJECT_NAME
-    ports:
+    ports: # host:container
       - 8080:8080
     # depends_on:
     #   postgres-database:
