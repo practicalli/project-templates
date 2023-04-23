@@ -73,7 +73,7 @@ make test
 
 ## Format Code
 
-Check the code format before pushing commits to a shared repository, using cljstyle to check the Clojure format and MegaLinter to check format of all other files.
+Check the code format before pushing commits to a shared repository, using cljstyle to check the Clojure format, MegaLinter to check format of all other files and kaocha test runner to test the Clojure code.
 
 Before running the `pre-commit-check`
 
@@ -84,8 +84,20 @@ Before running the `pre-commit-check`
 make pre-commit-check
 ```
 
+Run cljstyle only
+
 * `make format-check` runs cljstyle and and prints a report if there are errors
 * `make format-fix` updates all files if there are errors (check the changes made via `git diff`)
+
+Run MegaLinter only
+
+* `make lint` runs all configured linters in `.github/config/megalinter.yaml`
+
+Run Kaocha test runner only
+
+* `make test` runs all unit tests in the project, stopping at first failing test
+* `make test-watch` detect file changes and run all unit tests in the project, stopping at first failing test
+
 
 ## Deployment
 
@@ -106,6 +118,7 @@ make docker-build
 * `make docker-build-clean`
 
 Or build and run the service via the multi-stage `Dockerfile` configuration as part of a CI workflow.
+
 
 ## License
 
