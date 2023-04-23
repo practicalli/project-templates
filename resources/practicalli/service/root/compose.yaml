@@ -22,7 +22,6 @@ services:
       # dockerfile   # alternate name for Dockerfile
     environment:
       - COMPOSE_PROJECT_NAME
-    command: echo "Build and run ${COMPOSE_PROJECT_NAME}"
     ports:
       - 8080:8080
     healthcheck:
