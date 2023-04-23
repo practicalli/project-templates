@@ -152,17 +152,17 @@ lint-clean:  ## Clean MegaLinter report information
 
 # ------- Docker Containers ---------- #
 
-docker-build:  ## Build Fraud API Service with docker compose
+docker-build:  ## Build Clojure project and run with docker compose
 	$(info --------- Docker Compose Build ---------)
-	docker compose up --build
+	docker compose up --build --detach
 
-docker-build-clean:  ## Build Fraud API Service with docker compose, removing orphans
+docker-build-clean:  ## Build Clojure project and run with docker compose, removing orphans
 	$(info --------- Docker Compose Build - remove orphans ---------)
-	docker compose up --build --remove-orphans
+	docker compose up --build --remove-orphans --detach
 
-docker-down:  ## Shut down Fraud API service using docker compose
+docker-down:  ## Shut down containers in docker compose
 	$(info --------- Docker Compose Down ---------)
-	docker-compose down
+	docker compose down
 
 
 swagger-editor:  ## Start Swagger Editor in Docker
