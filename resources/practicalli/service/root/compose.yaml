@@ -25,55 +25,37 @@ services:
     ports:
       - 8080:8080
     # depends_on:
-    #   - "postgres"
-    #   - "mysql"
+    #   postgres-database:
+    #     condition: service_healthy
 
 
+  # --- Persistence Services --- #
 
   # --- Postgres Relational Database --- #
   # https://github.com/docker-library/docs/blob/master/postgres/README.md
-  # postgres:
-  #   image: "postgres:15.2-alpine"
-  #   restart: always
+  # postgres-database:
+  #   image: postgres:15.2-alpine
   #   environment:
   #     # superuser password - must not be empty
   #     POSTGRES_PASSWORD: "$DOCKER_POSTGRES_ROOT_PASSWORD"
   #     # Set User Credentials - optional
   #     POSTGRES_USER: "$DOCKER_POSTGRES_USER"
-  #     POSTGRES_DB: "$DOCKER_POSTGRES_USER"
+  #     POSTGRES_DB: "$DOCKER_POSTGRES_SCHEMA"
   #   healthcheck:
-  #     test: [“CMD-SHELL”, “pg_isready”]
-  #       interval    : 1s
-  #       timeout: 5s
-  #       retries: 10
-  #       # start_period: 10s
-  #   # Persist Postgres database schema in a docker volume
+  #     test: [ "CMD", "pg_isready" ]
+  #     timeout: 45s
+  #     interval: 10s
+  #     retries: 10
+  # Persist Postgres database schema in a docker volume
   #   volumes:
   #     - postgres-data:/var/lib/postgres/data
+# Mount project root
+# volumes:
+#   postgres-data:
 
   # postgres web-based administration tool
-  # posgres-adminer:
+  # postgres-adminer:
   #   image: adminer
   #   restart: always
   #   ports:
   #     - 8080:8080
-
-  # --- MySQL Relational Database --- #
-  # mysql:
-  #   image: "mysql/mysql-server:5.7"
-  #   environment:
-  #     MYSQL_USER: "$DOCKER_SERVICE_DB_USER"
-  #     MYSQL_PASSWORD: "$DOCKER_SERVICE_DB_PASSWORD"
-  #     MYSQL_DATABASE: "service"
-  #     MYSQL_ROOT_PASSWORD: "$DOCKER_MYSQL_ROOT_PASSWORD"
-  #   ports:
-  #     - "3306:3306"
-  #   expose:
-  #     - "3306"
-  #   # Persist MySQL database schema in a docker volume
-  #   volumes:
-  #     - mysql-data:/var/lib/mysql
-# Mount project root
-# volumes:
-#   postgres-data:
-#   mysql-data:
