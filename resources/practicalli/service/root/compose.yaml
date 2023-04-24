@@ -44,6 +44,8 @@ services:
   #     timeout: 45s
   #     interval: 10s
   #     retries: 10
+  #   ports:
+  #     - 5432:5432
   # Persist Postgres database schema in a docker volume
   #   volumes:
   #     - postgres-data:/var/lib/postgres/data
