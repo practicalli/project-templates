@@ -61,7 +61,9 @@
 ;; ---------------------------------------------------------
 ;; Avoid reloading `dev` code
 ;; - code in `dev` directory should be evaluated if changed to reload into repl
-(println "Set Integrant REPL refresh directories to " (namespace/set-refresh-dirs "src" "resources"))
+(println
+  "Set REPL refresh directories to "
+  (namespace/set-refresh-dirs "src" "resources"))
 ;; ---------------------------------------------------------
 
 
