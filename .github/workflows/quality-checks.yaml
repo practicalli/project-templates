@@ -34,7 +34,7 @@ jobs:
           restore-keys: clojure-deps-
 
       - name: "Install tools"
-        uses: DeLaGuardo/setup-clojure@10.2
+        uses: DeLaGuardo/setup-clojure@10.3
         with:
           cli: 1.11.1.1273 # Clojure CLI
           cljstyle: 0.15.0
