@@ -8,18 +8,15 @@
   :test/env
   {:extra-paths ["test"]
    :extra-deps {org.clojure/test.check {:mvn/version "1.1.1"}
-                io.github.cognitect-labs/test-runner
-                {:git/tag "v0.5.1" :git/sha "dfb30dd"}
                 io.github.seancorfield/deps-new
-                {:git/tag "v0.4.13" :git/sha "879c4eb"}}}
+                {:git/tag "v0.5.1" :git/sha "21cede2"}}}
 
   ;; Test runner - local and CI
   ;; call with `:watch? true` argument to start file watcher and re-run tests on saved changes
   :test/run
   {:extra-paths ["test"]
-   :extra-deps {lambdaisland/kaocha {:mvn/version "1.80.1274"}}
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.82.1306"}}
    :main-opts   ["-m" "kaocha.runner"]
    :exec-fn kaocha.runner/exec-fn
    :exec-args {:randomize? false
                :fail-fast? true}}}}
-
