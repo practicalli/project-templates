@@ -62,7 +62,6 @@ The majority of my work is focused on the [Practicalli series of books and video
 Thank you to [Cognitect](https://www.cognitect.com/), [Nubank](https://nubank.com.br/) and a wide range of other [sponsors](https://github.com/sponsors/practicalli-john#sponsors) for your continued support
 
 
-
 ## Usage
 
 Create a new project using the `:project/create` alias from [Practialli Clojure CLI Config](https://practical.li/clojure/clojure-cli/practicalli-config/), using `practicalli/application` template by default
@@ -79,7 +78,8 @@ Override the default template with command line options
 * `:overwrite` affects an existing project with the same :target-dir name, `true` updates, `:delete` deletes existing project. No changes if `nil` or option not given.
 
 ```shell
-clojure -T:project/create :template practicalli/service :name practicalli/gameboard :target-dir gameboard-service
+clojure -T:project/create :template practicalli/service \
+:name practicalli/gameboard :target-dir gameboard-service
 ```
 
 ### Alias definition
@@ -89,7 +89,6 @@ clojure -T:project/create :template practicalli/service :name practicalli/gamebo
 The `project/create` alias definition combines [seancorfield/deps-new](https://github.com/seancorfield/deps-new) and practicalli/project-templates so that all Practicalli templates are available within one alias.
 
 [![Latest Release](https://img.shields.io/github/v/release/practicalli/project-templates?display_name=tag)](https://github.com/practicalli/project-templates/releases) page includes the release `:git/tag` and `:git/sha` values for `io.github.practicalli/project-templates`
-
 
 
 ```clojure
@@ -106,7 +105,8 @@ The `project/create` alias definition combines [seancorfield/deps-new](https://g
 > [seancorfield/deps-new](https://github.com/seancorfield/deps-new) can also be installed as a Clojure CLi tool, for example with the `project-create` tool name:
 >
 > ```bash
-> clojure -Ttools install io.github.seancorfield/deps-new '{:git/tag "v0.5.0"}' :as project-create
+> clojure -Ttools install io.github.seancorfield/deps-new '{:git/tag "v0.5.0"}' \
+> :as project-create
 > ```
 >
 > Create a new project, specifying the template and name of the projects
