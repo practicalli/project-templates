@@ -12,16 +12,15 @@
 [![Latest Release](https://img.shields.io/github/v/release/practicalli/project-templates?display_name=tag)](https://github.com/practicalli/project-templates/releases)
 
 ```clojure
-io.github.practicalli/project-templates {:git/tag "2023.04.22" :git/sha "9d40153"}
+io.github.practicalli/project-templates {:git/tag "2023.04.25" :git/sha "66713b9"}
 ```
-
 
 ## Templates Roadmap
 
 🧰 General purpose
 
-* REVIEW: [practicalli/service](https://github.com/practicalli/project-templates/issues/2) - production grade HTTP service, basic routing (reitit-ring & middleware)
-* REVIEW: [practicalli/application](https://github.com/practicalli/project-templates/issues/4) - general application, limited code
+* [practicalli/service](https://github.com/practicalli/project-templates/issues/2) - production grade HTTP service, basic routing (reitit-ring & middleware)
+* [practicalli/application](https://github.com/practicalli/project-templates/issues/4) - general application, limited code
 * TODO: practicalli/api - production grade API service (reitit-ring, clojure.spec validation)
 * TODO: practicalli/library - general library, deploymnent to Maven/Clojars
 * TODO: [practicalli/blog](https://github.com/practicalli/project-templates/issues/1) - cryogen project with Practicalli Customisation
@@ -96,7 +95,7 @@ The `project/create` alias definition combines [seancorfield/deps-new](https://g
   {:replace-deps {io.github.seancorfield/deps-new
                   {:git/tag "v0.5.1" :git/sha "21cede2"}
                   io.github.practicalli/project-templates
-                  {:git/tag "2023.04.22" :git/sha "9d40153"}}
+                  {:git/tag "2023.04.25" :git/sha "66713b9"}}
    :exec-fn      org.corfield.new/create
    :exec-args    {:template practicalli/application
                   :name practicalli/playground}}
