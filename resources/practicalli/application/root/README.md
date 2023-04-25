@@ -22,42 +22,57 @@ Project created with [deps-new](https://github.com/seancorfield/deps-new) and th
 Run the service (clojure.main)
 
 ```shell
-clojure -M:run/service
+clojure -M:run/app
 ```
 
 Run the greet function (clojure.exec), optionally passing a `:name` key and value as arguments
 
 ```shell
-clojure -X:run/greet :name '"team name"'
+clojure -X:run/greet :team-name '"team name"'
 ```
 
 ## Development
 
-List all the available project tasks using the `make` help
+Practicalli workflow overview:
+
+- start a REPL process in a Terminal
+- open the project in a Clojure Editor and connected to the REPL
+- write code and evaluate expressions in the editor using the source code files
+
+[Practicalli Clojure CLI Config](https://practical.li/clojure/clojure-cli/practicalli-config/) should be used with this project to support all aliases used.
+
+This project uses `make` tasks to run the Clojure tests, kaocha test runner and package the service into an uberjar.  The `Makefile` uses `clojure` commands and arguments which can be used directly if not using `make`.
+
+`make` command in a terminal will list all the tasks available
 
 ```shell
 make
 ```
 
-> This project uses `make` tasks to run the Clojure tests, kaocha test runner and package the service into an uberjar.  The `Makefile` uses `clojure` commands and arguments that can be used directly if not using `make`.
 
 ### Run Clojure REPL
 
-Start the REPL with the [Practicalli REPL Reloaded](https://practical.li/clojure/clojure-cli/repl-reloaded/) aliases to include the custom `user` namespace (`dev/user.clj`) which provides additional tools for development (IntegrantREPL, add-libs hotload, find-deps, Portal data inspector)
+Start the REPL with the [Practicalli REPL Reloaded](https://practical.li/clojure/clojure-cli/repl-reloaded/) aliases to include the custom `user` namespace (`dev/user.clj`) which provides additional tools for development (Portal data inspector, hotload libraries, namespace reload)
 
 ```shell
 make repl
 ```
 
-Evaluate `(start)` expression at the repl prompt to start the service.  Several mulog events should be published to the terminal window.
-
-Connect a clojure aware editor and start developing the code, evaluating changes as they are made.
-
-`(refresh)` will reload any changed namespaces
-
 The local nREPL server port will be printed, along with a help menu showing the REPL Reloaded tools available.
 
-> `:dev/reloaded` alias should be included in the editor command (jack-in) to start a REPL
+Evaluate the {{top/ns}}.{{main/ns}} namespace and a mulog publisher will start, sending pretty printed events to the console. Evaluate `(mulog-publisher)` to stop the mulog publisher.
+
+Call the `-main` function with or without an argument, or call the `greet` function directly passing an optional key and value pair.
+
+`(namespace/refresh)` will reload any changed namespaces in the Clojure project.
+
+
+### Clojure Editor
+
+If a REPL has been run from a terminal, use the editor **connect** feature.
+
+Otherwise, use the `:dev/reloaded` alias from Practicalli Clojure CLI Config to starting a REPL process from within a Clojure editor.
+
 
 ### Unit tests
 
@@ -69,7 +84,7 @@ make test
 
 > If additional libraries are required to support tests, add them to the `:test/env` alias definition in `deps.edn`
 
-`make test-watch` will run tests on file save, although changes to `template.edn` may require cancelling the test watch (Control-c) and restarting.  test-watch requires Practicalli Clojure CLI Config `:test/watch` alias.
+`make test-watch` will run tests on file save, stopping the current test run on the first failing test.  Tests will continue to be watched until `Ctrl-c` is pressed.
 
 ## Format Code
 

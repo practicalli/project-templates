@@ -13,7 +13,7 @@
 
  :aliases
  {;; Clojure.main execution of application
-  :run/service
+  :run/app
   {:main-opts ["-m" "{{top/ns}}.{{main/ns}}"]}
 
   ;; Clojure.exec execution of specified function
