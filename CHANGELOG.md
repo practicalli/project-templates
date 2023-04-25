@@ -4,6 +4,25 @@ All notable changes to this project will be documented in this file. This change
 
 ## [Unreleased]
 
+- [#13](https://github.com/practicalli/project-templates/issues/13) docker: swagger-editor as separate compose configuration
+- [#12](https://github.com/practicalli/project-templates/issues/12) docker: postgres image healthcheck (compose.yaml)
+- [#11](https://github.com/practicalli/project-templates/issues/11) docker: container healthcheck configuration (Dockerfile)
+- [#10](https://github.com/practicalli/project-templates/issues/10) service: resolve docker compose container exits
+- dev: docker tasks detach from containers, update task docs
+- dev: update unit test tasks
+- dev: minor dev/user updates
+- docker: refactor container name & update config docs
+- docker: swagger-editor as separate configuration
+- application: specify development workflow steps
+- application: enhance main app namespace code
+- application: remove :test/watch alias
+- application: update main-namespace in build script
+- service: development section elaboration and formatting
+- ci: update funding account name
+- ci: setup-clojure & create-pull-request version update
+- ci: update megalinter config for markdown, yaml, secrets
+
+
 ## 2023-04-22
 ### Changed
 - `dev` directory separated from `root` and declarative copy rules defined, service.clj renamed to template to avoid format false positives
