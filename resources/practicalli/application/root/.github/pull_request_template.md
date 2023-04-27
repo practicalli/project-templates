@@ -26,4 +26,4 @@ _Please tick `x` relevant options, delete those not relevant_
 - [ ] Code follows the [Practicalli cljstyle configuration](https://practical.li/clojure/clojure-cli/clojure-style/#cljstyle)
 - [ ] Add / update alias docs and README where relevant
 - [ ] Changelog entry describing notable changes
-- [ ] Request practicalli-john review the PR
+- [ ] Request maintainers review the PR
