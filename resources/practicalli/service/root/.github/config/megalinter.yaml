@@ -71,13 +71,6 @@ DISABLE_LINTERS:
 # ------------------------
 
 # ------------------------
-# Fix Errors
-
-# Automatically update files with corrections
-APPLY_FIXES: all # all, none, or list of linter keys
-# ------------------------
-
-# ------------------------
 # Reporting
 
 # Activate sources reporter

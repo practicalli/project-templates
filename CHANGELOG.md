@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file. This change
 ## [Unreleased]
 
 - ci: cron examples for alternative schedules
+- ci: simplify megalinter workflow, remove apply fix configuration
 
 
 ## 2023-04-22
