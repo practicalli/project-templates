@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file. This change
 
 ## [Unreleased]
 
+- ci: cron examples for alternative schedules
+
+
+## 2023-04-22
+### Changed
 - [#13](https://github.com/practicalli/project-templates/issues/13) docker: swagger-editor as separate compose configuration
 - [#12](https://github.com/practicalli/project-templates/issues/12) docker: postgres image healthcheck (compose.yaml)
 - [#11](https://github.com/practicalli/project-templates/issues/11) docker: container healthcheck configuration (Dockerfile)
