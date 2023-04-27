@@ -34,7 +34,7 @@
   [& args]
   (let [team (first args)]
     (mulog/set-global-context!
-     {:app-name "{{top/ns}} {{main/ns}} " :version  "{{version}}"})
+     {:app-name "{{top/ns}} {{main/ns}}" :version  "{{version}}"})
     (mulog/log ::application-starup :arguments args)
     (if team
       (greet team)
