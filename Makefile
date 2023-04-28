@@ -62,7 +62,7 @@ repl:  ## Run Clojure REPL with rich terminal UI (Rebel Readline)
 #		clojure -P -X:build
 
 
-# dist: deps build-uberjar ## Build and package Clojure service
+# dist: build-uberjar ## Build and package Clojure service
 #		$(info --------- Build and Package Clojure service ---------)
 
 
@@ -154,17 +154,17 @@ lint-clean:  ## Clean MegaLinter report information
 
 # ------- Docker Containers ---------- #
 
-# docker-build:  ## Build Clojure Service with docker compose
+# docker-build:  ## Build Clojure project and run with docker compose
 #		$(info --------- Docker Compose Build ---------)
-#		docker compose up --build
+#		docker compose up --build --detach
 
-# docker-build-clean:  ## Build Clojure Service with docker compose, removing orphans
+# docker-build-clean:  ## Build Clojure project and run with docker compose, removing orphans
 #		$(info --------- Docker Compose Build - remove orphans ---------)
-#		docker compose up --build --remove-orphans
+#		docker compose up --build --remove-orphans --detach
 
-# docker-down:  ## Shut down Clojure service using docker compose
+# docker-down:  ## Shut down containers in docker compose
 #		$(info --------- Docker Compose Down ---------)
-#		docker-compose down
+#		docker compose down
 
 
 # swagger-editor:  ## Start Swagger Editor in Docker
@@ -192,7 +192,7 @@ lint-clean:  ## Clean MegaLinter report information
 
 # Run tests, build & package the Clojure code and clean up afterward
 # `make all` used in Docker builder stage
-# .DELETE_ON_ERROR:
-# all: test-ci dist clean  ## Call test-ci dist and clean targets, used for CI
+.DELETE_ON_ERROR:
+all: test-ci dist clean  ## Call test-ci dist and clean targets, used for CI
 
 # ------------------------------------ #

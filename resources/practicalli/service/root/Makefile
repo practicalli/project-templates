@@ -54,7 +54,7 @@ help:  ## Describe available tasks in Makefile
 
 repl:  ## Run Clojure REPL with rich terminal UI (Rebel Readline)
 	$(info --------- Run Rebel REPL ---------)
-	clojure -M:repl/reloaded
+	clojure -M:test/env:repl/reloaded
 
 
 deps: deps.edn  ## Prepare dependencies for test and dist targets
@@ -62,7 +62,7 @@ deps: deps.edn  ## Prepare dependencies for test and dist targets
 	clojure -P -X:build
 
 
-dist: deps build-uberjar ## Build and package Clojure service
+dist: build-uberjar ## Build and package Clojure service
 	$(info --------- Build and Package Clojure service ---------)
 
 
@@ -133,11 +133,9 @@ format-check: ## Run cljstyle to check the formatting of Clojure code
 	$(info --------- cljstyle Runner ---------)
 	cljstyle check
 
-
 format-fix:  ## Run cljstyle and fix the formatting of Clojure code
 	$(info --------- cljstyle Runner ---------)
 	cljstyle fix
-
 
 lint:  ## Run MegaLinter with custom configuration (node.js required)
 	$(info --------- MegaLinter Runner ---------)
