@@ -143,6 +143,10 @@ lint:  ## Run MegaLinter with custom configuration (node.js required)
 	$(info --------- MegaLinter Runner ---------)
 	npx mega-linter-runner --flavor java --env "'MEGALINTER_CONFIG=.github/config/megalinter.yaml'" --remove-container
 
+lint-fix:  ## Run MegaLinter with applied fixes and custom configuration (node.js required)
+	$(info --------- MegaLinter Runner ---------)
+	npx mega-linter-runner --fix --flavor java --env "'MEGALINTER_CONFIG=.github/config/megalinter.yaml'" --remove-container
+
 lint-clean:  ## Clean MegaLinter report information
 	$(info --------- MegaLinter Clean Reports ---------)
 	- rm -rf ./megalinter-reports

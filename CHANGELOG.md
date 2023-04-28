@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This change
 
 - ci: cron examples for alternative schedules
 - ci: simplify megalinter workflow, remove apply fix configuration
+- dev: Makefile task for local megalinter runner with apply fixes
 
 
 ## 2023-04-22
