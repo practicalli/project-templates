@@ -77,8 +77,8 @@ Check the code format before pushing commits to a shared repository, using cljst
 
 Before running the `pre-commit-check`
 
-* [install cljstyle](https://github.com/greglook/cljstyle/releases){target=_blank}
-* MegaLinter runs in a Docker container, so ensure Docker is running
+- [install cljstyle](https://github.com/greglook/cljstyle/releases){target=_blank}
+- MegaLinter runs in a Docker container, so ensure Docker is running
 
 ```shell
 make pre-commit-check
@@ -86,17 +86,18 @@ make pre-commit-check
 
 Run cljstyle only
 
-* `make format-check` runs cljstyle and and prints a report if there are errors
-* `make format-fix` updates all files if there are errors (check the changes made via `git diff`)
+- `make format-check` runs cljstyle and and prints a report if there are errors
+- `make format-fix` updates all files if there are errors (check the changes made via `git diff`)
 
 Run MegaLinter only
 
-* `make lint` runs all configured linters in `.github/config/megalinter.yaml`
+- `make lint` runs all configured linters in `.github/config/megalinter.yaml`
+- `make lint-fix` as above and applies fixes
 
 Run Kaocha test runner only
 
-* `make test` runs all unit tests in the project, stopping at first failing test
-* `make test-watch` detect file changes and run all unit tests in the project, stopping at first failing test
+- `make test` runs all unit tests in the project, stopping at first failing test
+- `make test-watch` detect file changes and run all unit tests in the project, stopping at first failing test
 
 
 ## Deployment
@@ -107,15 +108,15 @@ Build an uberjar to deploy the service as a jar file
 make build-uberjar
 ```
 
-* `make build-config` displays the tools.build configuration
-* `make build-clean` deletes the build assets (`target` directory)
+- `make build-config` displays the tools.build configuration
+- `make build-clean` deletes the build assets (`target` directory)
 
 ```shell
 make docker-build
 ```
 
-* `make docker-down` shuts down all services started with `docker-build`
-* `make docker-build-clean`
+- `make docker-down` shuts down all services started with `docker-build`
+- `make docker-build-clean`
 
 Or build and run the service via the multi-stage `Dockerfile` configuration as part of a CI workflow.
 
