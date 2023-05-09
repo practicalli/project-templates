@@ -35,9 +35,9 @@ jobs:
         uses: actions/checkout@v3
       - run: echo "🐙 ${{ github.repository }} repository was cloned to the runner."
 
-      - name: "Setup Antq"
+      - name: "Antq Version Check"
         uses: liquidz/antq-action@main
-
+        with:
+          excludes: "org.clojure/tools.deps.alpha"
       - run: echo "🎨 library versions checked with liquidz/antq"
-
       - run: echo "🍏 Job status is ${{ job.status }}."
