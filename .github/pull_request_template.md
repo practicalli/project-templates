@@ -1,9 +1,9 @@
 📓 Description
 
-_Summary of the change and link to any relevant tickets. New aliases should include details of why they are valuable_
+# _Summary of the change and link to any relevant tickets. New aliases should include details of why they are valuable_
 
-Resolve #
-Refer #
+# Resolve #
+# Refer #
 
 :octocat Type of change
 
