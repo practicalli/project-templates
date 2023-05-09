@@ -16,9 +16,9 @@
   (testing "TODO: Start with a failing test, make it pass, then refactor"
 
     ;; TODO: fix greet function to pass test
-    (is (= "{{top/ns}} service developed by the secret engineering team"
+    (is (= "{{top/ns}} {{main/ns}} service developed by the secret engineering team"
            ({{main/ns}}/greet)))
 
     ;; TODO: fix test by calling greet with {:team-name "Practicalli Engineering"}
     (is (= ({{main/ns}}/greet "Practicalli Engineering")
-           "{{top/ns}} service developed by the Practicalli Engineering team"))))
+           "{{top/ns}} {{main/ns}} service developed by the Practicalli Engineering team"))))
