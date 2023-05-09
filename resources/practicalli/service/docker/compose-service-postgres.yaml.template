@@ -22,40 +22,40 @@ services:
       - COMPOSE_PROJECT_NAME
     ports: # host:container
       - 8080:8080
-    # depends_on:
-    #   postgres-database:
-    #     condition: service_healthy
+    depends_on:
+      postgres-database:
+        condition: service_healthy
 
 
   # --- Persistence Services --- #
 
   # --- Postgres Relational Database --- #
   # https://github.com/docker-library/docs/blob/master/postgres/README.md
-  # postgres-database:
-  #   image: postgres:15.2-alpine
-  #   environment:
-  #     # superuser password - must not be empty
-  #     POSTGRES_PASSWORD: "$DOCKER_POSTGRES_ROOT_PASSWORD"
-  #     # Set User Credentials - optional
-  #     POSTGRES_USER: "$DOCKER_POSTGRES_USER"
-  #     POSTGRES_DB: "$DOCKER_POSTGRES_SCHEMA"
-  #   healthcheck:
-  #     test: [ "CMD", "pg_isready" ]
-  #     timeout: 45s
-  #     interval: 10s
-  #     retries: 10
-  #   ports:
-  #     - 5432:5432
-  # Persist Postgres database schema in a docker volume
-  #   volumes:
-  #     - postgres-data:/var/lib/postgres/data
+  postgres-database:
+    image: postgres:15.2-alpine
+    environment:
+      # superuser password - must not be empty
+      POSTGRES_PASSWORD: "$DOCKER_POSTGRES_ROOT_PASSWORD"
+      # Set User Credentials - optional
+      POSTGRES_USER: "$DOCKER_POSTGRES_USER"
+      POSTGRES_DB: "$DOCKER_POSTGRES_SCHEMA"
+    healthcheck:
+      test: [ "CMD", "pg_isready" ]
+      timeout: 45s
+      interval: 10s
+      retries: 10
+    ports:
+      - 5432:5432
+    # Persist Postgres database schema in a docker volume
+    volumes:
+      - postgres-data:/var/lib/postgres/data
 # Mount project root
-# volumes:
-#   postgres-data:
+volumes:
+  postgres-data:
 
   # postgres web-based administration tool
-  # postgres-adminer:
-  #   image: adminer
-  #   restart: always
-  #   ports:
-  #     - 8080:8080
+  postgres-adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

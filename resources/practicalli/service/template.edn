@@ -43,6 +43,10 @@
     "deps.edn.template"  "deps.edn"}]
   ["dev" "dev"
    {"system.clj.template" "system.clj"}]
+  ["docker" ""
+   {"compose-service.yaml.template" "compose.yaml"
+    "compose-service-postgres.yaml.template"  "compose-service-postgres.yaml"
+    "Dockerfile.template" "Dockerfile"}]
   ["resources" "resources"
    {"config.edn.template" "config.edn"}]
   ["src" "src/{{top/file}}/{{main/file}}"

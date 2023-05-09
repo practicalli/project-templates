@@ -1,0 +1,24 @@
+---
+# --- Docker Compose Configuration --- #
+# - Docker Compose V2
+# - https://docs.docker.com/compose/compose-file/
+#
+# Build the Clojure Service from source code
+# and run on port 8080
+#
+# Examples of persistence with Postgres and mysql docker images
+# and local data storage to facilitate data restoration
+
+name: "{{top/ns}}"
+
+services:
+  # --- Clojure Service --- #
+  {{main/ns}}-service:
+    platform: linux/amd64
+    # Build using Dockerfile - relative path or Git repository
+    build:
+      context: ./ # Use Dockerfile in project root
+    environment: # host:container
+      - COMPOSE_PROJECT_NAME
+    ports: # host:container
+      - 8080:8080
