@@ -17,8 +17,6 @@
 #
 # ------------------------------------------
 
-
-
 # .PHONY: ensures target used rather than matching file name
 # https://makefiletutorial.com/#phony
 .PHONY: all lint deps dist pre-commit-check repl test test-ci test-watch clean
