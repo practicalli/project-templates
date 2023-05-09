@@ -102,7 +102,7 @@
 ;; Application entry point
 
 (defn -main
-  "{{top/ns}} service is started with `ig/init` and the Integrant configuration,
+  "{{top/ns}} {{main/ns}} service is started with `ig/init` and the Integrant configuration,
   with the return value bound to the namespace level `system` name.
   Aero is used to configure Integrant configuration based on profile (dev, test, prod),
   allowing environment specific configuration, e.g. mulog publisher
