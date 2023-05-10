@@ -1,0 +1,46 @@
+{;; Values to pass into the template
+ :description "TODO: Provide a meaningful description of the project"
+
+ ;; ---------------------------------------------------------
+ ;; Version substitutions
+
+ :clojure-version "1.11.1"
+ ;; ---------------------------------------------------------
+
+ ;; ---------------------------------------------------------
+ ;; Optional features
+ ;; - used by programatic transformation
+ ;; - not implemented yet
+ ;; ---------------------------------------------------------
+
+ ;; ---------------------------------------------------------
+ ;; Programatic Transformation functions
+
+ :data-fn practicalli.landing-page/substitutions
+
+ :template-fn practicalli.landing-page/template-edn
+ ;; ---------------------------------------------------------
+
+ ;; ---------------------------------------------------------
+ ;; Declarative Transformation rules
+ ;; - can be updated by programmatic transformation
+ ;;
+ ;; Form:
+ ;; [["directory-name" "default-path"
+ ;;   {"source-file.extension.template" "destination-file.extension"}]]
+
+ :transform
+ [["build" ""
+   {"deps.edn.template"  "deps.edn"
+    "dev.cljs.edn.template"  "dev.cljs.edn"
+    "github-pages.cljs.edn.template"  "github-pages.cljs.edn"
+    "test.cljs.edn.template"  "test.cljs.edn"}]
+  ["src" "src/{{top/file}}"
+   {"main_page.cljs.template" "{{main/file}}.cljs"
+    "data.cljs.template" "data.cljs"
+    "component.cljs.template" "component.cljs"}]
+  ["test" "test/{{top/file}}"
+   {"main_page_test.cljs.template" "{{main/file}}_test.cljs"
+    "test_runner.cljs.template" "test_runner.cljs"}]]
+ ;; ---------------------------------------------------------
+ }
