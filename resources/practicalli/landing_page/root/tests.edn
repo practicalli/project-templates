@@ -1,0 +1,13 @@
+;; ---------------------------------------------------------
+;; Kaocha test runner configuration
+;;
+;; Default configuration
+;; - show current config using either command:
+;;
+;; make test-config
+;;
+;; clojure -M:test/env:test/run --print-config
+
+;; ---------------------------------------------------------
+
+#kaocha/v1 {}
