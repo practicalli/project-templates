@@ -1,0 +1,5 @@
+# Git Attributes
+
+# reclassifies `.edn` as Clojure files for Linguist statistics
+# https://github.com/github/linguist/blob/master/docs/overrides.md
+**/*.edn linguist-language=Clojure

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<!-- Web Page templae for ClojureScript app -->
+<!-- app id used to embed JavaScript compiled from ClojureScript application -->
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bulma.io Stylesheets -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"></script>
+    <!-- <link rel="stylesheet" href="css/debug.css" /> -->
+
+     <!-- Project Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+    <!-- Assets -->
+    <link rel="icon" href="https://clojurescript.org/images/cljs-logo-icon-32.png">
+
+  </head>
+
+  <!-- Fix navigation menu to top of page -->
+  <body class="has-navbar-fixed-top">
+      <div id="app">
+          <div class="container">
+              <!-- Optional Progress bar -->
+              <!-- <h1 class="title is-1">Loading the application, hold on tight!</h1> -->
+              <!-- <progress class="progress is-large is-primary" max="100"></progress> -->
+          </div>
+      </div> <!-- end of app div -->
+
+      <!-- ClojureScript application for Development, used with Figwheel-main  -->
+      <!-- <script src="cljs-out/dev-main.js" type="text/javascript"></script> -->
+
+      <!-- ClojureScript application for GitHub Pages, used in docs/index.html  -->
+      <script src="js/{{top/file}}.{{main/file}}.js" type="text/javascript"></script>
+
+    <!-- Script for Bulma hamburger menu -->
+    <!-- https://www.adam-bray.com/2018/04/03/responsive-bulma-css-navigation-bar/ -->
+   <script>
+     (function() {
+         var burger = document.querySelector('.burger');
+         var nav = document.querySelector('#'+burger.dataset.target);
+
+         burger.addEventListener('click', function(){
+             burger.classList.toggle('is-active');
+             nav.classList.toggle('is-active');
+         });
+     })();
+    </script>
+  </body>
+</html>
