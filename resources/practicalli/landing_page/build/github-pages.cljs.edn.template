@@ -1,0 +1,14 @@
+;; ---------------------------------------------------------
+;; Prepare for GitHub pages
+;;
+;; Deploy ClojureScript build in `/docs` directory
+;; to be served by GitHub pages
+;;
+;; Configure the repository GitHub pages to serve from ``/docs``
+;; ---------------------------------------------------------
+
+^{:watch-dirs   ["test" "src"]
+  :css-dirs     ["resources/public/css"]
+  :auto-testing true}
+{:main {{top/ns}}.{{main/ns}}
+ :output-to "docs/js/{{top/ns}}.{{main/ns}}.js"}
