@@ -1,0 +1,10 @@
+;; ---------------------------------------------------------
+;; Development Build
+;;
+;; Watch src, text and css directories and reload on file saves
+;; ---------------------------------------------------------
+
+^{:watch-dirs ["test" "src"]
+  :css-dirs ["resources/public/css"]
+  :auto-testing true}
+{:main {{top/ns}}.{{main/ns}}}
