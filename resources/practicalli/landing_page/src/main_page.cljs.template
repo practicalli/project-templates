@@ -1,0 +1,93 @@
+;; ---------------------------------------------------------
+;; {{top/ns}} {{main/ns}}
+;;
+;; ClojureScript project with reagent
+;; - hash-maps for common data
+;; - functions for reagent components
+;; - Bulma.io CSS library for styles
+;;
+;; Author(s): {{developer}}
+;; ---------------------------------------------------------
+
+(ns ^:figwheel-hooks {{top/ns}}.{{main/ns}}
+  (:require
+   [goog.dom    :as goog-dom]
+   [reagent.dom :as reagent-dom]
+   ;; [reagent.core :as reagent]
+
+   [{{top/ns}}.component :as component]
+   [{{top/ns}}.data      :as data]))
+
+;; ---------------------------------------------------------
+;; Tooling / Debug
+
+(println (js/Date.) "Reloading: src/{{top/file}}_{{main/file}}_page.cljs")
+
+;; End of Tooling / Debug
+;; ---------------------------------------------------------
+
+;; ---------------------------------------------------------
+;; Application State (not used)
+
+;; define app-state once to avoid being over-written on figwheel reload
+;; (defonce app-state (reagent/atom {:text "Hello REPL Reloaded world!"}))
+
+;; End of Application State
+;; ---------------------------------------------------------
+
+;; ---------------------------------------------------------
+;; Web page structure
+
+(defn main-page
+  "The layout of components on the main page."
+  []
+  [:div
+   [component/navigation (data/assets :organisation)]
+
+   [component/title-banner (-> data/assets :organisation :logo)]
+
+   ;; [component/separator "catalog"]
+   ;; [component/catalog (data/assets :catalog)]
+
+   [component/separator "contact"]
+   [component/contact (data/assets :contact)]
+
+   [component/separator "support"]
+   [component/support (data/assets :support)]
+
+   [component/separator "resources"]
+   [component/resources]])
+
+;; End of Web page structure
+;; ---------------------------------------------------------
+
+;; ---------------------------------------------------------
+;; System Configuration
+
+(defn get-app-element
+  "Reference to app id in index.html page"
+  [] (goog-dom/getElement "app"))
+
+(defn mount
+  "Render the main reagent component so it is ready to be used"
+  [element] (reagent-dom/render [main-page] element))
+
+(defn mount-app-element
+  "Mount the ClojureScript app in the web page"
+  []
+  (when-let [element (get-app-element)]
+    (mount element)))
+
+;; conditionally start your application based on the presence of an "app" element
+;; this is particularly helpful for testing this ns without launching the app
+(mount-app-element)
+
+;; specify reload hook with ^;after-load metadata
+(defn ^:after-load on-reload []
+  (mount-app-element)
+  ;; optionally touch your app-state to force rerendering depending on
+  ;; your application
+  ;; (swap! app-state update-in [:__figwheel_counter] inc)
+  )
+;; End of System Configuration
+;; ---------------------------------------------------------

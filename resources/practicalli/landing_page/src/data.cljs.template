@@ -1,0 +1,69 @@
+;; ---------------------------------------------------------
+;; {{top/ns}}.data
+;;
+;; Data used to generate components that make up the main page
+;; ---------------------------------------------------------
+
+(ns {{top/ns}}.data)
+
+(def assets
+  "Information used to generate content, enabling use across multiple components
+  and avoiding hard-coded component data"
+  {:organisation {:logo "https://raw.githubusercontent.com/practicalli/graphic-design/live/logos/practicalli-logo.png"
+                  :banner "https://raw.githubusercontent.com/practicalli/graphic-design/live/banners/practicalli-logo.png"
+                  :website "https://practical.li"
+                  :status "https://status.practical.li/"
+                  :repository "https://github.com/practicalli/practicalli.github.io"}
+
+   :catalog
+   [{:name "Practicalli Clojure"
+     :description "Learn Clojure the practical way"
+     :reference "url to item"
+     :image "https://placehold.co/640x400/EEE/31343C?font=open-sans&text=Clojure"}
+    {:name "Practicalli ClojureScript"
+     :description "Learn ClojureScript the practical way"
+     :reference "url to item"
+     :image "https://placehold.co/640x400/EEE/31343C?font=open-sans&text=ClojureScript"}]
+
+   :contact
+   {:slack   {:clojurians  "https://clojurians.slack.com/"
+              :practicalli {:url  "https://clojurians.slack.com/messages/practicalli"
+                            :logo "https://raw.githubusercontent.com/practicalli/graphic-design/live/buttons/practicalli-slack-channel-button.png"}
+              :spacemacs   "https://clojurians.zulipchat.com/#narrow/stream/spacemacs"}
+    :zulip   {:clojurians  "https://clojurians.zulipchat.com/"
+              :practicalli {:url  "https://clojurians.zulipchat.com/#narrow/stream/practicalli"
+                            :logo "https://raw.githubusercontent.com/practicalli/graphic-design/live/buttons/practicalli-zulip-channel-button.png"}
+              :events      "https://clojurians.zulipchat.com/#narrow/stream/events"}}
+
+
+:support
+{:youtube-subscribe       {:url  "https://www.youtube.com/channel/UCLsiVY-kWVH1EqgEtZiREJw?sub_confirmation=1"
+                              :logo "https://raw.githubusercontent.com/practicalli/graphic-design/live/buttons/practicalli-youtube-channel-subscribe-button.png"}
+    :github-sponsors         {:url  "https://github.com/sponsors/practicalli-john/"
+                              :logo "https://raw.githubusercontent.com/practicalli/graphic-design/live/buttons/practicalli-github-sponsors-button.png"}
+    :brompton-across-britain {:url  "https://brompton-across-britain.github.io/"
+                              :logo "images/brompton-across-britain-bike.png"}
+    :patreon                 {:url  "https://www.patreon.com/practicalli"
+                              :logo "images/patreon-navy.png"}
+    :paypal-me               {:url  "https://paypal.me/practicalli"
+                              :logo "https://raw.githubusercontent.com/practicalli/graphic-design/live/buttons/practicalli-paypal-me-button.png"}
+    :kickstarter             {:url  "/"
+                              :logo "images/kickstarter-logo.jpeg"}
+    :clojurists-together     {:url  "https://www.clojuriststogether.org/"
+                              :logo "https://raw.githubusercontent.com/practicalli/graphic-design/live/banners/clojurists-together-banner.png"
+                              :reports
+                              {:repository "https://github.com/practicalli/clojurists-together-journal"
+                               :year-2022 {}
+                               :year-2020 {:q2 {:update1 "https://github.com/practicalli/clojurists-together-journal/blob/live/2020-May-01-15.md"
+                                                :update2 "https://github.com/practicalli/clojurists-together-journal/blob/live/2020-May-16-31.md"
+                                                :update3 "https://github.com/practicalli/clojurists-together-journal/blob/live/2020-June-01-15.md"
+                                                :update4 "https://github.com/practicalli/clojurists-together-journal/blob/live/2020-June-16-30.md"
+                                                :update5 "https://github.com/practicalli/clojurists-together-journal/blob/live/2020-July-01-15.md"
+                                                :update6 "https://github.com/practicalli/clojurists-together-journal/blob/live/2020-July-16-31.md"}
+                                           :q3 {:update1 "https://github.com/practicalli/clojurists-together-journal/blob/live/2020-August-16-31.md"
+                                                :update2 "https://github.com/practicalli/clojurists-together-journal/blob/live/2020-September-01-15.md"
+                                                :update3 "https://github.com/practicalli/clojurists-together-journal/blob/live/2020-September-16-30.md"
+                                                :update4 "https://github.com/practicalli/clojurists-together-journal/blob/live/2020-October-01-15.md"
+                                                :update5 "https://github.com/practicalli/clojurists-together-journal/blob/live/2020-October-16-31.md"
+                                                :update6 "https://github.com/practicalli/clojurists-together-journal/blob/live/2020-November-01-15.md"}}}}}
+   })
