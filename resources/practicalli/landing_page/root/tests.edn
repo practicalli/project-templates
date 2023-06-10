@@ -1,5 +1,6 @@
 ;; ---------------------------------------------------------
 ;; Kaocha test runner configuration
+;; - https://github.com/lambdaisland/kaocha-cljs
 ;;
 ;; Default configuration
 ;; - show current config using either command:
@@ -10,4 +11,14 @@
 
 ;; ---------------------------------------------------------
 
-#kaocha/v1 {}
+#kaocha/v1
+ {:tests [{:id :unit-cljs
+           :type :kaocha.type/cljs
+           :test-paths ["test"]
+           ;; :cljs/timeout 10000                        ; 10 seconds, the default
+
+           ;; REPL environment - node, web, figwheel
+           ;; :cljs/repl-env cljs.repl.node/repl-env     ; node is the default
+           :cljs/repl-env cljs.repl.browser/repl-env
+           ;; :cljs/repl-env figwheel.repl/repl-env
+           }]}
