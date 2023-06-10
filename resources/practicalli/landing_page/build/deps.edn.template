@@ -45,10 +45,16 @@
   {:main-opts ["-m" "figwheel.main"
                "-O" "advanced" "-bo" "github-pages"]}
 
-  :test/run
+  :test/figwheel
   {:main-opts ["-m" "figwheel.main"
                "-co" "test.cljs.edn"
                "-m" "{{top/ns}}.test-runner"]}
+
+  :test/run
+  {:extra-paths ["test"]
+   :extra-deps
+   {com.lambdaisland/kaocha-cljs {:mvn/version "1.5.154"}}
+   :main-opts ["-m" "kaocha.runner"]}
   ;; ---------------------------------------------------------
 
   ;; ---------------------------------------------------------
