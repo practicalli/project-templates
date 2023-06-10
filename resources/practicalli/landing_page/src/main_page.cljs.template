@@ -49,9 +49,6 @@
    ;; [component/separator "catalog"]
    ;; [component/catalog (data/assets :catalog)]
 
-   [component/separator "contact"]
-   [component/contact (data/assets :contact)]
-
    [component/separator "support"]
    [component/support (data/assets :support)]
 

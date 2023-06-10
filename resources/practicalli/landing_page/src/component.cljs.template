@@ -115,12 +115,12 @@
 
 
 (defn support
-  "Ways in which you can contact Practicalli"
+  "Ways in which you can contact {{top/ns}}"
   [support-channels]
   [:div {:class "container"}
    [:div {:class "box"}
     [:h2 {:class "title has-text-centered"}
-     "Support Practicalli"]
+     "Support"]
     [:div {:class "columns"}
 
      [:div {:class "column"}
@@ -150,37 +150,6 @@
        "Direct Contributions in any currency"]]
 
      ]]])
-
-
-(defn contact
-  "Ways in which you can contact Practicalli"
-  [contact-channels]
-  [:div {:class "container"}
-   [:div {:class "box"}
-    [:h2 {:class "title has-text-centered"}
-     "Contact and Feedback"]
-    [:div {:class "columns"}
-
-     [:div {:class "column"}
-      [:a {:href   (get-in contact-channels [:zulip :practicalli :url])
-           :target "_blank"}
-       [:figure {:class "image"}
-        [:img {:src (get-in contact-channels [:zulip :practicalli :logo])}]]]
-      [:p {:class "has-text-centered"}
-       "Contains searchable archive of Clojurians Slack discussions"]]
-
-     [:div {:class "column"}
-      [:a {:href   (get-in contact-channels [:slack :practicalli :url])
-           :target "_blank"}
-       [:figure {:class "image"}
-        [:img {:src (get-in contact-channels [:slack :practicalli :logo])}]]]
-
-      [:a {:href   "http://clojurians.net"
-           :target "_blank"}
-       [:p {:class "has-text-centered"}
-        "Sign up for a free account to the Clojurians Slack community"]]]
-
-     ]]]) ;; End of contact
 
 
 (defn resources
