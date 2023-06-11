@@ -7,8 +7,7 @@
 ;; Build metadata configuration will override matching figwheel defaults
 ;; ---------------------------------------------------------
 
-{
- ;; Set the server port https://figwheel.org/config-options#ring-server-options
+{;; Set the server port https://figwheel.org/config-options#ring-server-options
  ;; :ring-server-options {:port 9500}
 
  ;; Target directory https://figwheel.org/config-options#target-dir
@@ -35,4 +34,4 @@
 
  ;; Logging output gets printed to the REPL, if you want to redirect it to a file:
  ;; :log-file "figwheel-main.log"
-}
+ }
