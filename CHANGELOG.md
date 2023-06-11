@@ -4,7 +4,10 @@ All notable changes to this project will be documented in this file. This change
 
 ## [Unreleased]
 
-- ci: cron examples for alternative schedules
+## Added
+- `practicalli/landing-page` template
+- Link to Practicalli Clojure Project templates section for help after new project is created
+### Changed
 - ci: simplify megalinter workflow, remove apply fix configuration
 - dev: Makefile task for local megalinter runner with apply fixes
 
