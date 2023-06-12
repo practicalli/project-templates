@@ -36,4 +36,7 @@
   Return
   - new template.edn configuration"
   [edn data]
+
+  ;; Link to Practicalli Clojure Project Templates guide
+  (println "Template guide: https://practical.li/clojure/clojure-cli/projects/templates/")
   edn)

@@ -40,6 +40,9 @@
   Return
   - new template.edn configuration"
   [edn data]
-  (println "Data used in template-edn")
-  (print/pprint data)
+  ;; (println "Data used in template-edn")
+  ;; (print/pprint data)
+
+  ;; Link to Practicalli Clojure Project Templates guide
+  (println "Template guide: https://practical.li/clojure/clojure-cli/projects/templates/")
   edn)
