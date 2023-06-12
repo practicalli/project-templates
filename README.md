@@ -21,6 +21,7 @@ io.github.practicalli/project-templates {:git/tag "2023.04.25" :git/sha "66713b9
 
 * [practicalli/service](https://github.com/practicalli/project-templates/issues/2) - production grade HTTP service, basic routing (reitit-ring & middleware)
 * [practicalli/application](https://github.com/practicalli/project-templates/issues/4) - general application, limited code
+* TODO: practicalli/minimal - Clojure CLI project, tools-build,
 * TODO: practicalli/api - production grade API service (reitit-ring, clojure.spec validation)
 * TODO: practicalli/library - general library, deploymnent to Maven/Clojars
 * TODO: [practicalli/blog](https://github.com/practicalli/project-templates/issues/1) - cryogen project with Practicalli Customisation
@@ -29,7 +30,7 @@ io.github.practicalli/project-templates {:git/tag "2023.04.25" :git/sha "66713b9
 
 🕸️  Web UI
 
-* TODO: practicalli/landing-page - a simple landing page with figwheel and Bulma.io CSS
+* DONE: [#15](https://github.com/practicalli/project-templates/issues/15) practicalli/landing-page - a simple landing page with figwheel and Bulma.io CSS
 * TODO: practicalli/single-page-app - a simple landing page with figwheel and Bulma.io CSS
 * TODO: practicalli/catalog - a catalog front-end webapp with [firebase persistence](https://firebase.google.com/), user OAuth authentication, figwheel, Reagent, Bulma.io CSS
 * TODO: practicalli/store-front - a catalog front-end webapp with stripe integration, [firebase persistence](https://firebase.google.com/), OAuth authentication, figwheel, Reagent, Bulma.io CSS
