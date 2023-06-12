@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file. This change
 - Link to Practicalli Clojure Project templates section for help after new project is created
 ### Changed
 - ci: update MegaLinter GitHub Action v7 in MegaLnter workflow
+- ci: set monthly schedule and cron examples for alternative schedules
 
 ## 2023-06-11
 ## Added
