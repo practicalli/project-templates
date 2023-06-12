@@ -57,7 +57,6 @@
 ;; End of Help
 ;; ---------------------------------------------------------
 
-
 ;; ---------------------------------------------------------
 ;; Avoid reloading `dev` code
 ;; - code in `dev` directory should be evaluated if changed to reload into repl
@@ -65,7 +64,6 @@
  "Set REPL refresh directories to "
  (namespace/set-refresh-dirs "src" "resources"))
 ;; ---------------------------------------------------------
-
 
 ;; ---------------------------------------------------------
 ;; Start Portal and capture all evaluation results
@@ -85,7 +83,6 @@
 ;; Add portal as tapsource (add to clojure.core/tapset)
 (add-tap #'portal.api/submit)
 ;; ---------------------------------------------------------
-
 
 ;; ---------------------------------------------------------
 ;; Mulog events and publishing
@@ -109,7 +106,6 @@
 ;; Example mulog event message
 (mulog/log ::dev-user-ns ::ns (ns-publics *ns*))
 ;; ---------------------------------------------------------
-
 
 ;; ---------------------------------------------------------
 ;; Hotload libraries into running REPL
