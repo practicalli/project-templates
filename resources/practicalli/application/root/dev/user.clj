@@ -102,9 +102,9 @@
    {:type :custom, :fqn-function "mulog-publisher/tap"}))
 
 (defn mulog-tap-stop
- "Stop mulog tap publisher to ensure multiple publishers are not started
+  "Stop mulog tap publisher to ensure multiple publishers are not started
  Recommended before using `(restart)` or evaluating the `user` namespace"
-  [] (mulog-tap-publisher))
+  [] mulog-tap-publisher)
 
 ;; Example mulog event message
 (mulog/log ::dev-user-ns ::ns (ns-publics *ns*))
@@ -134,6 +134,8 @@
   (inspect/clear) ; Clear all values in portal window (allows garbage collection)
 
   (remove-tap #'inspect/submit) ; Remove portal from `tap>` sources
+
+  (mulog-tap-stop) ; stop tap publisher
 
   (inspect/close) ; Close the portal window
 
