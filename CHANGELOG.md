@@ -5,8 +5,13 @@ All notable changes to this project will be documented in this file. This change
 ## [Unreleased]
 
 ## Added
-- `practicalli/landing-page` template
 - Link to Practicalli Clojure Project templates section for help after new project is created
+### Changed
+- ci: update MegaLinter GitHub Action v7 in MegaLnter workflow
+
+## 2023-06-11
+## Added
+- `practicalli/landing-page` template
 ### Changed
 - ci: simplify megalinter workflow, remove apply fix configuration
 - dev: Makefile task for local megalinter runner with apply fixes
