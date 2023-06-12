@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file. This change
 ## [Unreleased]
 
 ## Added
+- [#19](https://github.com/practicalli/project-templates/issues/19) `practicalli/minimal` template
 - templates: link to Practicalli Clojure Project templates section for help after new project is created
 ### Changed
 - ci: update MegaLinter GitHub Action v7 in MegaLnter workflow
