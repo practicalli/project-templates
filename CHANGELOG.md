@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file. This change
 ### Changed
 - ci: update MegaLinter GitHub Action v7 in MegaLnter workflow
 - ci: set monthly schedule and cron examples for alternative schedules
+- dev: `MEGALINTER_RUNNER` Makefile variable for repeated commands with common options
 
 ## 2023-06-11
 ## Added
@@ -16,7 +17,6 @@ All notable changes to this project will be documented in this file. This change
 ### Changed
 - ci: simplify megalinter workflow, remove apply fix configuration
 - dev: Makefile task for local megalinter runner with apply fixes
-
 
 ## 2023-04-22
 ### Changed

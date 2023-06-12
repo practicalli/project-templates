@@ -32,6 +32,11 @@
 # Column the target description is printed from
 HELP-DESCRIPTION-SPACING := 24
 
+# Tool variables
+MEGALINTER_RUNNER = npx mega-linter-runner --flavor java --env "'MEGALINTER_CONFIG=.github/config/megalinter.yaml'" --remove-container
+CLOJURE_TEST_RUNNER = clojure -M:test/env:test/run
+CLOJURE_EXEC_TEST_RUNNER = clojure -X:test/env:test/run
+
 # Makefile file and directory name wildcard
 # EDN-FILES := $(wildcard *.edn)
 
@@ -79,29 +84,27 @@ clean:  ## Clean build temporary files
 
 test-config:  ## Print Kaocha test runner configuration
 		$(info --------- Runner Configuration ---------)
-		clojure -M:test/env:test/run --print-config
+		$(CLOJURE_TEST_RUNNER) --print-config
 
 test-profile:  ## Profile unit test speed, showing 3 slowest tests
 		$(info --------- Runner Profile Tests ---------)
-		clojure -M:test/env:test/run --plugin  kaocha.plugin/profiling
+		$(CLOJURE_TEST_RUNNER) --plugin  kaocha.plugin/profiling
 
 test:  ## Run unit tests - stoping on first error
 		$(info --------- Runner for unit tests ---------)
-		clojure -X:test/env:test/run
-
+		$(CLOJURE_EXEC_TEST_RUNNER)
 
 test-all:  ## Run all unit tests regardless of failing tests
 		$(info --------- Runner for all unit tests ---------)
-		clojure -X:test/env:test/run :fail-fast? false
+		$(CLOJURE_EXEC_TEST_RUNNER) :fail-fast? false
 
 test-watch:  ## Run tests when changes saved, stopping test run on first error
 		$(info --------- Watcher for unit tests ---------)
-		clojure -X:test/env:test/run :watch? true
+		$(CLOJURE_EXEC_TEST_RUNNER) :watch? true
 
 test-watch-all:  ## Run all tests when changes saved, regardless of failing tests
 		$(info --------- Watcher for unit tests ---------)
-		clojure -X:test/env:test/run :fail-fast? false :watch? true
-
+		$(CLOJURE_EXEC_TEST_RUNNER) :fail-fast? false :watch? true
 # ------------------------------------ #
 
 
@@ -139,11 +142,11 @@ format-fix:  ## Run cljstyle and fix the formatting of Clojure code
 
 lint:  ## Run MegaLinter with custom configuration (node.js required)
 	$(info --------- MegaLinter Runner ---------)
-	npx mega-linter-runner --flavor java --env "'MEGALINTER_CONFIG=.github/config/megalinter.yaml'" --remove-container
+	$(MEGALINTER_RUNNER)
 
 lint-fix:  ## Run MegaLinter with applied fixes and custom configuration (node.js required)
 	$(info --------- MegaLinter Runner ---------)
-	npx mega-linter-runner --fix --flavor java --env "'MEGALINTER_CONFIG=.github/config/megalinter.yaml'" --remove-container
+	$(MEGALINTER_RUNNER) --fix
 
 lint-clean:  ## Clean MegaLinter report information
 	$(info --------- MegaLinter Clean Reports ---------)
