@@ -1,0 +1,40 @@
+{;; Values to pass into the template
+ :description "TODO: Provide a meaningful description of the project"
+
+ ;; ---------------------------------------------------------
+ ;; Version substitutions
+
+ :clojure-version "1.11.1"
+ ;; ---------------------------------------------------------
+
+ ;; ---------------------------------------------------------
+ ;; Optional features
+ ;; - used by programatic transformation
+ ;; - not implemented yet
+ ;; ---------------------------------------------------------
+
+ ;; ---------------------------------------------------------
+ ;; Programatic Transformation functions
+
+ :data-fn practicalli.minimal/substitutions
+
+ :template-fn practicalli.minimal/template-edn
+ ;; ---------------------------------------------------------
+
+ ;; ---------------------------------------------------------
+ ;; Declarative Transformation rules
+ ;; - can be updated by programmatic transformation
+ ;;
+ ;; Form:
+ ;; [["directory-name" "default-path"
+ ;;   {"source-file.extension.template" "destination-file.extension"}]]
+
+ :transform
+ [["build" ""
+   {"build.clj.template" "build.clj"
+    "deps.edn.template"  "deps.edn"}]
+  ["src" "src/{{top/file}}"
+   {"app.clj.template" "{{main/file}}.clj"}]
+  ["test" "test/{{top/file}}"
+   {"app_test.clj.template" "{{main/file}}_test.clj"}]]}
+;; ---------------------------------------------------------
