@@ -111,7 +111,8 @@
 (defn mulog-tap-stop
   "Stop mulog tap publisher to ensure multiple publishers are not started
  Recommended before using `(restart)` or evaluating the `user` namespace"
-  [] mulog-tap-publisher)
+  []
+  mulog-tap-publisher)
 
 ;; Example mulog event message
 (mulog/log ::dev-user-ns ::ns (ns-publics *ns*))
