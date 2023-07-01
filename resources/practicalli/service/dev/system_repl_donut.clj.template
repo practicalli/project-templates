@@ -1,0 +1,36 @@
+;; ---------------------------------------------------------
+;; Donut System REPL
+;;
+;; Tools for REPl workflow with Donut system components
+;; ---------------------------------------------------------
+
+(ns system-repl
+  "Tools for REPl workflow with Donut system components"
+  (:require
+   [donut.system :as donut]
+   [donut.system.repl :as donut-repl]
+   [donut.system.repl.state :as donut-repl-state]
+   [{{top/ns}}.{{main/ns}}.system :as system]))
+
+
+(defmethod donut/named-system :donut.system/repl
+  [_] system/main)
+
+(defn start
+  "Start system with donut, optionally passing a named system"
+  ([] (donut-repl/start))
+  ([system-config] (donut-repl/start system-config)))
+
+(defn stop
+  "Stop the currently running system"
+  []  (donut-repl/stop))
+
+(defn restart
+  "Restart the system with donut repl,
+  Uses clojure.tools.namespace.repl to reload namespaces
+  `(clojure.tools.namespace.repl/refresh :after 'donut.system.repl/start)`"
+  [] (donut-repl/restart))
+
+(defn system
+  "Return: fully qualified hash-map of system state"
+  [] donut-repl-state/system)

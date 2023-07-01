@@ -10,23 +10,24 @@
 ;; - alias included in the Emacs `.dir-locals.el` file
 ;; ---------------------------------------------------------
 
-
-(ns user
+#_{:clj-kondo/ignore [:unused-namespace :unused-referred-var]}
+(ns practicalli.service.dev.user-integrant
   "Tools for REPL Driven Development"
   (:require
    ;; Service
-   [system
+   [system-repl
     :refer
     [config restart restart-all start stop system]]  ; System component commands
 
    ;; REPL Workflow
-   [portal.api :as inspect]                          ; Data inspector
-   [clojure.tools.namespace.repl :refer [set-refresh-dirs]]
+   [portal]                                ; launch portal instance
+   [portal.api :as inspect]                ; inspect tools
+   [clojure.tools.namespace.repl
+    :refer [set-refresh-dirs]]
 
    ;; Logging
-   [com.brunobonacci.mulog :as mulog]                ; Event Logging
-   [mulog-publisher]                                 ; Tap mulog events
-   ))
+   [com.brunobonacci.mulog :as mulog]      ; Event Logging
+   [mulog]))                               ; Global context & Tap publisher
 
 ;; ---------------------------------------------------------
 ;; Help
@@ -76,43 +77,12 @@
 ;; ---------------------------------------------------------
 
 ;; ---------------------------------------------------------
-;; Start Portal and capture all evaluation results
-
-;; Open Portal window in browser with dark theme
-;; https://cljdoc.org/d/djblue/portal/0.37.1/doc/ui-concepts/themes
-;; Portal options:
-;; - light theme {:portal.colors/theme :portal.colors/solarized-light}
-;; - dark theme  {:portal.colors/theme :portal.colors/gruvbox}
-
-(def portal-instance
-  "Open portal window if no portal sessions have been created.
-   A portal session is created when opening a portal window"
-  (or (seq (inspect/sessions))
-      (inspect/open {:portal.colors/theme :portal.colors/gruvbox})))
-
-;; Add portal as tapsource (add to clojure.core/tapset)
-(add-tap #'portal.api/submit)
-;; ---------------------------------------------------------
-
-;; ---------------------------------------------------------
-;; Mulog events and publishing
+;; Mulog event logging
+;; `mulog-publisher` namespace used to launch tap> events to tap-source (portal)
 
 ;; set event global context - information added to every event for REPL workflow
-(mulog/set-global-context! {:app-name "Practicalli Service",
+(mulog/set-global-context! {:app-name "{{main/ns}} Service",
                             :version "0.1.0", :env "dev"})
-
-(def mulog-tap-publisher
-  "Start mulog custom tap publisher to send all events to Portal
-  and other tap sources
-  `mulog-tap-publisher` to stop publisher"
-  (mulog/start-publisher!
-   {:type :custom, :fqn-function "mulog-publisher/tap"}))
-
-(defn mulog-tap-stop
-  "Stop mulog tap publisher to ensure multiple publishers are not started
- Recommended before using `(restart)` or evaluating the `user` namespace"
-  []
-  mulog-tap-publisher)
 
 ;; Example mulog event message
 (mulog/log ::dev-user-ns ::ns (ns-publics *ns*))
@@ -142,7 +112,7 @@
 
   (remove-tap #'inspect/submit) ; Remove portal from `tap>` sources
 
-  (mulog-tap-stop) ; stop tap publisher
+  (mulog/publisher) ; stop tap publisher
 
   (inspect/close) ; Close the portal window
 

@@ -10,7 +10,10 @@
 
 
 (ns practicalli.service
-  "Programmatic transformation of template data transformation rules")
+  "Programmatic transformation of template data transformation rules"
+  (:require
+   [clojure.pprint :as pprint]
+   [practicalli.rules :as rules]))
 
 
 #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
@@ -37,6 +40,13 @@
   - new template.edn configuration"
   [edn data]
 
+  (pprint/pprint data)
   ;; Link to Practicalli Clojure Project Templates guide
-  (println "Template guide: https://practical.li/clojure/clojure-cli/projects/templates/")
-  edn)
+  ;; (println "Template guide: https://practical.li/clojure/clojure-cli/projects/templates/")
+
+  (println "Component" (data :component))
+
+  (cond
+    (= :donut (data :component))     (assoc edn :transform rules/donut)
+    (= :integrant (data :component)) (assoc edn :transform rules/integrant)
+    :else edn))
