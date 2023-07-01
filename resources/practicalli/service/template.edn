@@ -40,21 +40,22 @@
     "scoreboard.clj.template" "scoreboard.clj"}]
   ["build" ""
    {"build.clj.template" "build.clj"
-    "deps.edn.template"  "deps.edn"}]
+    "deps.edn.template"  "deps.edn"}
+   :only]
   ["dev" "dev"
-   {"system.clj.template" "system.clj"}]
+   {"system_repl.clj.template" "system_repl.clj"
+    "user.clj" "user.clj"}
+   :only]
   ["docker" ""
    {"compose-service.yaml.template" "compose.yaml"
     "compose-service-postgres.yaml.template"  "compose-service-postgres.yaml"
     "Dockerfile.template" "Dockerfile"}]
-  ["resources" "resources"
-   {"config.edn.template" "config.edn"}]
   ["src" "src/{{top/file}}/{{main/file}}"
    {"middleware.clj.template" "middleware.clj"
-    "parse_system.clj.template" "parse_system.clj"
     "router.clj.template" "router.clj"
     "service.clj.template" "service.clj"
-    "spec.clj.template" "spec.clj"}]
+    "spec.clj.template" "spec.clj"}
+   :only]
   ["test" "test/{{top/file}}/{{main/file}}"
    {"service_test.clj.template" "service_test.clj"}]]}
 ;; ---------------------------------------------------------

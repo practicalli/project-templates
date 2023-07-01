@@ -64,7 +64,7 @@
  ;; - connection to services that provide eSports data
 
  :{{top/ns}}.{{main/ns}}.service/data-provider
- {;; external data providers via Risky
+ {;; external data providers
   :game-service-base-url  #or [#env GAME_SERVICE_BASE_URL "http://localhost"]
   :llamasoft-api-uri  #or [#env LAMASOFT_API_URI "http://localhost"]
   :polybus-report-uri "/report/polybus"

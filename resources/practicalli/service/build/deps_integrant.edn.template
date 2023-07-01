@@ -16,6 +16,8 @@
   ;; org.slf4j/slf4j-nop {:mvn/version "1.7.32"}
 
   ;; System
+  aero/aero           {:mvn/version "1.1.6"}
+  integrant/integrant {:mvn/version "0.8.0"}
   org.clojure/clojure {:mvn/version "{{clojure-version}}"}}
 
  :aliases
