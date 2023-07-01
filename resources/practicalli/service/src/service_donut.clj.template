@@ -3,59 +3,55 @@
 ;;
 ;; {{description}}
 ;;
-;; Start the service using `(start)` in the rich comment form
+;; Start the service using donut system configuration
+;; defined in `system.clj`
 ;;
 ;; The service consist of
 ;; - httpkit web application server
 ;; - metosin/reitit for routing and ring for request / response management
 ;; - mulog event logging service
+;;
+;; Related namespaces
+;; `{{top/ns}}.{{main/ns}}/system` donut system configuration
 ;; ---------------------------------------------------------
 
+
 (ns {{top/ns}}.{{main/ns}}.service
-  "Gameboard service"
+  "Gameboard service component lifecycle management"
   (:gen-class)
   (:require
-   ;; Requests
-   [{{top/ns}}.{{main/ns}}.router :as router]
+
+   ;; Component system
+   [donut.system           :as donut]
+   [{{top/ns}}.{{main/ns}}.system :as system]
 
    ;; System dependencies
    [org.httpkit.server     :as http-server]
    [com.brunobonacci.mulog :as mulog]))
-
-;; ---------------------------------------------------------
-;; HTTP Server
-
-(defn http-server-start
-  "Start the application server and run the application"
-  [port]
-  (http-server/run-server #'router/app {:port port}))
-
-;; End of HTTP Server
-;; ---------------------------------------------------------
 
 
 ;; --------------------------------------------------
 ;; Application entry point
 
 (defn -main
-  "{{top/ns}} {{main/ns}} service providing the foundation of an API.
+  "{{top/ns}} {{main/ns}} service managed by donut system,
+  Aero is used to configure the donut system configuration based on profile (dev, test, prod),
+  allowing environment specific configuration, e.g. mulog publisher
   The shutdown hook gracefully stops the service on receipt of a SIGTERM from the infrastructure,
   giving the application 30 seconds before forced termination."
   []
 
   (mulog/set-global-context!
    {:app-name "{{top/ns}} {{main/ns}} service" :version  "0.1.0"})
-( port)
 
-  (let [port (Integer/parseInt (or port
-                                   (System/getenv "PORT")
-                                   8080))]
-   
-    (running-system (http-server-start port))
+  (let [profile (or (keyword (System/getenv "SERVICE_PROFILE"))
+                    :dev)
+
+        running-system (donut/start (or (profile :profile) :prod))]
 
     (.addShutdownHook
      (Runtime/getRuntime)
-     (Thread. ^Runnable #(running-system :timeout 100)))))
+     (Thread. ^Runnable #(donut/signal running-system ::donut/stop)))))
 ;; --------------------------------------------------
 
 

@@ -17,7 +17,7 @@
 ;; ---------------------------------------------------
 
 
-(ns system
+(ns system-repl
   "Configure the system components and provide Integrant REPL convenience functions
   to start/stop/restart components and show system configuration"
   (:require
