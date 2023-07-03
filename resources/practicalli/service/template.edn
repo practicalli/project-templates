@@ -47,11 +47,8 @@
    {"compose-service.yaml.template" "compose.yaml"
     "compose-service-postgres.yaml.template"  "compose-service-postgres.yaml"
     "Dockerfile.template" "Dockerfile"}]
-  ["resources" "resources"
-   {"config.edn.template" "config.edn"}]
   ["src" "src/{{top/file}}/{{main/file}}"
    {"middleware.clj.template" "middleware.clj"
-    "parse_system.clj.template" "parse_system.clj"
     "router.clj.template" "router.clj"
     "service.clj.template" "service.clj"
     "spec.clj.template" "spec.clj"}]
