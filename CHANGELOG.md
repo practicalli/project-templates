@@ -3,15 +3,23 @@
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
 ## [Unreleased]
-## Added
+
+
+## 2023-07-14
+### Added
 - [#19](https://github.com/practicalli/project-templates/issues/19) `practicalli/minimal` template
 - templates: link to Practicalli Clojure Project templates section for help after new project is created
 - [#22](https://github.com/practicalli/project-templates/pull/22) Service template with `:component` option for `:donut` and `:integrant`
+- service: run task to run service using clojure.main
 
 ### Changed
 - ci: update MegaLinter GitHub Action v7 in MegaLnter workflow
 - ci: set monthly schedule and cron examples for alternative schedules
 - dev: `MEGALINTER_RUNNER` Makefile variable for repeated commands with common options
+- service: refactor integrant config and code
+- minimal: correct dependencies config
+- application: refactor portal and mulog REPL startup
+- dev: clarify use of templates
 
 ## 2023-06-11
 ## Added
