@@ -50,6 +50,10 @@ repl:  ## Run Clojure REPL with rich terminal UI (Rebel Readline)
 	$(info --------- Run Rebel REPL ---------)
 	clojure -M:test/env:repl/reloaded
 
+run:  ## Run Service using clojure.main 
+	$(info --------- Download test and service libraries ---------)
+	clojure -M:run/service
+
 deps: deps.edn  ## Prepare dependencies for test and dist targets
 	$(info --------- Download test and service libraries ---------)
 	clojure -P -X:build
