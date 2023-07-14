@@ -11,7 +11,7 @@
 ;; ---------------------------------------------------------
 
 #_{:clj-kondo/ignore [:unused-namespace :unused-referred-var]}
-(ns practicalli.service.dev.user-integrant
+(ns user
   "Tools for REPL Driven Development"
   (:require
    ;; Service
@@ -27,7 +27,7 @@
 
    ;; Logging
    [com.brunobonacci.mulog :as mulog]      ; Event Logging
-   [mulog]))                               ; Global context & Tap publisher
+   [mulog-events]))                        ; Global context & Tap publisher
 
 ;; ---------------------------------------------------------
 ;; Help

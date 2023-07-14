@@ -18,6 +18,7 @@
   ;; System
   aero/aero           {:mvn/version "1.1.6"}
   integrant/integrant {:mvn/version "0.8.0"}
+  integrant/repl      {:mvn/version "0.3.3"}
   org.clojure/clojure {:mvn/version "{{clojure-version}}"}}
 
  :aliases

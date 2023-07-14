@@ -21,15 +21,24 @@
   "Service component lifecycle management"
   (:gen-class)
   (:require
+   ;; Application dependencies
+   [{{top/ns}}.{{main/ns}}.router :as router]
+
    ;; Component system
    [{{top/ns}}.{{main/ns}}.parse-system :as parse-system]
 
    ;; System dependencies
+   [org.httpkit.server     :as http-server]
    [integrant.core         :as ig]
    [com.brunobonacci.mulog :as mulog]))
 
 ;; --------------------------------------------------
 ;; Configure and start application components
+
+(defn initialise
+  "initialise the system using Integrant"
+  [profile]
+  (ig/init (parse-system/aero-prep profile)))
 
 ;; Start mulog publisher for the given publisher type, i.e. console, cloud-watch
 #_{:clj-kondo/ignore [:unused-binding]}
@@ -85,7 +94,7 @@
   "Stop service using Integrant halt!"
   [system]
   (mulog/log ::http-server-sigterm :system system :local-time (java.time.LocalDateTime/now))
-  ;; (println "Shutdown of Billie Fraud API service via Integrant")
+  ;; (println "Shutdown of service via Integrant")
   (ig/halt! system))
 
 ;; --------------------------------------------------
