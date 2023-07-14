@@ -3,7 +3,7 @@
 
  :deps
  {;; Application
-  org.clojure/clojure {:mvn/version "{{clojure-version}}"}
+  org.clojure/clojure {:mvn/version "{{clojure-version}}"}}
 
  :aliases
  {;; Clojure.main execution of application
