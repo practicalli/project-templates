@@ -64,18 +64,18 @@ Thank you to [Cognitect](https://www.cognitect.com/), [Nubank](https://nubank.co
 
 ## Usage
 
-Create a new project using the `:project/create` alias from [Practialli Clojure CLI Config](https://practical.li/clojure/clojure-cli/practicalli-config/), using `practicalli/application` template by default
+Create a new project using the `:project/create` alias from [Practialli Clojure CLI Config](https://practical.li/clojure/clojure-cli/practicalli-config/), using `practicalli/minimal` template by default
 
 ```shell
 clojure -T:project/create
 ```
 
-Override the default template with command line options
+Override the defaults used to create a project using command line options
 
 * `:template` to specify a different template to create the project from, e.g. `:template practicalli/service`
-* `:name` and value to create a project with a different name
+* `:name` and value to create a project with a different name, e.g. `github-org/project-name`
 * `:target-dir` to specify a directory to create the project in
-* `:overwrite` affects an existing project with the same :target-dir name, `true` updates, `:delete` deletes existing project. No changes if `nil` or option not given.
+* `:overwrite` an existing project with the same `:target-dir name`, `true` updates, `:delete` deletes existing project and replaces it with new project
 
 ```shell
 clojure -T:project/create :template practicalli/service \
