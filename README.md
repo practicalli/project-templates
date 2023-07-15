@@ -20,6 +20,8 @@ io.github.practicalli/project-templates {:git/tag "2023.04.25" :git/sha "66713b9
 🧰 General purpose
 
 * [practicalli/service](https://github.com/practicalli/project-templates/issues/2) - production grade HTTP service, basic routing (reitit-ring & middleware)
+  * `:component :donut` argument to manage system with donut-party/system
+  * `:component :integrant` argument to manage system with Integrant and Integrant REPL
 * [practicalli/application](https://github.com/practicalli/project-templates/issues/4) - general application, limited code
 * [practicalli/minimal](https://github.com/practicalli/project-templates/issues/19) - Clojure CLI project, tools-build, kaocha test runner alias, Make tasks, GitHub quality checks workflow
 * TODO: practicalli/api - production grade API service (reitit-ring, clojure.spec validation)
