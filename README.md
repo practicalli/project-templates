@@ -21,7 +21,7 @@ io.github.practicalli/project-templates {:git/tag "2023.04.25" :git/sha "66713b9
 
 * [practicalli/service](https://github.com/practicalli/project-templates/issues/2) - production grade HTTP service, basic routing (reitit-ring & middleware)
 * [practicalli/application](https://github.com/practicalli/project-templates/issues/4) - general application, limited code
-* TODO: practicalli/minimal - Clojure CLI project, tools-build,
+* [practicalli/minimal](https://github.com/practicalli/project-templates/issues/19) - Clojure CLI project, tools-build, kaocha test runner alias, Make tasks, GitHub quality checks workflow
 * TODO: practicalli/api - production grade API service (reitit-ring, clojure.spec validation)
 * TODO: practicalli/library - general library, deploymnent to Maven/Clojars
 * TODO: [practicalli/blog](https://github.com/practicalli/project-templates/issues/1) - cryogen project with Practicalli Customisation
