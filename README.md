@@ -12,7 +12,7 @@
 [![Latest Release](https://img.shields.io/github/v/release/practicalli/project-templates?display_name=tag)](https://github.com/practicalli/project-templates/releases)
 
 ```clojure
-io.github.practicalli/project-templates {:git/tag "2023.04.25" :git/sha "66713b9"}
+io.github.practicalli/project-templates {:git/tag "2023.07.14" :git/sha "a22c6b1"}
 ```
 
 ## Templates Roadmap
