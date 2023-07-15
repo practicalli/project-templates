@@ -94,9 +94,9 @@ The `project/create` alias definition combines [seancorfield/deps-new](https://g
 ```clojure
   :project/create
   {:replace-deps {io.github.seancorfield/deps-new
-                  {:git/tag "v0.5.1" :git/sha "21cede2"}
+                  {:git/tag "v0.5.2" :git/sha "253f32a"}
                   io.github.practicalli/project-templates
-                  {:git/tag "2023.04.25" :git/sha "66713b9"}}
+                  {:git/tag "2023.07.14" :git/sha "a22c6b1"}}
    :exec-fn      org.corfield.new/create
    :exec-args    {:template practicalli/application
                   :name practicalli/playground}}
