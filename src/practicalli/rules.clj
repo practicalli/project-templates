@@ -96,7 +96,7 @@
    ["src" "src/{{top/file}}/{{main/file}}"
     {"middleware.clj.template" "middleware.clj"
      "parse_system_integrant.clj.template" "parse_system.clj"
-     "router.clj.template" "router.clj"
+     "router_config.clj.template" "router.clj"
      "service_integrant.clj.template" "service.clj"
      "spec.clj.template" "spec.clj"
      "system_integrant.clj.template" "system.clj"}
