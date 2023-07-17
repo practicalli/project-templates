@@ -40,7 +40,7 @@
 (defn routes
   "Reitit route configuration for scoreboard endpoints
   Responses validated with {{top/ns}}.{{main/ns}}.spec clojure.spec"
-  [system-config]
+  []
   ["/scoreboard"
    {:swagger {:tags ["Scoreboard Endpoints"]}
     :get {:summary "Scoreboard across all games"

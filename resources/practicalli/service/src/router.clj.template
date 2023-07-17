@@ -90,12 +90,9 @@
 ;; --------------------------------------------------
 ;; Routing
 
-(defn app
+(def app
   "Router for all requests to the Gameboard and OpenAPI documentation,
-  using `ring-handler` to manage HTTP request and responses.
-  Arguments: `system-config containt Integrant configuration for the running system
-  including persistence connection to store and retrieve data"
-  [system-config]
+  using `ring-handler` to manage HTTP request and responses."
 
   (ring/ring-handler
    (ring/router
@@ -114,7 +111,7 @@
      ;; {{top/ns}} {{main/ns}}  API routes
      ["/api"
       ["/v1"
-       (scoreboard/routes system-config)]]]
+       (scoreboard/routes)]]]
 
     ;; End of All routing for Gameboard service
     ;; --------------------------------------------------
