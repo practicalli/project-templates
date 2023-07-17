@@ -4,10 +4,15 @@ All notable changes to this project will be documented in this file. This change
 
 ## [Unreleased]
 
-# 2023-07-17
+# 2023-07-17-2
+## Changed
+- update integrant rule to use router_config source file
+
+# 2023-07-17-1
 ## Added
 - router with system-config template files (donut, integrant)
 
+# 2023-07-17-1
 ## Changed
 - fix(service) rouge port expression removed
 - fix(service) `-main` takes port value on command line
