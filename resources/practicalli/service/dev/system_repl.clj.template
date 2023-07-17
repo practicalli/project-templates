@@ -35,14 +35,14 @@
               (or (first port)
                   (System/getenv "PORT")
                   "8080"))]
-    (println "INFO: Starting server on port: " port)
+    (println "INFO: Starting server on port:" port)
 
     (reset! http-server-instance
             (service/http-server-start port))))
 
 
 (defn restart
-  "Stop the http server, refresh changed namespacea and start the http server again"
+  "Stop the http server, refresh changed namespace and start the http server again"
   []
   (stop)
   (refresh)  ;; Refresh changed namespaces
