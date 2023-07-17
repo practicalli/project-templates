@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
 ## [Unreleased]
+- fix(service) rouge port expression removed
+- fix(service) `-main` takes port value on command line
 
 
 ## 2023-07-14

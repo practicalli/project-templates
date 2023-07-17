@@ -41,14 +41,15 @@
   "{{top/ns}} {{main/ns}} service providing the foundation of an API.
   The shutdown hook gracefully stops the service on receipt of a SIGTERM from the infrastructure,
   giving the application 30 seconds before forced termination."
-  []
+  [& port]
 
   (mulog/set-global-context!
    {:app-name "{{top/ns}} {{main/ns}} service" :version  "0.1.0"})
 
-  (let [port (Integer/parseInt (or port
-                                   (System/getenv "PORT")
-                                   8080))]
+  (let [port (Integer/parseInt (or
+                                (first port)
+                                (System/getenv "PORT")
+                                8080))
    
     (running-system (http-server-start port))
 
