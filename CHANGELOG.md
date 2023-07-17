@@ -5,12 +5,15 @@ All notable changes to this project will be documented in this file. This change
 ## [Unreleased]
 
 # 2023-07-17
+## Added
+- router with system-config template files (donut, integrant)
 
 ## Changed
 - fix(service) rouge port expression removed
 - fix(service) `-main` takes port value on command line
 - fix(service) redundant http-kit require
 - fix(service) update start function in serice-repl (default)
+- fix(service) router as `def` (default)
 
 
 ## 2023-07-14
