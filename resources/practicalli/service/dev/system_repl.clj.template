@@ -7,7 +7,6 @@
 
 (ns system-repl
   (:require 
-    [org.httpkit.server :as http-server]
     [clojure.tools.namespace.repl :refer [refresh]]
     [{{top/ns}}.{{main/ns}}.service :as service]))
             
