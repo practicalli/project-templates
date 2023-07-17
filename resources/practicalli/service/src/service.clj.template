@@ -46,12 +46,11 @@
   (mulog/set-global-context!
    {:app-name "{{top/ns}} {{main/ns}} service" :version  "0.1.0"})
 
-  (let [port (Integer/parseInt (or
-                                (first port)
-                                (System/getenv "PORT")
-                                8080))
+  (let [port (Integer. (or (first port)
+                           (System/getenv "PORT")
+                           8080))
    
-    (running-system (http-server-start port))
+        running-system (http-server-start port)]
 
     (.addShutdownHook
      (Runtime/getRuntime)
