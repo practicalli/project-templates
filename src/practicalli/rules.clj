@@ -31,7 +31,7 @@
      "Dockerfile.template" "Dockerfile"}]
    ["src" "src/{{top/file}}/{{main/file}}"
     {"middleware.clj.template" "middleware.clj"
-     "router.clj.template" "router.clj"
+     "router_config.clj.template" "router.clj"
      "service_donut.clj.template" "service.clj"
      "spec.clj.template" "spec.clj"
      "system_donut.clj.template" "system.clj"}
@@ -43,7 +43,7 @@
   "Practicalli Service template with `:component :donut` option"
   [["api" "src/{{top/file}}/{{main/file}}/api"
     {"system_admin.clj.template" "system_admin.clj"
-     "scoreboard.clj.template" "scoreboard.clj"}]
+     "scoreboard_config.clj.template" "scoreboard.clj"}]
    ["build" ""
     {"build.clj.template" "build.clj"
      "deps_donut.edn.template"  "deps.edn"}
@@ -63,7 +63,7 @@
     :only]
    ["src" "src/{{top/file}}/{{main/file}}"
     {"middleware.clj.template" "middleware.clj"
-     "router.clj.template" "router.clj"
+     "router_config.clj.template" "router.clj"
      "service_donut.clj.template" "service.clj"
      "spec.clj.template" "spec.clj"
      "system_donut.clj.template" "system.clj"}
@@ -75,7 +75,7 @@
   "Practicalli Service template with `:component :integrant` option"
   [["api" "src/{{top/file}}/{{main/file}}/api"
     {"system_admin.clj.template" "system_admin.clj"
-     "scoreboard.clj.template" "scoreboard.clj"}]
+     "scoreboard_config.clj.template" "scoreboard.clj"}]
    ["build" ""
     {"build.clj.template" "build.clj"
      "deps_integrant.edn.template"  "deps.edn"}
