@@ -44,7 +44,7 @@
    :only]
   ["dev" "dev"
    {"system_repl.clj.template" "system_repl.clj"
-    "user.clj" "user.clj"}
+    "user.clj.template" "user.clj"}
    :only]
   ["docker" ""
    {"compose-service.yaml.template" "compose.yaml"
