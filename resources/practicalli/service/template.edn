@@ -43,7 +43,9 @@
     "deps.edn.template"  "deps.edn"}
    :only]
   ["dev" "dev"
-   {"system_repl.clj.template" "system_repl.clj"
+   {"mulog_events.clj" "mulog_events.clj"
+    "portal.clj" "portal.clj"
+    "system_repl.clj.template" "system_repl.clj"
     "user.clj.template" "user.clj"}
    :only]
   ["docker" ""

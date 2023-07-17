@@ -3,8 +3,14 @@
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
 ## [Unreleased]
+
+# 2023-07-17
+
+## Changed
 - fix(service) rouge port expression removed
 - fix(service) `-main` takes port value on command line
+- fix(service) redundant http-kit require
+- fix(service) update start function in serice-repl (default)
 
 
 ## 2023-07-14
