@@ -31,15 +31,16 @@
 
 (defn start
   "Start the application server and run the application"
-  [port]
-  (let [port (Integer/parseInt 
-               (or port
-                   (System/getenv "PORT") 
-                   "8080"))])
-  (println "INFO: Starting server on port: " port)
+  [& port]
+  (let [port (Integer/parseInt
+              (or (first port)
+                  (System/getenv "PORT")
+                  "8080"))]
+    (println "INFO: Starting server on port: " port)
 
-  (reset! http-server-instance
-          (service/http-service-start (Integer/parseInt port))))
+    (reset! http-server-instance
+            (service/http-server-start port))))
+
 
 (defn restart
   "Stop the http server, refresh changed namespacea and start the http server again"
