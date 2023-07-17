@@ -45,7 +45,6 @@
 
   (mulog/set-global-context!
    {:app-name "{{top/ns}} {{main/ns}} service" :version  "0.1.0"})
-( port)
 
   (let [port (Integer/parseInt (or port
                                    (System/getenv "PORT")
