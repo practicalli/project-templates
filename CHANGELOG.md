@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file. This change
 
 ## [Unreleased]
 
+# 2023-07-26
+## Changed
+- minimal: refactor dev repl workflow files to be consistent with other templates
+- minimal: require for mulog
+
 # 2023-07-17-2
 ## Changed
 - update integrant rule to use router_config source file
