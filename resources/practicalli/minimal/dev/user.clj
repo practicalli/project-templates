@@ -15,6 +15,9 @@
   "Tools for REPL Driven Development"
   (:require
    ;; REPL Workflow
+   [mulog-events]                      ; Event Logging
+   [com.brunobonacci.mulog :as mulog]  ; Global context & Tap publisher
+   [portal]
    [portal.api :as inspect]                          ; Data inspector
    [clojure.tools.namespace.repl :as namespace]))
 
@@ -61,23 +64,14 @@
 ;; ---------------------------------------------------------
 
 ;; ---------------------------------------------------------
-;; Start Portal and capture all evaluation results
+;; Mulog event logging
+;; `mulog-publisher` namespace used to launch tap> events to tap-source (portal)
+;; and set global context for all events
 
-;; Open Portal window in browser with dark theme
-;; https://cljdoc.org/d/djblue/portal/0.37.1/doc/ui-concepts/themes
-;; Portal options:
-;; - light theme {:portal.colors/theme :portal.colors/solarized-light}
-;; - dark theme  {:portal.colors/theme :portal.colors/gruvbox}
-
-#_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
-(def portal-instance
-  "Open portal window if no portal sessions have been created.
-   A portal session is created when opening a portal window"
-  (or (seq (inspect/sessions))
-      (inspect/open {:portal.colors/theme :portal.colors/gruvbox})))
-
-;; Add portal as tapsource (add to clojure.core/tapset)
-(add-tap #'portal.api/submit)
+;; Example mulog event message
+(mulog/log ::dev-user-ns
+           :message "Example event from user namespace"
+           :ns (ns-publics *ns*))
 ;; ---------------------------------------------------------
 
 ;; ---------------------------------------------------------
