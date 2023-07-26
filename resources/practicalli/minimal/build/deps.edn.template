@@ -3,7 +3,8 @@
 
  :deps
  {;; Application
-  org.clojure/clojure {:mvn/version "{{clojure-version}}"}}
+  org.clojure/clojure {:mvn/version "{{clojure-version}}"}
+  com.brunobonacci/mulog {:mvn/version "0.9.0"}}
 
  :aliases
  {;; Clojure.main execution of application
