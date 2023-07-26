@@ -6,7 +6,8 @@
 
 (ns {{top/ns}}.{{main/ns}}
   (:gen-class)
-  (:reqiure [com.brunobonacci.mulog :as mulog]))
+  (:require 
+   [com.brunobonacci.mulog :as mulog]))
 
 ;; ---------------------------------------------------------
 ;; Application
