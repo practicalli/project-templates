@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This change
 ## Changed
 - ci: update Clojure CLI version 1.11.1.1356
 - ci: spell lychee link checker errors as warnings - false positives on github action versions, etc.
+- ci: repository trufflehog secrets checker errors as warnings - false positive on secretlintrc.json
 
 
 # 2023-07-26
