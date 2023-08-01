@@ -2,10 +2,11 @@
 
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
-## [Unreleased]
 # [Unreleased]
 ## Changed
 - ci: update Clojure CLI version 1.11.1.1356
+- ci: spell lychee link checker errors as warnings - false positives on github action versions, etc.
+
 
 # 2023-07-26
 ## Changed
