@@ -1,27 +1,44 @@
-.calva/output-window/
-.classpath
-.clj-kondo/.cache
-.cpcache
-.eastwood
-.factorypath
-.hg/
-.hgignore
-.java-version
-.lein-*
-.lsp/.cache
-.lsp/sqlite.db
-.nrepl-history
-.nrepl-port
-.project
-.rebel_readline_history
-.settings
-.socket-repl-port
-.sw*
-.vscode
-*.class
-*.jar
-*.swp
-*~
-/checkouts
-/classes
-/target
+# ------------------------
+# Clojure Project Git Ignore file patterns
+# 
+# Ignore all files except file and directory patterns starting with !
+# ------------------------
+
+# ------------------------
+# Ignore everthing by default
+*
+
+# ------------------------
+# Include Clojure project & config
+!CHANGEGLOG.md
+!README.md
+!build.clj
+!deps.edn
+!pom.xml
+!dev/
+!docs/
+!resources/
+!src/
+!test/
+
+# ------------------------
+# Include Clojure tools
+!.cljstyle                # Clojure format
+!.dir-locals.el           # Emacs (Cider Jack-in)
+!compose.yaml             # Docker workflow
+!Dockerfile
+!.dockerignore
+!Makefile                 # Make build automation
+!tests.edn                # Kaocha test runner
+
+# ------------------------
+# Include Git & CI workflow
+!.gitattributes
+!.gitignore
+!.github/
+
+# ------------------------
+# Include ClojureScript Figwheel
+!figwheel-main.edn        # Figwheel main config
+!*.cljs.edn               # Build configurations
+

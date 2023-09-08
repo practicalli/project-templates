@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file. This change
 # [Unreleased]
 ## Changed
 - dev: remove `:build` from cider-jack-in configuration in .dir-locals.el
+- templates: git ignore excluded all pattern, include Clojure specific patterns
 
 
 # 2023-08-02
