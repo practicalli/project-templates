@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
 # [Unreleased]
+## Changed
+- dev: remove `:build` from cider-jack-in configuration in .dir-locals.el
 
 
 # 2023-08-02
