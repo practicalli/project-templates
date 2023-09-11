@@ -1,17 +1,21 @@
 # ------------------------
 # Clojure Project Git Ignore file patterns
 # 
-# Ignore all files except file and directory patterns starting with !
+# Ignore all except patterns starting with !
+# Add comments on separate lines, not same line as pattern
 # ------------------------
 
 # ------------------------
-# Ignore everthing by default
-*
+# Ignore everthing in root directory
+/*
+
+# ------------------------
+# Common project files
+!CHANGELOG.md
+!README.md
 
 # ------------------------
 # Include Clojure project & config
-!CHANGEGLOG.md
-!README.md
 !build.clj
 !deps.edn
 !pom.xml
@@ -23,13 +27,13 @@
 
 # ------------------------
 # Include Clojure tools
-!.cljstyle                # Clojure format
-!.dir-locals.el           # Emacs (Cider Jack-in)
-!compose.yaml             # Docker workflow
+!.cljstyle
+!.dir-locals.el
+!compose.yaml
 !Dockerfile
 !.dockerignore
-!Makefile                 # Make build automation
-!tests.edn                # Kaocha test runner
+!Makefile
+!tests.edn
 
 # ------------------------
 # Include Git & CI workflow
@@ -39,6 +43,5 @@
 
 # ------------------------
 # Include ClojureScript Figwheel
-!figwheel-main.edn        # Figwheel main config
-!*.cljs.edn               # Build configurations
-
+!figwheel-main.edn
+!*.cljs.edn
