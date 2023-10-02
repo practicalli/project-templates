@@ -36,7 +36,7 @@
   ;; call with :watch? true to start file watcher and re-run tests on saved changes
   :test/run
   {:extra-paths ["test"]
-   :extra-deps {lambdaisland/kaocha {:mvn/version "1.85.1342"}}
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.87.1366"}}
    :main-opts   ["-m" "kaocha.runner"]
    :exec-fn kaocha.runner/exec-fn
    :exec-args {:randomize? false
