@@ -6,8 +6,9 @@ All notable changes to this project will be documented in this file. This change
 ## Changed
 - dev: remove `:build` from cider-jack-in configuration in .dir-locals.el
 - templates: git ignore excluded all pattern from root directory, include general project and Clojure specific patterns
-- dev: checkout action v4 in all GitHub workflow
+- dev: checkout action v4 in GitHub workflow
 - template: checkout action v4 in all GitHub workflow
+- dev: setup-clojure action v12.1 in GitHub workflow
 - template: setup-clojure action v12.1 in all GitHub workflow
 
 
