@@ -19,7 +19,7 @@
 FROM clojure:temurin-17-alpine AS builder
 
 # Set Clojure CLI version (defaults to latest release)
-# ENV CLOJURE_VERSION=1.11.1.1155
+# ENV CLOJURE_VERSION=1.11.1.1413
 
 # Create directory for project code (working directory)
 RUN mkdir -p /build
