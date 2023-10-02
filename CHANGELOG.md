@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file. This change
 - template: checkout action v4 in all GitHub workflow
 - dev: setup-clojure action v12.1 in GitHub workflow
 - template: setup-clojure action v12.1 in all GitHub workflow
+- template: Clojure CLI version 1.11.1.1413 in quality-check workflow
 
 
 # 2023-08-02
