@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file. This change
 - template: Clojure CLI version 1.11.1.1413 in quality-check workflow
 - template: lambdaisland kaocha version 1.87.1366
 - dev: lambdaisland kaocha version 1.87.1366
+- dev: update seancorfield/deps-new to v0.5.3
 
 
 # 2023-08-02
