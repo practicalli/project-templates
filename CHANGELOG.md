@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
 # [Unreleased]
+
+
+# 2023-11-03
 ## Changed
 - dev: remove `:build` from cider-jack-in configuration in .dir-locals.el
 - templates: git ignore excluded all pattern from root directory, include general project and Clojure specific patterns
