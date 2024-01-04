@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file. This change
 ## Changed
 - dev: update upload-artifactv4 action in megalinter workflow
 - dev: setup-java v4 action in quality-checks workflow
+- dev: clojure cli 1.11.1.1435 in quality-checks workflow
 
 
 # 2023-11-03
