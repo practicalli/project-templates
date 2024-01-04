@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file. This change
 
 # [Unreleased]
 
+## Changed
+- dev: update upload-artifactv4 action in megalinter workflow
+
 
 # 2023-11-03
 ## Changed
