@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This change
 
 ## Changed
 - dev: update upload-artifactv4 action in megalinter workflow
+- dev: setup-java v4 action in quality-checks workflow
 
 
 # 2023-11-03
