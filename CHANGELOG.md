@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
 # [Unreleased]
+## Changed
+- health: remove FUNDING.yaml and use Practicalli Org file
 
 # 2024-01-05
 ## Changed
