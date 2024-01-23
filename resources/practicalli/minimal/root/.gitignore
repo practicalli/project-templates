@@ -13,6 +13,7 @@
 # Common project files
 !CHANGELOG.md
 !README.md
+!LICENSE
 
 # ------------------------
 # Include Clojure project & config
