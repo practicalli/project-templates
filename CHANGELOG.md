@@ -3,11 +3,13 @@
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
 # [Unreleased]
+
+
+# 2024-01-23
 ## Changed
 - health: remove FUNDING.yaml and use Practicalli Org file
 - readme: update sponsorship link to practicalli-johnny account
 - dev: add license to project and templates with gitignore pattern
-
 
 
 # 2024-01-05
