@@ -15,55 +15,6 @@
 io.github.practicalli/project-templates {:git/tag "2023-08-02" :git/sha "eaa11fa"}
 ```
 
-## Templates Roadmap
-
-🧰 General purpose
-
-* [practicalli/service](https://github.com/practicalli/project-templates/issues/2) - production grade HTTP service, basic routing (reitit-ring & middleware)
-  * `:component :donut` argument to manage system with donut-party/system
-  * `:component :integrant` argument to manage system with Integrant and Integrant REPL
-* [practicalli/application](https://github.com/practicalli/project-templates/issues/4) - general application, limited code
-* [practicalli/minimal](https://github.com/practicalli/project-templates/issues/19) - Clojure CLI project, tools-build, kaocha test runner alias, Make tasks, GitHub quality checks workflow
-* TODO: practicalli/api - production grade API service (reitit-ring, clojure.spec validation)
-* TODO: practicalli/library - general library, deploymnent to Maven/Clojars
-* TODO: [practicalli/blog](https://github.com/practicalli/project-templates/issues/1) - cryogen project with Practicalli Customisation
-* TODO: practicalli/jetty - basic web server
-* TODO: practicalli/httpkit - basic web server
-
-🕸️  Web UI
-
-* DONE: [#15](https://github.com/practicalli/project-templates/issues/15) practicalli/landing-page - a simple landing page with figwheel and Bulma.io CSS
-* TODO: practicalli/single-page-app - a simple landing page with figwheel and Bulma.io CSS
-* TODO: practicalli/catalog - a catalog front-end webapp with [firebase persistence](https://firebase.google.com/), user OAuth authentication, figwheel, Reagent, Bulma.io CSS
-* TODO: practicalli/store-front - a catalog front-end webapp with stripe integration, [firebase persistence](https://firebase.google.com/), OAuth authentication, figwheel, Reagent, Bulma.io CSS
-
-🔬 Data Science ‍
-
-* TODO: practicalli/notebook - clerk or notespace projects
-* TODO: practicalli/dashboard - visualising data sources to communicate information and concepts
-* TODO: practicalli/visualisation - oz or hanami projects
-* TODO: practicalli/data-transform - tablecloth & code for data set manipulation
-
-🐈 Miscellaneous
-
-* TODO: practicalli/zulip-bot
-* TODO: practicalli/slack-bot
-* TODO: practicalli/mastodon-bot
-
-3rd party templates
-
-* [Clerk template](https://github.com/mentat-collective/clerk-utils/tree/main/resources/clerk_utils/custom)
-
-
-## Sponsor Practicalli
-
-[![Sponsor practicalli-johnny](https://raw.githubusercontent.com/practicalli/graphic-design/live/buttons/practicalli-github-sponsors-button.png)](https://github.com/sponsors/practicalli-johnny/)
-
-The majority of my work is focused on the [Practicalli series of books and videos](https://practical.li/) and supporting projects.
-
-Thank you to [Cognitect](https://www.cognitect.com/), [Nubank](https://nubank.com.br/) and a wide range of other [sponsors](https://github.com/sponsors/practicalli-johnny#sponsors) for your continued support
-
-
 ## Usage
 
 Create a new project using the `:project/create` alias from [Practialli Clojure CLI Config](https://practical.li/clojure/clojure-cli/practicalli-config/), using `practicalli/minimal` template by default
@@ -116,6 +67,56 @@ The `project/create` alias definition combines [seancorfield/deps-new](https://g
 > ```shell
 > clojure -Tproject-create practicalli/service :name practicalli.gameboard/service
 > ```
+
+
+## Templates Roadmap
+
+🧰 General purpose
+
+* [practicalli/service](https://github.com/practicalli/project-templates/issues/2) - production grade HTTP service, basic routing (reitit-ring & middleware)
+  * `:component :donut` argument to manage system with donut-party/system
+  * `:component :integrant` argument to manage system with Integrant and Integrant REPL
+* [practicalli/application](https://github.com/practicalli/project-templates/issues/4) - general application, limited code
+* [practicalli/minimal](https://github.com/practicalli/project-templates/issues/19) - Clojure CLI project, tools-build, kaocha test runner alias, Make tasks, GitHub quality checks workflow
+* TODO: practicalli/api - production grade API service (reitit-ring, clojure.spec validation)
+* TODO: practicalli/library - general library, deploymnent to Maven/Clojars
+* TODO: [practicalli/blog](https://github.com/practicalli/project-templates/issues/1) - cryogen project with Practicalli Customisation
+* TODO: practicalli/jetty - basic web server
+* TODO: practicalli/httpkit - basic web server
+
+🕸️  Web UI
+
+* DONE: [#15](https://github.com/practicalli/project-templates/issues/15) practicalli/landing-page - a simple landing page with figwheel and Bulma.io CSS
+* TODO: practicalli/single-page-app - a simple landing page with figwheel and Bulma.io CSS
+* TODO: practicalli/catalog - a catalog front-end webapp with [firebase persistence](https://firebase.google.com/), user OAuth authentication, figwheel, Reagent, Bulma.io CSS
+* TODO: practicalli/store-front - a catalog front-end webapp with stripe integration, [firebase persistence](https://firebase.google.com/), OAuth authentication, figwheel, Reagent, Bulma.io CSS
+
+🔬 Data Science ‍
+
+* TODO: practicalli/notebook - clerk or notespace projects
+* TODO: practicalli/dashboard - visualising data sources to communicate information and concepts
+* TODO: practicalli/visualisation - oz or hanami projects
+* TODO: practicalli/data-transform - tablecloth & code for data set manipulation
+
+🐈 Miscellaneous
+
+* TODO: practicalli/zulip-bot
+* TODO: practicalli/slack-bot
+* TODO: practicalli/mastodon-bot
+
+3rd party templates
+
+* [Clerk template](https://github.com/mentat-collective/clerk-utils/tree/main/resources/clerk_utils/custom)
+
+
+## Sponsor Practicalli
+
+[![Sponsor practicalli-johnny](https://raw.githubusercontent.com/practicalli/graphic-design/live/buttons/practicalli-github-sponsors-button.png)](https://github.com/sponsors/practicalli-johnny/)
+
+The majority of my work is focused on the [Practicalli series of books and videos](https://practical.li/) and supporting projects.
+
+Thank you to [Cognitect](https://www.cognitect.com/), [Nubank](https://nubank.com.br/) and a wide range of other [sponsors](https://github.com/sponsors/practicalli-johnny#sponsors) for your continued support
+
 
 ## Development
 
