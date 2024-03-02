@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file. This change
 
 # [Unreleased]
 ## Changed
-- dev: repository trivy warnings only megalinter config
+- dev: repository trivy ignore CVE-2024-22871
 
 
 # 2024-01-23
