@@ -28,8 +28,8 @@
      {:app-name "{{top/ns}} {{main/ns}}" :version  "{{version}}"})
     (mulog/log ::application-starup :arguments args)
     (if team
-      (greet team)
-      (greet))))
+      (println (greet team))
+      (println (greet)))))
 
 ;; ---------------------------------------------------------
 

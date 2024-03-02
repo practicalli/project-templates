@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file. This change
 - health: remove FUNDING.yaml and use Practicalli Org file
 - readme: update sponsorship link to practicalli-johnny account
 - dev: add license to project and templates with gitignore pattern
+- minimal: update `-main` to print return values
 
 
 # 2024-01-05
