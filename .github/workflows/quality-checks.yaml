@@ -16,6 +16,8 @@ jobs:
 
       - name: "Checkout code"
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - run: echo "🐙 ${{ github.repository }} repository was cloned to the runner."
 
       - name: "Prepare Java runtime"

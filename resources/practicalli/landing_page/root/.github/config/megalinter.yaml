@@ -29,19 +29,20 @@ ENABLE:
 
 CLOJURE_CLJ_KONDO_CONFIG_FILE: ".github/config/clj-kondo-ci-config.edn"
 # CLOJURE_CLJ_KONDO_ARGUMENTS: "--lint deps.edn"
-CLOJURE_CLJ_KONDO_FILTER_REGEX_EXCLUDE: "dev|develop"
+# CLOJURE_CLJ_KONDO_FILTER_REGEX_EXCLUDE: "dev|develop"
+CLOJURE_CLJ_KONDO_FILTER_REGEX_EXCLUDE: "resources"
 
 # CREDENTIALS_SECRETLINT_DISABLE_ERRORS: true
 CREDENTIALS_SECRETLINT_CONFIG_FILE: ".github/config/secretlintrc.json"
 
 MARKDOWN_MARKDOWNLINT_CONFIG_FILE: ".github/config/markdown-lint.jsonc"
-MARKDOWN_MARKDOWNLINT_FILTER_REGEX_EXCLUDE: ".github/pull_request_template.md"
-# MARKDOWN_MARKDOWNLINT_DISABLE_ERRORS: false
+MARKDOWN_MARKDOWNLINT_FILTER_REGEX_EXCLUDE: ".github/pull_request_template.md|CHANGELOG.md"
+# MARKDOWN_MARKDOWNLINT_DISABLE_ERRORS: true
 MARKDOWN_MARKDOWN_LINK_CHECK_CONFIG_FILE: ".github/config/markdown-link-check.json"
 # MARKDOWN_MARKDOWN_LINK_CHECK_CLI_LINT_MODE: "project"
-# MARKDOWN_MARKDOWN_LINK_CHECK_DISABLE_ERRORS: false
+# MARKDOWN_MARKDOWN_LINK_CHECK_DISABLE_ERRORS: true
 MARKDOWN_REMARK_LINT_DISABLE_ERRORS: true
-# MARKDOWN_MARKDOWN_TABLE_FORMATTER_DISABLE_ERRORS: false
+# MARKDOWN_MARKDOWN_TABLE_FORMATTER_DISABLE_ERRORS: true
 
 REPOSITORY_TRUFFLEHOG_DISABLE_ERRORS: true # Errors only as warnings
 # REPOSITORY_TRIVY_DISABLE_ERRORS: true # Errors only as warnings
@@ -62,13 +63,14 @@ SPELL_LYCHEE_DISABLE_ERRORS: true # Errors are only warnings
 
 # Disable linter features
 DISABLE_LINTERS:
+  - YAML_PRETTIER # draconian format rules
   - SPELL_CSPELL # many clojure references causing false positives
   - YAML_YAMLLINT # vague error mesages, investigation required
   - REPOSITORY_GIT_DIFF # warnings about LF to CRLF
   - REPOSITORY_SECRETLINT # reporting errors in its own config file
-  #   - REPOSITORY_DEVSKIM # unnecessary URL TLS checks
+  # - REPOSITORY_DEVSKIM # unnecessary URL TLS checks
   - REPOSITORY_CHECKOV # fails on root user in Dockerfile
-#   - REPOSITORY_SECRETLINT
+  - REPOSITORY_SECRETLINT
 
 # Ignore all errors and return without error status
 # DISABLE_ERRORS: true
@@ -86,7 +88,6 @@ SHOW_ELAPSED_TIME: true
 
 # Upload reports to file.io
 FILEIO_REPORTER: false
-
 # ------------------------
 
 # ------------------------

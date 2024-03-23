@@ -2,12 +2,11 @@
 
 _Summary of the change and link to any relevant tickets. New aliases should include details of why they are valuable_
 
-Resolve #
-Refer #
+# GitHub issues:
+# Resolve #
+# Refer #
 
 :octocat Type of change
-
-_Please tick `x` relevant options, delete those not relevant_
 
 - [ ] New feature
 - [ ] Deprecate feature
@@ -23,6 +22,7 @@ _Please tick `x` relevant options, delete those not relevant_
 
 :eyes Checklist
 
+- [ ] Commits should be cryptographically signed (SSH or GPG)
 - [ ] Code follows the [Practicalli cljstyle configuration](https://practical.li/clojure/clojure-cli/clojure-style/#cljstyle)
 - [ ] Add / update alias docs and README where relevant
 - [ ] Changelog entry describing notable changes
