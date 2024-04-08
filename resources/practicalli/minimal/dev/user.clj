@@ -66,7 +66,7 @@
 ;; ---------------------------------------------------------
 ;; Mulog event logging
 ;; `mulog-publisher` namespace used to launch tap> events to tap-source (portal)
-;; and set global context for all events
+;; `mulog-events` namespace sets mulog global context for all events
 
 ;; Example mulog event message
 (mulog/log ::dev-user-ns
