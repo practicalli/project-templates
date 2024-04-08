@@ -9,15 +9,47 @@
 ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝
 ```
 
+## Overview
+
+Create new projects with a REPL driven development focus, including production level features where relevant. The templates are used by [deps-new](https://github.com/seancorfield/deps-new) via a user or project alias.
+
+Templates provide
+
+- `:practicalli/minimal` essential tools, libraries and example code
+- `:practicalli/service` production level web services with http-kit, reitit and swagger. Optional `:component` management with `:donut` or `:integrant`
+
+
+## Configuration
+
 [![Latest Release](https://img.shields.io/github/v/release/practicalli/project-templates?display_name=tag)](https://github.com/practicalli/project-templates/releases)
 
 ```clojure
 io.github.practicalli/project-templates {:git/tag "2023-08-02" :git/sha "eaa11fa"}
 ```
 
+### Add alias
+
+`:project/create` alias is provided by [Practicalli Clojure CLI Config](https://practical.li/clojure/clojure-cli/practicalli-config/).
+
+The `project/create` alias definition combines [seancorfield/deps-new](https://github.com/seancorfield/deps-new) and practicalli/project-templates so that all Practicalli templates are available within one alias.
+
+```clojure
+  :project/create
+  {:replace-deps {io.github.seancorfield/deps-new
+                  {:git/tag "v0.5.2" :git/sha "253f32a"}
+                  io.github.practicalli/project-templates
+                  {:git/tag "2023-08-02" :git/sha "eaa11fa"}}
+   :exec-fn      org.corfield.new/create
+   :exec-args    {:template practicalli/application
+                  :name practicalli/playground}}
+```
+
+> [![Latest Release](https://img.shields.io/github/v/release/practicalli/project-templates?display_name=tag)](https://github.com/practicalli/project-templates/releases) page includes the release `:git/tag` and `:git/sha` values for `io.github.practicalli/project-templates`
+
+
 ## Usage
 
-Create a new project using the `:project/create` alias from [Practialli Clojure CLI Config](https://practical.li/clojure/clojure-cli/practicalli-config/), using `practicalli/minimal` template by default
+Create a new project using the `:project/create` alias from [Practicalli Clojure CLI Config](https://practical.li/clojure/clojure-cli/practicalli-config/), using `practicalli/minimal` template by default
 
 ```shell
 clojure -T:project/create
@@ -34,39 +66,6 @@ Override the defaults used to create a project using command line options
 clojure -T:project/create :template practicalli/service \
 :name practicalli/gameboard :target-dir gameboard-service
 ```
-
-### Alias definition
-
-`:project/create` alias is provided by [Practialli Clojure CLI Config](https://practical.li/clojure/clojure-cli/practicalli-config/).
-
-The `project/create` alias definition combines [seancorfield/deps-new](https://github.com/seancorfield/deps-new) and practicalli/project-templates so that all Practicalli templates are available within one alias.
-
-[![Latest Release](https://img.shields.io/github/v/release/practicalli/project-templates?display_name=tag)](https://github.com/practicalli/project-templates/releases) page includes the release `:git/tag` and `:git/sha` values for `io.github.practicalli/project-templates`
-
-
-```clojure
-  :project/create
-  {:replace-deps {io.github.seancorfield/deps-new
-                  {:git/tag "v0.5.2" :git/sha "253f32a"}
-                  io.github.practicalli/project-templates
-                  {:git/tag "2023-08-02" :git/sha "eaa11fa"}}
-   :exec-fn      org.corfield.new/create
-   :exec-args    {:template practicalli/application
-                  :name practicalli/playground}}
-```
-
-> [seancorfield/deps-new](https://github.com/seancorfield/deps-new) can also be installed as a Clojure CLi tool, for example with the `project-create` tool name:
->
-> ```bash
-> clojure -Ttools install io.github.seancorfield/deps-new '{:git/tag "v0.5.2"}' \
-> :as project-create
-> ```
->
-> Create a new project, specifying the template and name of the projects
->
-> ```shell
-> clojure -Tproject-create practicalli/service :name practicalli.gameboard/service
-> ```
 
 
 ## Templates Roadmap

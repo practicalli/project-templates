@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This change
 ## Changed
 - dev: repository trivy ignore CVE-2024-22871
 - service: move mulog publisher inside donut system config
+- readme: simplify readme, add overview, remove older examples
 
 # 2024-01-23
 ## Changed
