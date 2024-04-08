@@ -15,7 +15,6 @@
    [clojure.pprint :as pprint]
    [practicalli.rules :as rules]))
 
-
 #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 (defn substitutions
   "Update keys & values available in the substitution data,
@@ -26,9 +25,9 @@
   ;; Simple example:
   #_(when (= (data :component) "integrant")
       {:integrant-repl true})
-
+  ;; (println "Calculating substitutions...")
+  ;; (pprint/pprint data)
   nil) ; returning nil means no changes to options data
-
 
 #_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 (defn template-edn
@@ -40,13 +39,17 @@
   - new template.edn configuration"
   [edn data]
 
-  ;; (pprint/pprint data)
   ;; Link to Practicalli Clojure Project Templates guide
   (println "Template guide: https://practical.li/clojure/clojure-cli/projects/templates/")
 
   ;; (println "Component" (data :component))
+  (let [updated-template
+        (cond
+          (= :donut (data :component))     (assoc edn :transform rules/donut)
+          (= :integrant (data :component)) (assoc edn :transform rules/integrant)
+          :else edn)]
 
-  (cond
-    (= :donut (data :component))     (assoc edn :transform rules/donut)
-    (= :integrant (data :component)) (assoc edn :transform rules/integrant)
-    :else edn))
+    ;; (println "Updated template...")
+    ;; (pprint/pprint updated-template)
+    updated-template))
+
