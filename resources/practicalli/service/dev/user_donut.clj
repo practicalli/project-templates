@@ -76,9 +76,9 @@
 ;; and set global context for all events
 
 ;; Example mulog event message
-(mulog/log ::dev-user-ns
-           :message "Example event from user namespace"
-           :ns (ns-publics *ns*))
+#_(mulog/log ::dev-user-ns
+             :message "Example event from user namespace"
+             :ns (ns-publics *ns*))
 ;; ---------------------------------------------------------
 
 ;; ---------------------------------------------------------

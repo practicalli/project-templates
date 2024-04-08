@@ -29,7 +29,9 @@
   {::donut/defs
    ;; Option: move :env data to resources/config.edn and parse with aero reader
    {:env
-    {:http-port 8080
+    {:app-version "0.1.0"
+     :app-env "prod"
+     :http-port (or (System/getenv "SERVICE_HTTP_PORT") 8080)
      :persistence
      {:database-host (or (System/getenv "POSTGRES_HOST") "http://localhost")
       :database-port (or (System/getenv "POSTGRES_PORT") "5432")
@@ -52,7 +54,8 @@
     :event-log
     {:publisher
      #::donut{:start (fn mulog-publisher-start
-                       [{{:keys [publisher]} ::donut/config}]
+                       [{{:keys [global-context publisher]} ::donut/config}]
+                       (mulog/set-global-context! global-context)
                        (mulog/log ::log-publish-component
                                   :publisher-config publisher
                                   :local-time (java.time.LocalDateTime/now))
@@ -65,7 +68,14 @@
                       (Thread/sleep 250)
                       (instance))
 
-              :config {:publisher {:type :console :pretty? true}}}}
+              :config {:global-context {:app-name "{{top/ns}} {{main/ns}} service" 
+                                        :version (donut/ref [:env :app-version])
+                                        :environment (donut/ref [:env :app-env])}
+                       ;; Publish events to console in json format
+                       ;; optionally add `:transform` function to filter events before publishing
+                       :publisher {:type :console-json 
+                                   :pretty? false 
+                                   #_#_:transform identity}}}}
 
     ;; HTTP server start - returns function to stop the server
     :http
@@ -87,7 +97,7 @@
 
               :config {:handler (donut/local-ref [:handler])
                        :options {:port  (donut/ref [:env :http-port])
-                                 :join? false}}}
+                                 :join? true}}}
 
      ;; Function handling all requests, passing system environment
      ;; Configure environment for router application, e.g. database connection details, etc.

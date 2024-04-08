@@ -20,18 +20,13 @@
   "Gameboard service component lifecycle management"
   (:gen-class)
   (:require
-
    ;; Component system
    [donut.system           :as donut]
-   [{{top/ns}}.{{main/ns}}.system :as system]
-
-   ;; System dependencies
-   [org.httpkit.server     :as http-server]
-   [com.brunobonacci.mulog :as mulog]))
+   [{{top/ns}}.{{main/ns}}.system :as system]))
 
 
 ;; --------------------------------------------------
-;; Application entry point
+;; Service entry point
 
 (defn -main
   "{{top/ns}} {{main/ns}} service managed by donut system,
@@ -40,15 +35,13 @@
   The shutdown hook gracefully stops the service on receipt of a SIGTERM from the infrastructure,
   giving the application 30 seconds before forced termination."
   []
-
-  (mulog/set-global-context!
-   {:app-name "{{top/ns}} {{main/ns}} service" :version  "0.1.0"})
-
   (let [profile (or (keyword (System/getenv "SERVICE_PROFILE"))
                     :dev)
 
+        ;; Reference to running system for shutdown hook
         running-system (donut/start (or (profile :profile) :prod))]
-
+    
+    ;; Shutdown system components on SIGTERM
     (.addShutdownHook
      (Runtime/getRuntime)
      (Thread. ^Runnable #(donut/signal running-system ::donut/stop)))))
@@ -58,7 +51,6 @@
 ;; --------------------------------------------------
 ;; Example clojure.exec function
 
-#_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 (defn greet
   "Greeting message via Clojure CLI clojure.exec"
   ;; TODO: call greet with hash-map argument
