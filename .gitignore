@@ -33,6 +33,7 @@
 !compose.yaml
 !Dockerfile
 !.dockerignore
+!**/.clj-kondo/config.edn
 !Makefile
 !tests.edn
 

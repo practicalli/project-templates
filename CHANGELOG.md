@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file. This change
 - service: move mulog publisher inside donut system config
 - readme: simplify readme, add overview, remove older examples
 - service: refactor template-edn function to aid diagnosis
+- service: mulog donut config for user repl startup
 
 # 2024-01-23
 ## Changed

@@ -59,6 +59,14 @@ The local nREPL server port will be printed, along with a help menu showing the 
 
 > `:dev/reloaded` alias should be included in the editor command (jack-in) to start a REPL
 
+
+### Live Lint checks
+
+Using an editor with Clojure LSP (or clj-kondo) integration provides diagnostic feedback on syntax and idomatic code use, as that code is typed into the editor and throughout an entire project.
+
+`.lsp/config.edn` provides exclusions where diagnostic warnings add no value, e.g. ignore unused public function warnings where those functions are part of the external interface of the project.
+
+
 ### Unit tests
 
 Run unit tests of the service using the kaocha test runner
