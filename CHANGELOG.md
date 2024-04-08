@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
 # [Unreleased]
+
+# 2024-04-08
+
 ## Changed
 - dev: repository trivy ignore CVE-2024-22871
 - service: move mulog publisher inside donut system config
