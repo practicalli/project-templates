@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file. This change
 - readme: simplify readme, add overview, remove older examples
 - service: refactor template-edn function to aid diagnosis
 - service: mulog donut config for user repl startup
+- service: party.donut/system  version 0.0.241
 
 # 2024-01-23
 ## Changed
