@@ -33,6 +33,6 @@
   ;; tools.build `build.clj` built script
   :build
   {:replace-paths ["."]
-   :replace-deps {io.github.clojure/tools.build
-                  {:git/tag "v0.9.4" :git/sha "76b78fe"}}
-   :ns-default build}}}
+   :replace-deps  {io.github.clojure/tools.build
+                   {:git/tag "v0.10.0" :git/sha "3a2c484"}}
+   :ns-default    build}}}

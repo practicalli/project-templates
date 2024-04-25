@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file. This change
 # [Unreleased]
 ## Changed
 - security: update to clojure 1.11.2
+- library: update tools.build to 0.10.0 - caches correctly in docker
 
 # 2024-04-08
 
