@@ -46,12 +46,15 @@
   (println "(sync-deps)                    ; load dependencies from deps.edn")
   (println "- deps-* lsp snippets for adding library")
   (println)
-  (println)
   (println "Portal Inspector:")
   (println "- portal started by default, listening to all evaluations")
   (println "(inspect/clear)                ; clear all values in portal")
   (println "(remove-tap #'inspect/submit)  ; stop sending to portal")
   (println "(inspect/close)                ; close portal")
+  (println)
+  (println "Mulog Publisher:")
+  (println "- mulog publisher started by default")
+  (println "(mulog-events/stop)            ; stop publishing log events")
   (println)
   (println "(help)                         ; print help text")
   (println "---------------------------------------------------------"))
@@ -104,7 +107,7 @@
 
   (remove-tap #'inspect/submit) ; Remove portal from `tap>` sources
 
-  (mulog/publisher) ; stop tap publisher
+  (mulog-events/stop) ; stop tap publisher
 
   (inspect/close) ; Close the portal window
 

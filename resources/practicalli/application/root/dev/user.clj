@@ -100,7 +100,7 @@
 
   (remove-tap #'inspect/submit) ; Remove portal from `tap>` sources
 
-  (mulog-tap-stop) ; stop tap publisher
+  (mulog-events/stop)
 
   (inspect/close) ; Close the portal window
 

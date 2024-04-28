@@ -47,6 +47,10 @@
   (println "(remove-tap #'inspect/submit)  ; stop sending to portal")
   (println "(inspect/close)                ; close portal")
   (println)
+  (println "Mulog Publisher:")
+  (println "- mulog publisher started by default")
+  (println "(mulog-events/stop)            ; stop publishing log events")
+  (println)
   (println "(help)                         ; print help text")
   (println "---------------------------------------------------------"))
 
@@ -101,6 +105,8 @@
   (inspect/close) ; Close the portal window
 
   (inspect/docs) ; View docs locally via Portal
+
+  (mulog-events/stop)            ; stop publishing log events
 
   #_()) ; End of rich comment
 
