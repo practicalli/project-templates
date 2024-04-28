@@ -1,13 +1,19 @@
-{:paths
+{;; ---------------------------------------------------------
+ :paths
  ["src" "resources"]
+ ;; ---------------------------------------------------------
 
+ ;; ---------------------------------------------------------
  :deps
  {;; Application
   org.clojure/clojure {:mvn/version "{{clojure-version}}"}
   com.brunobonacci/mulog {:mvn/version "0.9.0"}}
+ ;; ---------------------------------------------------------
 
+ ;; ---------------------------------------------------------
  :aliases
- {;; Clojure.main execution of application
+ {;; ------------
+  ;; Clojure.main execution of application
   :run/app
   {:main-opts ["-m" "{{top/ns}}.{{main/ns}}"]}
 
@@ -15,7 +21,9 @@
   :run/greet
   {:exec-fn {{top/ns}}.{{main/ns}}/greet
    :exec-args {:name "Clojure"}}
+  ;; ------------
 
+  ;; ------------
   ;; Add libraries and paths to support additional test tools
   :test/env
   {}
@@ -29,10 +37,14 @@
    :exec-fn kaocha.runner/exec-fn
    :exec-args {:randomize? false
                :fail-fast? true}}
+  ;; ------------
 
+  ;; ------------
   ;; tools.build `build.clj` built script
-  :build
+  :build/task
   {:replace-paths ["."]
    :replace-deps  {io.github.clojure/tools.build
                    {:git/tag "v0.10.0" :git/sha "3a2c484"}}
    :ns-default    build}}}
+  ;; ------------
+ ;; ---------------------------------------------------------

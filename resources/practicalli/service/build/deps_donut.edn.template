@@ -1,6 +1,9 @@
-{:paths
+{;; ---------------------------------------------------------
+ :paths
  ["src" "resources"]
+ ;; ---------------------------------------------------------
 
+ ;; ---------------------------------------------------------
  :deps
  {;; Service
   http-kit/http-kit  {:mvn/version "2.6.0"}  ; latest "2.7.0-alpha1"
@@ -19,9 +22,12 @@
   aero/aero           {:mvn/version "1.1.6"}
   party.donut/system  {:mvn/version "0.0.241"}
   org.clojure/clojure {:mvn/version "{{clojure-version}}"}}
+ ;; ---------------------------------------------------------
 
+ ;; ---------------------------------------------------------
  :aliases
- {;; Clojure.main execution of application
+ {;; ------------
+  ;; Clojure.main execution of application
   :run/service
   {:main-opts ["-m" "{{top/ns}}.{{main/ns}}.service"]}
 
@@ -29,7 +35,9 @@
   :run/greet
   {:exec-fn   {{top/ns}}.{{main/ns}}.service/greet
    :exec-args {:name "Clojure"}}
+  ;; ------------
 
+  ;; ------------
   ;; Add libraries and paths to support additional test tools
   :test/env
   {}
@@ -43,10 +51,14 @@
    :exec-fn     kaocha.runner/exec-fn
    :exec-args   {:randomize? false
                  :fail-fast? true}}
+  ;; ------------
 
+  ;; ------------
   ;; tools.build `build.clj` built script
-  :build
+  :build/task
   {:replace-paths ["."]
    :replace-deps  {io.github.clojure/tools.build
                    {:git/tag "v0.10.0" :git/sha "3a2c484"}}
    :ns-default    build}}}
+  ;; ------------
+ ;; ---------------------------------------------------------
