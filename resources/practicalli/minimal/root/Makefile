@@ -32,6 +32,8 @@ MEGALINTER_RUNNER = npx mega-linter-runner --flavor java --env "'MEGALINTER_CONF
 CLOJURE_TEST_RUNNER = clojure -M:test/env:test/run
 CLOJURE_EXEC_TEST_RUNNER = clojure -X:test/env:test/run
 
+DOCKER-BUILD-LOGFILE := docker-build-log-$(shell date +%y-%m-%d-%T).org
+
 # Makefile file and directory name wildcard
 # EDN-FILES := $(wildcard *.edn)
 # ------------------------------------ #
@@ -93,19 +95,19 @@ test-watch-all:  ## Run all tests when changes saved, regardless of failing test
 # -------- Build tasks --------------- #
 build-config: ## Pretty print build configuration
 	$(info --------- View current build config ---------)
-	clojure -T:build config
+	clojure -T:build/task config
 
 build-jar: ## Build a jar archive of Clojure project
 	$(info --------- Build library jar ---------)
-	clojure -T:build jar
+	clojure -T:build/task jar
 
 build-uberjar: ## Build a uberjar archive of Clojure project & Clojure runtime
 	$(info --------- Build service Uberjar  ---------)
-	clojure -T:build uberjar
+	clojure -T:build/task uberjar
 
 build-clean: ## Clean build assets or given directory
 	$(info --------- Clean Build  ---------)
-	clojure -T:build clean
+	clojure -T:build/task clean
 # ------------------------------------ #
 
 # ------- Code Quality --------------- #
@@ -136,6 +138,10 @@ lint-clean:  ## Clean MegaLinter report information
 docker-build:  ## Build Clojure project and run with docker compose
 	$(info --------- Docker Compose Build ---------)
 	docker compose up --build --detach
+
+docker-build-log:  ## Build Clojure project and run with docker compose - log to file
+	$(info --------- Docker Compose Build ---------)
+	docker compose up --build --detach &> $(DOCKER-BUILD-LOGFILE) | tee $(DOCKER-BUILD-LOGFILE)
 
 docker-build-clean:  ## Build Clojure project and run with docker compose, removing orphans
 	$(info --------- Docker Compose Build - remove orphans ---------)

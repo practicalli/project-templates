@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This change
 ## Changed
 - security: update to clojure 1.11.2
 - library: update tools.build to 0.10.0 - caches correctly in docker
+- make: docker-build-log task to create log file of all docker output for diagnosis
 
 # 2024-04-08
 
