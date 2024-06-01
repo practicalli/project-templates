@@ -29,7 +29,7 @@
   ;; call with :watch? true to start file watcher and re-run tests on saved changes
   :test/run
   {:extra-paths ["test"]
-   :extra-deps {lambdaisland/kaocha {:mvn/version "1.87.1366"}}
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.91.1392"}}
    :main-opts   ["-m" "kaocha.runner"]
    :exec-fn kaocha.runner/exec-fn
    :exec-args {:randomize? false
@@ -38,6 +38,5 @@
   ;; tools.build `build.clj` built script
   :build
   {:replace-paths ["."]
-   :replace-deps {io.github.clojure/tools.build
-                  {:git/tag "v0.9.4" :git/sha "76b78fe"}}
+   :replace-deps {io.github.clojure/tools.build {:mvn/version "0.10.3"}}
    :ns-default build}}}

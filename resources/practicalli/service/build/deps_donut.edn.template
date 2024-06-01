@@ -6,9 +6,9 @@
  ;; ---------------------------------------------------------
  :deps
  {;; Service
-  http-kit/http-kit  {:mvn/version "2.6.0"}  ; latest "2.7.0-alpha1"
-  metosin/reitit     {:mvn/version "0.5.13"}
-  metosin/reitit-dev {:mvn/version "0.5.18"} ; human readable exceptions
+  http-kit/http-kit  {:mvn/version "2.8.0"}  ; latest "2.7.0-alpha1"
+  metosin/reitit     {:mvn/version "0.7.0"}
+  metosin/reitit-dev {:mvn/version "0.7.0"} ; human readable exceptions
 
   ;; Logging
   ;; create events and send to publisher
@@ -46,7 +46,7 @@
   ;; call with :watch? true to start file watcher and re-run tests on saved changes
   :test/run
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.87.1366"}}
+   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.91.1392"}}
    :main-opts   ["-m" "kaocha.runner"]
    :exec-fn     kaocha.runner/exec-fn
    :exec-args   {:randomize? false
@@ -57,8 +57,7 @@
   ;; tools.build `build.clj` built script
   :build/task
   {:replace-paths ["."]
-   :replace-deps  {io.github.clojure/tools.build
-                   {:git/tag "v0.10.0" :git/sha "3a2c484"}}
+   :replace-deps  {io.github.clojure/tools.build {:mvn/version "0.10.3"}}
    :ns-default    build}}}
   ;; ------------
  ;; ---------------------------------------------------------

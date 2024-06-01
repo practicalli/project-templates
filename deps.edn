@@ -1,7 +1,7 @@
 {:paths ["src" "resources"]
 
  :deps
- {org.clojure/clojure {:mvn/version "1.11.1"}}
+ {org.clojure/clojure {:mvn/version "1.11.3"}}
 
  :aliases
  {;; Add libraries and paths to support additional test tools
@@ -10,13 +10,13 @@
    :extra-deps {org.clojure/test.check {:mvn/version "1.1.1"}
                 ;; https://github.com/seancorfield/deps-new/
                 io.github.seancorfield/deps-new
-                {:git/tag "v0.6.0" :git/sha "64e79d1"}}}
+                {:git/tag "v0.7.1" :git/sha "c1e42aa"}}}
 
   ;; Test runner - local and CI
   ;; call with `:watch? true` argument to start file watcher and re-run tests on saved changes
   :test/run
   {:extra-paths ["test"]
-   :extra-deps {lambdaisland/kaocha {:mvn/version "1.87.1366"}}
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.91.1392"}}
    :main-opts   ["-m" "kaocha.runner"]
    :exec-fn kaocha.runner/exec-fn
    :exec-args {:randomize? false
