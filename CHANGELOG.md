@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file. This change
 # [Unreleased]
 ## Added
 - dev: outdated Makefile task to identify newer library versions using antq
+- dev: updated library versions for `quality-checks.yaml` GitHub workflows
 
 # 2024-04-20
 ## Changed

@@ -27,7 +27,7 @@ jobs:
           java-version: "21"
 
       - name: "Cache Clojure Dependencies"
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ~/.m2/repository
@@ -36,11 +36,11 @@ jobs:
           restore-keys: clojure-deps-
 
       - name: "Install tools"
-        uses: DeLaGuardo/setup-clojure@12.1
+        uses: DeLaGuardo/setup-clojure@12.5
         with:
-          cli: 1.11.1.1435 # Clojure CLI
-          cljstyle: 0.15.0
-          clj-kondo: 2023.03.17
+          cli: 1.11.3.1463 # Clojure CLI
+          cljstyle: 0.16.626
+          clj-kondo: 2024.05.24
 
       - name: "Kaocha test runner"
         run: clojure -X:test/env:test/run
