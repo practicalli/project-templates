@@ -10,6 +10,14 @@ All notable changes to this project will be documented in this file. This change
 
 ## Changed
 - dev: update to clj-kondo 2024.08.29 in quality-checks workflow
+- dev: megalinter-upgrade task to upgrade config
+- libs: monthly updates via make outdated (antq)
+
+| :file     | :name                            | :current | :latest |
+|-----------+----------------------------------+----------+---------|
+| deps.edn  | io.github.seancorfield/deps-new  | v0.7.1   | v0.8.0  |
+| deps.edn  | org.clojure/clojure              | 1.11.3   | 1.12.0  |
+| pom.xml   | org.clojure/clojure              | 1.11.2   | 1.12.0  |
 
 # 2024-04-20
 ## Changed

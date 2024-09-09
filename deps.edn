@@ -10,7 +10,7 @@
    :extra-deps {org.clojure/test.check {:mvn/version "1.1.1"}
                 ;; https://github.com/seancorfield/deps-new/
                 io.github.seancorfield/deps-new
-                {:git/tag "v0.7.1" :git/sha "c1e42aa"}}}
+                {:git/tag "v0.8.0" :git/sha "2f96530"}}}
 
   ;; Test runner - local and CI
   ;; call with `:watch? true` argument to start file watcher and re-run tests on saved changes
