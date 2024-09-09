@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file. This change
 ## Changed
 - dev: update to clj-kondo 2024.08.29 in quality-checks workflow
 - dev: megalinter-upgrade task to upgrade config
+- dev: update megalinter config to version 8
 - libs: monthly updates via make outdated (antq)
 
 | :file     | :name                            | :current | :latest |
