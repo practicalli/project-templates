@@ -8,6 +8,9 @@ All notable changes to this project will be documented in this file. This change
 - dev: updated library versions for `quality-checks.yaml` GitHub workflows
 - templates: update library dependency versions, clojure, reitit, http-kit, tools.build
 
+## Changed
+- dev: update to clj-kondo 2024.08.29 in quality-checks workflow
+
 # 2024-04-20
 ## Changed
 - service: system helper function in repl help menu
