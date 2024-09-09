@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
 # [Unreleased]
+
+# 2024-09-09
 ## Added
 - dev: outdated Makefile task to identify newer library versions using antq
 - dev: updated library versions for `quality-checks.yaml` GitHub workflows
