@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file. This change
 
 # [Unreleased]
 
+## Changed
+- dev: update clj-kondo to version 2024.09.27 in quality-checks workflow
+
 # 2024-09-09
 ## Added
 - dev: outdated Makefile task to identify newer library versions using antq
