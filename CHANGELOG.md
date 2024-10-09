@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file. This change
 ## Changed
 - dev: update clj-kondo to version 2024.09.27 in quality-checks workflow
 - dev: update Clojure CLI to version 1.12.0.1479 in quality-checks workflow
+- dev: update Clojure library to verision 1.12.0 in deps.edn
 
 
 # 2024-09-09
