@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file. This change
 - dev: update Clojure CLI to version 1.12.0.1479 in quality-checks workflow
 - dev: update Clojure library to verision 1.12.0 in deps.edn
 - dev: update clojure-lint-action to v4
+- dev: update setup-clojure to 13.1
 
 
 # 2024-09-09
