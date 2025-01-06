@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file. This change
 - dev: update clojure-lint-action to v4
 - dev: update setup-clojure to 13.1
 - dev: update clojure cli to 1.12.0.1495
+- dev: add standard Practicalli tasks to Makefile
 
 
 # 2024-09-09
