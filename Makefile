@@ -21,12 +21,13 @@
 # -- Makefile task config -------------- #
 # .PHONY: ensures target used rather than matching file name
 # https://makefiletutorial.com/#phony
-.PHONY: all clean  deps dist docs lint pre-commit-check repl test test-ci test-watch
+.PHONY: all clean deps dist docs lint pre-commit-check repl test test-ci test-watch
 # -------------------------------------- #
 
 # -- Makefile Variables ---------------- #
 # run help if no target specified
 .DEFAULT_GOAL := help
+SHELL := /usr/bin/zsh
 
 # Column the target description is printed from
 HELP-DESCRIPTION-SPACING := 24
@@ -35,12 +36,14 @@ HELP-DESCRIPTION-SPACING := 24
 CLOJURE_TEST_RUNNER = clojure -M:test/env:test/run
 CLOJURE_EXEC_TEST_RUNNER = clojure -X:test/env:test/run
 DOCKER-BUILD-LOGFILE := docker-build-log-$(shell date +%y-%m-%d-%T).md
+# MEGALINTER_RUNNER := npx mega-linter-runner --flavor documentation --env "'MEGALINTER_CONFIG=.github/config/megalinter.yaml'" --remove-container
 MEGALINTER_RUNNER := npx mega-linter-runner --flavor java --env "'MEGALINTER_CONFIG=.github/config/megalinter.yaml'" --remove-container
+MKDOCS_SERVER := mkdocs serve --dev-addr localhost:7777
 OUTDATED_FILE := outdated-$(shell date +%y-%m-%d-%T).md
 
 # Makefile file and directory name wildcard
 # EDN-FILES := $(wildcard *.edn)
-# ------------------------------------ #
+# -------------------------------------- #
 
 # -- Help ------------------------------ #
 # Source: https://nedbatchelder.com/blog/201804/makefile_help_target.html
@@ -49,6 +52,28 @@ help:  ## Describe available tasks in Makefile
 	@grep '^[a-zA-Z]' $(MAKEFILE_LIST) | \
 	sort | \
 	awk -F ':.*?## ' 'NF==2 {printf "\033[36m  %-$(HELP-DESCRIPTION-SPACING)s\033[0m %s\n", $$1, $$2}'
+# -------------------------------------- #
+
+# -- Clojure Projects ------------------ #
+service:  ## New project with practicalli/service template
+	$(info -- Create Service Project ----------------)
+	clojure -T:project/create :template practicalli/service :name practicalli/gameboard
+
+service-donut:  ## New project with practicalli/service template & Donut
+	$(info -- Create Service Project with Donut -----)
+	clojure -T:project/create :template practicalli/service :name practicalli/gameboard :target-dir gameboard-donut
+
+service-integrant:  ## New project with practicalli/service template & Integrant
+	$(info -- Create Service Project with Integrant -)
+	clojure -T:project/create :template practicalli/service :name practicalli/gameboard :target-dir gameboard-integrant
+
+landing-page:  ## New project with practicalli/landing-page template local
+	$(info -- Run Rebel REPL ------------------------)
+	clojure -T:project/create :template practicalli/landing-page :name practicalli/landing-page
+
+outdated: ## Check deps.edn & GitHub actions for new versions
+	$(info -- Search for outdated libraries ---------)
+	- clojure -T:search/outdated > $(OUTDATED_FILE)
 # -------------------------------------- #
 
 # -- Clojure Workflow ------------------ #
@@ -110,15 +135,15 @@ test-watch-all:  ## Run all tests when changes saved, regardless of failing test
 
 # -- Build tasks ----------------------- #
 build-config: ## Pretty print build configuration
-	$(info --------- View current build config ------)
+	$(info -- View current build config -------------)
 	clojure -T:build/task config
 
 build-jar: ## Build a jar archive of Clojure project
-	$(info --------- Build library jar --------------)
+	$(info -- Build library jar ---------------------)
 	clojure -T:build/task jar
 
 build-uberjar: ## Build a uberjar archive of Clojure project & Clojure runtime
-	$(info --------- Build service Uberjar  ---------)
+	$(info -- Build service Uberjar  ----------------)
 	clojure -T:build/task uberjar
 
 build-uberjar-echo: ## Build a uberjar archive of Clojure project & Clojure runtime
@@ -155,9 +180,42 @@ lint-clean:  ## Clean MegaLinter report information
 	$(info -- MegaLinter Clean Reports --------------)
 	- rm -rf ./megalinter-reports
 
-megalinter-upgrade:  ## Update MegaLinter config to latest version
-	$(info --------- MegaLinter Upgrade Config ---------)
+megalinter-upgrade:  ## Upgrade MegaLinter config to latest version
+	$(info -- MegaLinter Upgrade Config -------------)
 	npx mega-linter-runner@latest --upgrade
+# -------------------------------------- #
+
+# ------- Version Control -------------- #
+git-sr:  ## status list of git repos under current directory
+	$(info -- Multiple Git Repo Status --------------)
+	mgitstatus -e --flatten
+
+git-status:  ## status details of git repos under current directory
+	$(info -- Multiple Git Status -------------------)
+	mgitstatus
+# -------------------------------------- #
+
+# --- Documentation Generation  -------- #
+
+python-venv:
+	$(info -- Create Python Virtual Environment -----)
+	python3 -m venv ~/.local/venv
+
+mkdocs-install:
+	$(info -- Install Material for MkDocs -----------)
+	source ~/.local/venv/bin/activate; pip install mkdocs-material mkdocs-callouts mkdocs-glightbox mkdocs-git-revision-date-localized-plugin mkdocs-redirects mkdocs-rss-plugin pillow cairosvg --upgrade
+
+docs: ## Build and run mkdocs in local server (python venv)
+	$(info -- MkDocs Local Server -------------------)
+	source ~/.local/venv/bin/activate && $(MKDOCS_SERVER)
+
+docs-changed:  ## Build only changed files and run mkdocs in local server (python venv)
+	$(info -- Mkdocs Local Server -------------------)
+	source ~/.local/venv/bin/activate && $(MKDOCS_SERVER) --dirtyreload
+
+docs-build:  ## Build mkdocs (python venv)
+	$(info -- Mkdocs Local Server -------------------)
+	source ~/.local/venv/bin/activate && mkdocs build
 # -------------------------------------- #
 
 # -- Docker Containers ----------------- #
