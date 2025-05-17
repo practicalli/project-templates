@@ -33,10 +33,6 @@
  [["build" ""
    {"build.clj.template" "build.clj"
     "deps.edn.template"  "deps.edn"}]
-  ["dev" "dev"
-   {"mulog_events.clj" "mulog_events.clj"
-    "portal.clj" "portal.clj"
-    "user.clj" "user.clj"}]
   ["src" "src/{{top/file}}"
    {"app.clj.template" "{{main/file}}.clj"}]
   ["test" "test/{{top/file}}"
