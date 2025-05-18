@@ -33,8 +33,8 @@ SHELL := /usr/bin/zsh
 HELP-DESCRIPTION-SPACING := 24
 
 # Tool variables
-CLOJURE_TEST_RUNNER = clojure -M:test/env:test/run
-CLOJURE_EXEC_TEST_RUNNER = clojure -X:test/env:test/run
+CLOJURE_TEST_RUNNER := clojure -M:test/env:test/run
+CLOJURE_EXEC_TEST_RUNNER := clojure -X:test/env:test/run
 DOCKER-BUILD-LOGFILE := docker-build-log-$(shell date +%y-%m-%d-%T).md
 # MEGALINTER_RUNNER := npx mega-linter-runner --flavor documentation --env "'MEGALINTER_CONFIG=.github/config/megalinter.yaml'" --remove-container
 MEGALINTER_RUNNER := npx mega-linter-runner --flavor java --env "'MEGALINTER_CONFIG=.github/config/megalinter.yaml'" --remove-container
