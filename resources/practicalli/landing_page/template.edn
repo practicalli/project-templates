@@ -41,6 +41,5 @@
     "component.cljs.template" "component.cljs"}]
   ["test" "test/{{top/file}}"
    {"main_page_test.cljs.template" "{{main/file}}_test.cljs"
-    "test_runner.cljs.template" "test_runner.cljs"}]]
+    "test_runner.cljs.template" "test_runner.cljs"}]]}
  ;; ---------------------------------------------------------
- }
