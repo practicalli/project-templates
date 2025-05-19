@@ -12,7 +12,6 @@
 ;; ---------------------------------------------------------
 ;; Application
 
-#_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 (defn greet
   "Greeting message via Clojure CLI clojure.exec"
   ([] (greet {:team-name "secret engineering"}))
@@ -36,7 +35,6 @@
 
 ;; ---------------------------------------------------------
 ;; Rick Comment
-#_{:clj-kondo/ignore [:redefined-var]}
 (comment
 
   (-main)

@@ -61,7 +61,6 @@
 ;; --------------------------------------------------
 ;; Example clojure.exec function
 
-#_{:clj-kondo/ignore [:clojure-lsp/unused-public-var]}
 (defn greet
   "Greeting message via Clojure CLI clojure.exec"
   ;; TODO: call greet with hash-map argument
