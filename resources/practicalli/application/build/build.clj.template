@@ -61,8 +61,7 @@
   `target` is the default directory for build artefacts
   Checks that `.` and `/` directories are not deleted"
   [directory]
-  (when
-   (not (contains? #{"." "/"} directory))
+  (when (not (contains? #{"." "/"} directory))
     (build-api/delete {:path (or (:path directory) "target")})))
 
 

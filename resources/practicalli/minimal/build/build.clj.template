@@ -52,8 +52,7 @@
   `target` is the default directory for build artefacts
   Checks that `.` and `/` directories are not deleted"
   [directory]
-  (when
-   (not (contains? #{"." "/"} directory))
+  (when (not (contains? #{"." "/"} directory))
     (build-api/delete {:path (or (:path directory) "target")})))
 
 
@@ -63,7 +62,9 @@
   [options]
   (let [config (merge project-config options)
         {:keys [class-directory main-namespace project-basis uberjar-file]} config]
+
     (clean "target")
+
     (build-api/copy-dir {:src-dirs   ["src" "resources"]
                          :target-dir class-directory})
 
@@ -78,4 +79,3 @@
 
 ;; End of Build tasks
 ;; ---------------------------------------------------------
-
