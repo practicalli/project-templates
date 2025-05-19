@@ -32,6 +32,7 @@
 (println "---------------------------------------------------------")
 
 (defn help
+  "Print help menu for REPL session"
   []
   (println "---------------------------------------------------------")
   (println "System components:")
