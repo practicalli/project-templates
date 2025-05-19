@@ -16,6 +16,7 @@ All notable changes to this project will be documented in this file. This change
 - dev: update clojure cli to 1.12.0.1495
 - dev: add standard Practicalli tasks to Makefile
 - minimal: move `dev` files into `root` of template
+- templates: clojure 0.12.0 in all templates
 
 
 # 2024-09-09
