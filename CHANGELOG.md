@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This change
 
 ## Added
 - dev: ci scheduled stale issue & pr check (monthly)
+- dev: update to clojure 1.12.1
 
 ## Changed
 - dev: update clj-kondo to version 2024.09.27 in quality-checks workflow
