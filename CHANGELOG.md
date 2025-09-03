@@ -20,6 +20,7 @@ All notable changes to this project will be documented in this file. This change
 - minimal: move `dev` files into `root` of template
 - templates: clojure 0.12.0 in all templates
 - templates: design-journal namespace in all templates
+- dev: `dependencies-update` & `dependencies-outdated` make tasks
 
 
 # 2024-09-09
