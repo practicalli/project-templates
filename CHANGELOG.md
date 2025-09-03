@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file. This change
 
 ## Updated
 - dev: `dependencies-update` & `dependencies-outdated` make tasks
+- dev: update to Clojure 1.12.2
 - dev: updated GitHub action versions in all workflows
 
 | :file                                          | :name                        | :current    | :latest     |
