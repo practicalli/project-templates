@@ -4,14 +4,14 @@ All notable changes to this project will be documented in this file. This change
 
 # [Unreleased]
 
+# 2025-09-04
 ## Added
 - dev: ci scheduled stale issue & pr check (monthly)
-- dev: update to clojure 1.12.1
-- templates: update to clojure 1.12.1
 
 ## Updated
 - dev: `dependencies-update` & `dependencies-outdated` make tasks
 - dev: update to Clojure 1.12.2
+- templates: update to clojure 1.12.2
 - dev: update deps-new to 0.10.1
 - dev: updated GitHub action versions in all workflows
 
