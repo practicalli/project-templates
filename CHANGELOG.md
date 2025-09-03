@@ -9,6 +9,25 @@ All notable changes to this project will be documented in this file. This change
 - dev: update to clojure 1.12.1
 - templates: update to clojure 1.12.1
 
+## Updated
+- dev: `dependencies-update` & `dependencies-outdated` make tasks
+- dev: updated GitHub action versions in all workflows
+
+| :file                                          | :name                        | :current    | :latest     |
+|------------------------------------------------|------------------------------|-------------|-------------|
+| .github/workflows/changelog-check.yaml         | actions/checkout             | v4          | v5          |
+| .github/workflows/lint-review.yaml             | actions/checkout             | v4          | v5          |
+|                                                | nnichols/clojure-lint-action | v4          | v6          |
+| .github/workflows/megalinter.yaml              | actions/checkout             | v4          | v5          |
+| .github/workflows/quality-checks.yaml          | DeLaGuardo/setup-clojure     | 13.1        | 13.4        |
+|                                                | actions/checkout             | v4          | v5          |
+|                                                | actions/setup-java           | v4          | v5          |
+|                                                | clj-kondo/clj-kondo          | 2024.09.27  | 2025.07.28  |
+|                                                | clojure/brew-install         | 1.12.0.1495 | 1.12.2.1565 |
+|                                                | greglook/cljstyle            | 0.16.626    | 0.17.642    |
+| .github/workflows/scheduled-version-check.yaml | actions/checkout             | v4          | v5          |
+
+
 ## Changed
 - dev: update clj-kondo to version 2024.09.27 in quality-checks workflow
 - dev: update Clojure CLI to version 1.12.0.1479 in quality-checks workflow
@@ -20,7 +39,6 @@ All notable changes to this project will be documented in this file. This change
 - minimal: move `dev` files into `root` of template
 - templates: clojure 0.12.0 in all templates
 - templates: design-journal namespace in all templates
-- dev: `dependencies-update` & `dependencies-outdated` make tasks
 
 
 # 2024-09-09
