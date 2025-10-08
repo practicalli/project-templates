@@ -27,31 +27,21 @@
 # -- Makefile Variables ---------------- #
 # run help if no target specified
 .DEFAULT_GOAL := help
-SHELL := /usr/bin/zsh
-
 # Column the target description is printed from
 HELP-DESCRIPTION-SPACING := 24
 
-# Tool variables
+SHELL := /usr/bin/zsh
+
+# Tool Commands
 CLOJURE_TEST_RUNNER := clojure -M:test/env:test/run
 CLOJURE_EXEC_TEST_RUNNER := clojure -X:test/env:test/run
 DOCKER-BUILD-LOGFILE := docker-build-log-$(shell date +%y-%m-%d-%T).md
-# MEGALINTER_RUNNER := npx mega-linter-runner --flavor documentation --env "'MEGALINTER_CONFIG=.github/config/megalinter.yaml'" --remove-container
-MEGALINTER_RUNNER := npx mega-linter-runner --flavor java --env "'MEGALINTER_CONFIG=.github/config/megalinter.yaml'" --remove-container
+MEGALINTER_RUNNER := npx mega-linter-runner --flavor java --env "'MEGALINTER_CONFIG=.github/config/megalinter.yaml'" --env "'VALIDATE_ALL_CODEBASE=true'" --remove-container
 MKDOCS_SERVER := mkdocs serve --dev-addr localhost:7777
 OUTDATED_FILE := outdated-$(shell date +%y-%m-%d-%T).md
 
 # Makefile file and directory name wildcard
 # EDN-FILES := $(wildcard *.edn)
-# -------------------------------------- #
-
-# -- Help ------------------------------ #
-# Source: https://nedbatchelder.com/blog/201804/makefile_help_target.html
-
-help:  ## Describe available tasks in Makefile
-	@grep '^[a-zA-Z]' $(MAKEFILE_LIST) | \
-	sort | \
-	awk -F ':.*?## ' 'NF==2 {printf "\033[36m  %-$(HELP-DESCRIPTION-SPACING)s\033[0m %s\n", $$1, $$2}'
 # -------------------------------------- #
 
 # -- Clojure Projects ------------------ #
@@ -157,7 +147,7 @@ build-clean: ## Clean build assets or given directory
 	clojure -T:build/task clean
 # -------------------------------------- #
 
-# -- Code Quality ---------------------- #
+# --  Quality Checks  ------------------ #
 pre-commit-check: format-check lint test  ## Run format, lint and test targets
 
 format-check: ## Run cljstyle to check the formatting of Clojure code
@@ -193,25 +183,18 @@ dependencies-update: ## Update all library dependencies and GitHub action
 	- clojure -T:update/dependency-versions > $(OUTDATED_FILE)
 # -------------------------------------- #
 
-# ------- Version Control -------------- #
-git-sr:  ## status list of git repos under current directory
-	$(info -- Multiple Git Repo Status --------------)
-	mgitstatus -e --flatten
-
-git-status:  ## status details of git repos under current directory
-	$(info -- Multiple Git Status -------------------)
-	mgitstatus
-# -------------------------------------- #
-
-# --- Documentation Generation  -------- #
-
-python-venv:
+# -- Documentation Generation  --------- #
+python-venv:  ## Create Python Virtual Environment
 	$(info -- Create Python Virtual Environment -----)
 	python3 -m venv ~/.local/venv
 
+python-activate:  ## Activate Python Virtual Environment for MkDocs
+	$(info -- Mkdocs Local Server -------------------)
+	source ~/.local/venv/bin/activate
+
 mkdocs-install:
 	$(info -- Install Material for MkDocs -----------)
-	source ~/.local/venv/bin/activate; pip install mkdocs-material mkdocs-callouts mkdocs-glightbox mkdocs-git-revision-date-localized-plugin mkdocs-redirects mkdocs-rss-plugin pillow cairosvg --upgrade
+	source ~/.local/venv/bin/activate && pip install mkdocs-material mkdocs-callouts mkdocs-glightbox mkdocs-git-revision-date-localized-plugin mkdocs-redirects mkdocs-rss-plugin pillow cairosvg --upgrade
 
 docs: ## Build and run mkdocs in local server (python venv)
 	$(info -- MkDocs Local Server -------------------)
@@ -222,8 +205,16 @@ docs-changed:  ## Build only changed files and run mkdocs in local server (pytho
 	source ~/.local/venv/bin/activate && $(MKDOCS_SERVER) --dirtyreload
 
 docs-build:  ## Build mkdocs (python venv)
-	$(info -- Mkdocs Local Server -------------------)
+	$(info -- Mkdocs Build Website ------------------)
 	source ~/.local/venv/bin/activate && mkdocs build
+
+docs-debug:  ## Run mkdocs local server in debug mode (python venv)
+	$(info -- Mkdocs Local Server Debug -------------)
+	. ~/.local/venv/bin/activate; $(MKDOCS_SERVER) -v
+
+docs-staging:  ## Deploy to staging repository
+	$(info -- Mkdocs Staging Deploy -----------------)
+	source ~/.local/venv/bin/activate && mkdocs gh-deploy --force --no-history --config-file mkdocs-staging.yml
 # -------------------------------------- #
 
 # -- Docker Containers ----------------- #
@@ -235,48 +226,22 @@ docker-build-log:  ## Build Clojure project and run with docker compose - log to
 	$(info --------- Docker Compose Build ---------)
 	docker compose up --build --detach &> $(DOCKER-BUILD-LOGFILE) | tee $(DOCKER-BUILD-LOGFILE)
 
-docker-build-clean:  ## Build Clojure project and run with docker compose, removing orphans
-	$(info -- Docker Compose Build, remove orphans --)
-	docker compose up --build --remove-orphans --detach
+# -- Version Control ------------------- #
+git-sr:  ## status list of git repos under current directory
+	$(info -- Multiple Git Repo Status --------------)
+	mgitstatus -e --flatten
 
-docker-down:  ## Shut down containers in docker compose
-	$(info -- Docker Compose Down -------------------)
-	docker compose down
-
-docker-inspect:  ## Inspect given docker image - image-id=12e45fg89
-	$(info -- Docker Image Prune --------------------)
-	docker inspect --format='{{json .Config}}' $(image-id) | jq
-
-docker-image-prune:  ## Prune docker images
-	$(info -- Docker Image Prune --------------------)
-	docker image prune
-
-docker-container-prune:  ## Prune docker containers
-	$(info -- Docker Container Prune ----------------)
-	docker container prune
-
-docker-prune: docker-image-prune docker-image-prune  ## Prune docker images and containers
-
-swagger-editor:  ## Start Swagger Editor in Docker
-	$(info -- Run Swagger Editor at locahost:8282 ---)
-	docker compose -f swagger-editor.yaml up -d swagger-editor --detatch
-
-swagger-editor-down:  ## Stop Swagger Editor in Docker
-	$(info -- Run Swagger Editor at locahost:8282 ---)
-	docker compose -f swagger-editor.yaml down
+git-status:  ## status details of git repos under current directory
+	$(info -- Multiple Git Status -------------------)
+	mgitstatus
 # -------------------------------------- #
 
-# -- Continuous Integration ------------ #
-# .DELETE_ON_ERROR: halts if command returns non-zero exit status
-# https://makefiletutorial.com/#delete_on_error
+# -- Help ------------------------------ #
+# Source: https://nedbatchelder.com/blog/201804/makefile_help_target.html
 
-# TODO: focus runner on ^:integration` tests
-test-ci: deps  ## Test runner for integration tests
-	$(info -- Runner for integration tests ---------)
-	clojure -P -X:test/env:test/run
-
-# Run tests, build & package the Clojure code and clean up afterward
-# `make all` used in Docker builder stage
-.DELETE_ON_ERROR:
-all: test-ci dist clean  ## Call test-ci dist and clean targets, used for CI
+help:  ## Describe available tasks in Makefile
+	@grep '^[a-zA-Z]' $(MAKEFILE_LIST) | \
+	sort | \
+	awk -F ':.*?## ' 'NF==2 {printf "\033[36m  %-$(HELP-DESCRIPTION-SPACING)s\033[0m %s\n", $$1, $$2}'
 # -------------------------------------- #
+
