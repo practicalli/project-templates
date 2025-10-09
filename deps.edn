@@ -1,7 +1,7 @@
 {:paths ["src" "resources"]
 
  :deps
- {org.clojure/clojure {:mvn/version "1.12.2"}}
+ {org.clojure/clojure {:mvn/version "1.12.3"}}
 
  :aliases
  {;; Add libraries and paths to support additional test tools
