@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. This change
 
 # [Unreleased]
 
+# 2025-10-09
+## Updated
+- template: update all to clojure 1.12.3
+
 # 2025-09-04
 ## Added
 - dev: ci scheduled stale issue & pr check (monthly)
