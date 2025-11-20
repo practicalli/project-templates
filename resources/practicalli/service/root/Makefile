@@ -44,7 +44,7 @@ OUTDATED_FILE := outdated-$(shell date +%y-%m-%d-%T).md
 # -------------------------------------- #
 
 # -- Clojure Workflow ------------------ #
-repl: rebel  ## Start default REPL configuration
+repl: reloaded  ## Start default REPL configuration
 
 rebel:  ## Run Clojure REPL with rich terminal UI (Rebel Readline)
 	$(info -- Run Rebel REPL ------------------------)
@@ -233,4 +233,3 @@ help:  ## Describe available tasks in Makefile
 	sort | \
 	awk -F ':.*?## ' 'NF==2 {printf "\033[36m  %-$(HELP-DESCRIPTION-SPACING)s\033[0m %s\n", $$1, $$2}'
 # -------------------------------------- #
-

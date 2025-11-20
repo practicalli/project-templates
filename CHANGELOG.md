@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file. This change
 
 # [Unreleased]
 
+## Updated
+- dev: default to reloaded repl task for make repl
+
 # 2025-11-09
 ## Added
 - dev: add version control tasks and update format
