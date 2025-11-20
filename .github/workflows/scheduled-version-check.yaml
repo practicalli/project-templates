@@ -32,7 +32,7 @@ jobs:
       - run: echo "🐙 Using ${{ github.ref }} branch from ${{ github.repository }} repository"
 
       - name: Checkout Code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - run: echo "🐙 ${{ github.repository }} repository sparse-checkout to the CI runner."
       - name: Antq Check Version
         uses: liquidz/antq-action@main

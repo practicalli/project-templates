@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file. This change
 # [Unreleased]
 ## Added
 - dev: add version control tasks and update format
+- dev: updated GitHub action versions in all workflows
+
+| :file                                          | :name                   | :current    | :latest     |
+|------------------------------------------------|-------------------------|-------------|-------------|
+| .github/workflows/changelog-check.yaml         | actions/checkout        | v5          | v6          |
+| .github/workflows/lint-review.yaml             | actions/checkout        | v5          | v6          |
+| .github/workflows/megalinter.yaml              | actions/checkout        | v5          | v6          |
+|                                                | actions/upload-artifact | v4          | v5          |
+| .github/workflows/quality-checks.yaml          | actions/checkout        | v5          | v6          |
+|                                                | clj-kondo/clj-kondo     | 2025.07.28  | 2025.10.23  |
+|                                                | clojure/brew-install    | 1.12.2.1565 | 1.12.3.1577 |
+| .github/workflows/scheduled-stale-check.yaml   | actions/stale           | v9          | v10.1.0     |
+| .github/workflows/scheduled-version-check.yaml | actions/checkout        | v5          | v6          |
 
 # 2025-10-09
 ## Updated
