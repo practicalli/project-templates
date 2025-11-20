@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
 # [Unreleased]
+## Added
+- dev: add version control tasks and update format
 
 # 2025-10-09
 ## Updated

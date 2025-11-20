@@ -32,7 +32,7 @@ HELP-DESCRIPTION-SPACING := 24
 
 SHELL := /usr/bin/zsh
 
-# Tool Commands
+# Tool variables
 CLOJURE_TEST_RUNNER := clojure -M:test/env:test/run
 CLOJURE_EXEC_TEST_RUNNER := clojure -X:test/env:test/run
 DOCKER-BUILD-LOGFILE := docker-build-log-$(shell date +%y-%m-%d-%T).md
@@ -147,7 +147,7 @@ build-clean: ## Clean build assets or given directory
 	clojure -T:build/task clean
 # -------------------------------------- #
 
-# --  Quality Checks  ------------------ #
+# -- Code Quality ---------------------- #
 pre-commit-check: format-check lint test  ## Run format, lint and test targets
 
 format-check: ## Run cljstyle to check the formatting of Clojure code
@@ -217,6 +217,16 @@ docs-staging:  ## Deploy to staging repository
 	source ~/.local/venv/bin/activate && mkdocs gh-deploy --force --no-history --config-file mkdocs-staging.yml
 # -------------------------------------- #
 
+# -- Version Control ------------------- #
+git-sr:  ## status list of git repos under current directory
+	$(info -- Multiple Git Repo Status --------------)
+	mgitstatus -e --flatten
+
+git-status:  ## status details of git repos under current directory
+	$(info -- Multiple Git Status -------------------)
+	mgitstatus
+# -------------------------------------- #
+
 # -- Docker Containers ----------------- #
 docker-build:  ## Build Clojure project and run with docker compose
 	$(info -- Docker Compose Build ------------------)
@@ -226,14 +236,50 @@ docker-build-log:  ## Build Clojure project and run with docker compose - log to
 	$(info --------- Docker Compose Build ---------)
 	docker compose up --build --detach &> $(DOCKER-BUILD-LOGFILE) | tee $(DOCKER-BUILD-LOGFILE)
 
-# -- Version Control ------------------- #
-git-sr:  ## status list of git repos under current directory
-	$(info -- Multiple Git Repo Status --------------)
-	mgitstatus -e --flatten
+docker-build-clean:  ## Build Clojure project and run with docker compose, removing orphans
+	$(info -- Docker Compose Build, remove orphans --)
+	docker compose up --build --remove-orphans --detach
 
-git-status:  ## status details of git repos under current directory
-	$(info -- Multiple Git Status -------------------)
-	mgitstatus
+docker-down:  ## Shut down containers in docker compose
+	$(info -- Docker Compose Down -------------------)
+	docker compose down
+
+docker-inspect:  ## Inspect given docker image - image-id=12e45fg89
+	$(info -- Docker Image Prune --------------------)
+	docker inspect --format='{{json .Config}}' $(image-id) | jq
+
+docker-image-prune:  ## Prune docker images
+	$(info -- Docker Image Prune --------------------)
+	docker image prune
+
+docker-container-prune:  ## Prune docker containers
+	$(info -- Docker Container Prune ----------------)
+	docker container prune
+
+docker-prune: docker-image-prune docker-image-prune  ## Prune docker images and containers
+
+swagger-editor:  ## Start Swagger Editor in Docker
+	$(info -- Run Swagger Editor at locahost:8282 ---)
+	docker compose -f swagger-editor.yaml up -d swagger-editor --detatch
+
+swagger-editor-down:  ## Stop Swagger Editor in Docker
+	$(info -- Run Swagger Editor at locahost:8282 ---)
+	docker compose -f swagger-editor.yaml down
+# -------------------------------------- #
+
+# -- Continuous Integration ------------ #
+# .DELETE_ON_ERROR: halts if command returns non-zero exit status
+# https://makefiletutorial.com/#delete_on_error
+
+# TODO: focus runner on ^:integration` tests
+test-ci: deps  ## Test runner for integration tests
+	$(info -- Runner for integration tests ---------)
+	clojure -P -X:test/env:test/run
+
+# Run tests, build & package the Clojure code and clean up afterward
+# `make all` used in Docker builder stage
+.DELETE_ON_ERROR:
+all: test-ci dist clean  ## Call test-ci dist and clean targets, used for CI
 # -------------------------------------- #
 
 # -- Help ------------------------------ #

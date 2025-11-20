@@ -21,34 +21,26 @@
 # -- Makefile task config -------------- #
 # .PHONY: ensures target used rather than matching file name
 # https://makefiletutorial.com/#phony
-.PHONY: all clean  deps dist docs lint pre-commit-check repl test test-ci test-watch
+.PHONY: all clean deps dist docs lint pre-commit-check repl test test-ci test-watch
 # -------------------------------------- #
 
 # -- Makefile Variables ---------------- #
 # run help if no target specified
 .DEFAULT_GOAL := help
-
 # Column the target description is printed from
 HELP-DESCRIPTION-SPACING := 24
+
+SHELL := /usr/bin/zsh
 
 # Tool variables
 CLOJURE_TEST_RUNNER := clojure -M:test/env:test/run
 CLOJURE_EXEC_TEST_RUNNER := clojure -X:test/env:test/run
 DOCKER-BUILD-LOGFILE := docker-build-log-$(shell date +%y-%m-%d-%T).md
-MEGALINTER_RUNNER := npx mega-linter-runner --flavor java --env "'MEGALINTER_CONFIG=.github/config/megalinter.yaml'" --remove-container
+MEGALINTER_RUNNER := npx mega-linter-runner --flavor java --env "'MEGALINTER_CONFIG=.github/config/megalinter.yaml'" --env "'VALIDATE_ALL_CODEBASE=true'" --remove-container
 OUTDATED_FILE := outdated-$(shell date +%y-%m-%d-%T).md
 
 # Makefile file and directory name wildcard
 # EDN-FILES := $(wildcard *.edn)
-# ------------------------------------ #
-
-# -- Help ------------------------------ #
-# Source: https://nedbatchelder.com/blog/201804/makefile_help_target.html
-
-help:  ## Describe available tasks in Makefile
-	@grep '^[a-zA-Z]' $(MAKEFILE_LIST) | \
-	sort | \
-	awk -F ':.*?## ' 'NF==2 {printf "\033[36m  %-$(HELP-DESCRIPTION-SPACING)s\033[0m %s\n", $$1, $$2}'
 # -------------------------------------- #
 
 # -- Clojure Workflow ------------------ #
@@ -110,15 +102,15 @@ test-watch-all:  ## Run all tests when changes saved, regardless of failing test
 
 # -- Build tasks ----------------------- #
 build-config: ## Pretty print build configuration
-	$(info --------- View current build config ------)
+	$(info -- View current build config -------------)
 	clojure -T:build/task config
 
 build-jar: ## Build a jar archive of Clojure project
-	$(info --------- Build library jar --------------)
+	$(info -- Build library jar ---------------------)
 	clojure -T:build/task jar
 
 build-uberjar: ## Build a uberjar archive of Clojure project & Clojure runtime
-	$(info --------- Build service Uberjar  ---------)
+	$(info -- Build service Uberjar  ----------------)
 	clojure -T:build/task uberjar
 
 build-uberjar-echo: ## Build a uberjar archive of Clojure project & Clojure runtime
@@ -155,9 +147,27 @@ lint-clean:  ## Clean MegaLinter report information
 	$(info -- MegaLinter Clean Reports --------------)
 	- rm -rf ./megalinter-reports
 
-megalinter-upgrade:  ## Update MegaLinter config to latest version
-	$(info --------- MegaLinter Upgrade Config ---------)
+megalinter-upgrade:  ## Upgrade MegaLinter config to latest version
+	$(info -- MegaLinter Upgrade Config -------------)
 	npx mega-linter-runner@latest --upgrade
+
+dependencies-outdated: ## Report new versions of library dependencies and GitHub action
+	$(info -- Search for outdated libraries ---------)
+	- clojure -T:search/outdated > $(OUTDATED_FILE)
+
+dependencies-update: ## Update all library dependencies and GitHub action
+	$(info -- Search for outdated libraries ---------)
+	- clojure -T:update/dependency-versions > $(OUTDATED_FILE)
+# -------------------------------------- #
+
+# -- Version Control ------------------- #
+git-sr:  ## status list of git repos under current directory
+	$(info -- Multiple Git Repo Status --------------)
+	mgitstatus -e --flatten
+
+git-status:  ## status details of git repos under current directory
+	$(info -- Multiple Git Status -------------------)
+	mgitstatus
 # -------------------------------------- #
 
 # -- Docker Containers ----------------- #
@@ -214,3 +224,13 @@ test-ci: deps  ## Test runner for integration tests
 .DELETE_ON_ERROR:
 all: test-ci dist clean  ## Call test-ci dist and clean targets, used for CI
 # -------------------------------------- #
+
+# -- Help ------------------------------ #
+# Source: https://nedbatchelder.com/blog/201804/makefile_help_target.html
+
+help:  ## Describe available tasks in Makefile
+	@grep '^[a-zA-Z]' $(MAKEFILE_LIST) | \
+	sort | \
+	awk -F ':.*?## ' 'NF==2 {printf "\033[36m  %-$(HELP-DESCRIPTION-SPACING)s\033[0m %s\n", $$1, $$2}'
+# -------------------------------------- #
+
