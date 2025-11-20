@@ -3,8 +3,12 @@
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
 # [Unreleased]
+
+# 2025-11-09
 ## Added
 - dev: add version control tasks and update format
+
+## Updated
 - dev: updated GitHub action versions in all workflows
 
 | :file                                          | :name                   | :current    | :latest     |
