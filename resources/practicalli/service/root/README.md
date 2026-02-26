@@ -11,7 +11,7 @@
 
 ## Project Status
 
-TODO: add status badges for <https://{{scm/domain}}/{{developer}}/{{scm/repo>}} workflows and issues
+TODO: add status badges for <https://{{scm/domain}}/{{developer}}/{{scm/repo}}> workflows and issues
 
 {{description}}
 

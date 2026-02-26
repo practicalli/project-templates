@@ -78,7 +78,7 @@ clojure -T:project/create :template practicalli/service \
 * [practicalli/application](https://github.com/practicalli/project-templates/issues/4) - general application, limited code
 * [practicalli/minimal](https://github.com/practicalli/project-templates/issues/19) - Clojure CLI project, tools-build, kaocha test runner alias, Make tasks, GitHub quality checks workflow
 * TODO: practicalli/api - production grade API service (reitit-ring, clojure.spec validation)
-* TODO: practicalli/library - general library, deploymnent to Maven/Clojars
+* TODO: practicalli/library - general library, deployment to Maven/Clojars
 * TODO: [practicalli/blog](https://github.com/practicalli/project-templates/issues/1) - cryogen project with Practicalli Customisation
 * TODO: practicalli/jetty - basic web server
 * TODO: practicalli/httpkit - basic web server

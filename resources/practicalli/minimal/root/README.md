@@ -11,11 +11,11 @@
 
 ## Project Status
 
-TODO: add status badges for <https://{{scm/domain}}/{{developer}}/{{scm/repo>}} workflows and issues
+TODO: add status badges for <https://{{scm/domain}}/{{developer}}/{{scm/repo}}> workflows and issues
 
 {{description}}
 
-Project created with [deps-new](https://github.com/seancorfield/deps-new) and the [practicalli/application template](https://github.com/practicalli/project-templates)
+Project created with [deps-new](https://github.com/seancorfield/deps-new) and the [practicalli/minimal template](https://github.com/practicalli/project-templates)
 
 ## Run the service
 
@@ -71,7 +71,9 @@ Call the `-main` function with or without an argument, or call the `greet` funct
 
 If a REPL has been run from a terminal, use the editor **connect*- feature.
 
-Otherwise, use the `:dev/reloaded` alias from Practicalli Clojure CLI Config to starting a REPL process from within a Clojure editor.
+Otherwise, use the `:dev/reloaded` alias from
+[Practicalli Clojure CLI Config](https://github.com/practicalli/clojure-cli-config)
+to start a REPL process from within a Clojure editor.
 
 
 ### Unit tests
