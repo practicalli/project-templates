@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
 # [Unreleased]
+## Added
+- Use of latest deps-new: retrieve license info from [SPDX](https://spdx.dev/), change with `:license/id`, default is EPL-1.0.
 
 # 2026-02-05
 
