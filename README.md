@@ -61,10 +61,12 @@ Override the defaults used to create a project using command line options
 * `:name` and value to create a project with a different name, e.g. `github-org/project-name`
 * `:target-dir` to specify a directory to create the project in
 * `:overwrite` an existing project with the same `:target-dir name`, `true` updates, `:delete` deletes existing project and replaces it with new project
+* `:license/id` to specify a different license than the default CC-BY-SA-4.0, see the [SPDX license list](https://spdx.org/licenses/) for a list of available license identifiers.
 
 ```shell
 clojure -T:project/create :template practicalli/service \
-:name practicalli/gameboard :target-dir gameboard-service
+:name practicalli/gameboard :target-dir gameboard-service \
+:license/id MIT
 ```
 
 
@@ -78,7 +80,7 @@ clojure -T:project/create :template practicalli/service \
 * [practicalli/application](https://github.com/practicalli/project-templates/issues/4) - general application, limited code
 * [practicalli/minimal](https://github.com/practicalli/project-templates/issues/19) - Clojure CLI project, tools-build, kaocha test runner alias, Make tasks, GitHub quality checks workflow
 * TODO: practicalli/api - production grade API service (reitit-ring, clojure.spec validation)
-* TODO: practicalli/library - general library, deploymnent to Maven/Clojars
+* TODO: practicalli/library - general library, deployment to Maven/Clojars
 * TODO: [practicalli/blog](https://github.com/practicalli/project-templates/issues/1) - cryogen project with Practicalli Customisation
 * TODO: practicalli/jetty - basic web server
 * TODO: practicalli/httpkit - basic web server

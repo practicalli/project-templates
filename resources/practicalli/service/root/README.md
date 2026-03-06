@@ -11,7 +11,7 @@
 
 ## Project Status
 
-TODO: add status badges for <https://{{scm/domain}}/{{developer}}/{{scm/repo>}} workflows and issues
+TODO: add status badges for <https://{{scm/domain}}/{{developer}}/{{scm/repo}}> workflows and issues
 
 {{description}}
 
@@ -133,4 +133,5 @@ Or build and run the service via the multi-stage `Dockerfile` configuration as p
 
 Copyright © {{now/year}} {{developer}}
 
-[Creative Commons Attribution Share-Alike 4.0 International](http://creativecommons.org/licenses/by-sa/4.0/")
+Distributed under the
+[{{license/name}}]({{license/url}})

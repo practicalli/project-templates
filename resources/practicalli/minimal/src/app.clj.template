@@ -25,7 +25,7 @@
   (let [team (first args)]
     (mulog/set-global-context!
      {:app-name "{{top/ns}} {{main/ns}}" :version  "{{version}}"})
-    (mulog/log ::application-starup :arguments args)
+    (mulog/log ::application-startup :arguments args)
     (if team
       (println (greet team))
       (println (greet)))))
@@ -34,7 +34,7 @@
 
 
 ;; ---------------------------------------------------------
-;; Rick Comment
+;; Rich Comment
 (comment
 
   (-main)

@@ -60,6 +60,7 @@ make dist
 
 ## License
 
-Copyright © 2023 {{developer}}
+Copyright © {{now/year}} {{developer}}
 
-Distributed under the Creative Commons Attribution Share-Alike 4.0 International
+Distributed under the
+[{{license/name}}]({{license/url}})
