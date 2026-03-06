@@ -61,7 +61,7 @@ Override the defaults used to create a project using command line options
 * `:name` and value to create a project with a different name, e.g. `github-org/project-name`
 * `:target-dir` to specify a directory to create the project in
 * `:overwrite` an existing project with the same `:target-dir name`, `true` updates, `:delete` deletes existing project and replaces it with new project
-* `:license/id` to specify a different license than the default EPL-1.0, see the [SPDX license list](https://spdx.org/licenses/) for a list of available license identifiers.
+* `:license/id` to specify a different license than the default CC-BY-SA-4.0, see the [SPDX license list](https://spdx.org/licenses/) for a list of available license identifiers.
 
 ```shell
 clojure -T:project/create :template practicalli/service \

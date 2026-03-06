@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file. This change
 
 # [Unreleased]
 ## Added
-- Use of latest deps-new: retrieve license info from [SPDX](https://spdx.dev/), change with `:license/id`, default is EPL-1.0.
+- Use of latest deps-new: retrieve license info from [SPDX](https://spdx.dev/), default is CC-BY-SA-4.0, change with `:license/id`.
 
 # 2026-02-05
 
