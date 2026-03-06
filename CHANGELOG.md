@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file. This change
 # [Unreleased]
 ## Added
 - Use of latest deps-new: retrieve license info from [SPDX](https://spdx.dev/), default is CC-BY-SA-4.0, change with `:license/id`.
+- Bumped clojure version to 1.12.4.
 
 # 2026-02-05
 
