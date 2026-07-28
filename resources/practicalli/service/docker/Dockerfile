@@ -16,10 +16,10 @@
 # ------------------------
 # Setup Builder container
 
-FROM clojure:temurin-17-alpine AS builder
+FROM clojure:temurin-21-alpine AS builder
 
 # Set Clojure CLI version (defaults to latest release)
-# ENV CLOJURE_VERSION=1.11.1.1413
+# ENV CLOJURE_VERSION=1.12.4.1618
 
 # Create directory for project code (working directory)
 RUN mkdir -p /build
@@ -59,8 +59,11 @@ RUN make dist
 # ------------------------
 # Setup Run-time Container
 
-# Official OpenJDK Image
-FROM eclipse-temurin:17-alpine
+# Official OpenJDK Images
+# Ubuntu Linux default image:
+# FROM eclipse-temurin:21
+# Alpine Linux variant:
+FROM eclipse-temurin:21-alpine
 
 # Example labels for runtime docker image
 # LABEL org.opencontainers.image.authors="nospam+dockerfile@{{top/ns}}.{{group/id}}"
@@ -69,14 +72,14 @@ FROM eclipse-temurin:17-alpine
 # LABEL version="{{version}}"
 # LABEL description="{{top/ns}} {{main/ns}} service"
 
-# Add operating system packages
+# Add packages to Alpine Linux
 # - dumb-init to ensure SIGTERM sent to java process running Clojure service
 # - Curl and jq binaries for manual running of system integration scripts
 # check for newer package versions: https://pkgs.alpinelinux.org/
 RUN apk add --no-cache \
-    dumb-init~=1.2.5 \
-    curl~=8.0.1 \
-    jq~=1.6
+    dumb-init~=1.2 \
+    curl~=8.18 \
+    jq~=1.8
 
 # Create Non-root group and user to run service securely
 RUN addgroup -S clojure && adduser -S clojure -G clojure
