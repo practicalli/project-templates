@@ -31,10 +31,10 @@
 
  :transform
  [["build" ""
-   {"build.clj.template" "build.clj"
-    "deps.edn.template"  "deps.edn"}]
+   {"build.clj" "build.clj"
+    "deps.edn"  "deps.edn"}]
   ["src" "src/{{top/file}}"
-   {"app.clj.template" "{{main/file}}.clj"}]
+   {"app.clj" "{{main/file}}.clj"}]
   ["test" "test/{{top/file}}"
-   {"app_test.clj.template" "{{main/file}}_test.clj"}]]}
+   {"app_test.clj" "{{main/file}}_test.clj"}]]}
 ;; ---------------------------------------------------------

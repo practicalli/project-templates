@@ -32,32 +32,32 @@
  ;;
  ;; Form:
  ;; [["directory-name" "default-path"
- ;;   {"source-file.extension.template" "destination-file.extension"}]]
+ ;;   {"source-file.extension" "destination-file.extension"}]]
 
  :transform
  [["api" "src/{{top/file}}/{{main/file}}/api"
-   {"system_admin.clj.template" "system_admin.clj"
-    "scoreboard.clj.template" "scoreboard.clj"}]
+   {"system_admin.clj" "system_admin.clj"
+    "scoreboard.clj" "scoreboard.clj"}]
   ["build" ""
-   {"build.clj.template" "build.clj"
-    "deps.edn.template"  "deps.edn"}
+   {"build.clj" "build.clj"
+    "deps.edn"  "deps.edn"}
    :only]
   ["dev" "dev"
    {"mulog_events.clj" "mulog_events.clj"
     "portal.clj" "portal.clj"
-    "system_repl.clj.template" "system_repl.clj"
-    "user.clj.template" "user.clj"}
+    "system_repl.clj" "system_repl.clj"
+    "user.clj" "user.clj"}
    :only]
   ["docker" ""
-   {"compose-service.yaml.template" "compose.yaml"
-    "compose-service-postgres.yaml.template"  "compose-service-postgres.yaml"
-    "Dockerfile.template" "Dockerfile"}]
+   {"compose-service.yaml" "compose.yaml"
+    "compose-service-postgres.yaml"  "compose-service-postgres.yaml"
+    "Dockerfile" "Dockerfile"}]
   ["src" "src/{{top/file}}/{{main/file}}"
-   {"middleware.clj.template" "middleware.clj"
-    "router.clj.template" "router.clj"
-    "service.clj.template" "service.clj"
-    "spec.clj.template" "spec.clj"}
+   {"middleware.clj" "middleware.clj"
+    "router.clj" "router.clj"
+    "service.clj" "service.clj"
+    "spec.clj" "spec.clj"}
    :only]
   ["test" "test/{{top/file}}/{{main/file}}"
-   {"service_test.clj.template" "service_test.clj"}]]}
+   {"service_test.clj" "service_test.clj"}]]}
 ;; ---------------------------------------------------------
