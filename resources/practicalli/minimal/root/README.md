@@ -17,19 +17,21 @@ TODO: add status badges for <https://{{scm/domain}}/{{developer}}/{{scm/repo>}} 
 
 Project created with [deps-new](https://github.com/seancorfield/deps-new) and the [practicalli/application template](https://github.com/practicalli/project-templates)
 
-## Run the service
 Distributed under [{{license/name}}]({{license/url}})
 
-Run the service (clojure.main)
+
+## Run project
+
+Run the `main` function of the project via `clojure.main`
 
 ```shell
 clojure -M:run/app
 ```
 
-Run the greet function (clojure.exec), optionally passing a `:name` key and value as arguments
+Run the greet function via `clojure.exec`, optionally passing a `:name` key and value as arguments
 
 ```shell
-clojure -X:run/greet :team-name '"team name"'
+clojure -X:run/greet :team-name '"My team name"'
 ```
 
 ## Development

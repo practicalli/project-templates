@@ -10,12 +10,12 @@
 
  ;; ---------------------------------------------------------
  ;; Optional features
- ;; - used by programatic transformation
+ ;; - used by programmatic transformation
  ;; - not implemented yet
  ;; ---------------------------------------------------------
 
  ;; ---------------------------------------------------------
- ;; Programatic Transformation functions
+ ;; Programmatic Transformation functions
 
  :data-fn practicalli.minimal/substitutions
 

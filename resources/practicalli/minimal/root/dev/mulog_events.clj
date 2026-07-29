@@ -43,7 +43,6 @@
   (mulog/start-publisher!
    {:type :custom, :fqn-function "mulog-events/tap-events"}))
 
-#_{:clj-kondo/ignore [:unused-public-var]}
 (defn stop
   "Stop mulog tap publisher to ensure multiple publishers are not started
  Recommended before using `(restart)` or evaluating the `user` namespace"
