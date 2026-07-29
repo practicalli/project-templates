@@ -17,6 +17,9 @@ TODO: add status badges for <https://{{scm/domain}}/{{developer}}/{{scm/repo>}} 
 
 Project created with [deps-new](https://github.com/seancorfield/deps-new) and the [practicalli/application template](https://github.com/practicalli/project-templates)
 
+Distributed under [{{license/name}}]({{license/url}})
+
+
 ## Run the service
 
 Run the service (clojure.main)

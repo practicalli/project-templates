@@ -2,6 +2,9 @@
 
 {{description}}
 
+Distributed under [{{license/name}}]({{license/url}})
+
+
 ## Development Workflows
 
 Drive a Browser connected REPL from an Editor or via a rich terminal UI (rebel)
