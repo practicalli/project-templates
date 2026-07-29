@@ -1,6 +1,6 @@
 # ------------------------
 # Clojure Project Git Ignore file patterns
-# 
+#
 # Ignore all except patterns starting with !
 # Add comments on separate lines, not same line as pattern
 # ------------------------
@@ -30,9 +30,6 @@
 # Include Clojure tools
 !.cljstyle
 !.dir-locals.el
-!compose.yaml
-!Dockerfile
-!.dockerignore
 !Makefile
 !tests.edn
 
